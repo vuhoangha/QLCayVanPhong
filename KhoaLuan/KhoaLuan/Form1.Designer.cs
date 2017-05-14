@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnTreeAdd = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tbcMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcMain
@@ -61,6 +66,16 @@
             this.tabPage1.Text = "Cây";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.LightCyan;
+            this.flowLayoutPanel1.Controls.Add(this.btnTreeAdd);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1147, 61);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
@@ -71,13 +86,20 @@
             this.tabPage2.Text = "Loại cây";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // btnTreeAdd
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1147, 72);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.btnTreeAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnTreeAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTreeAdd.FlatAppearance.BorderSize = 0;
+            this.btnTreeAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTreeAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnTreeAdd.Image")));
+            this.btnTreeAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnTreeAdd.Name = "btnTreeAdd";
+            this.btnTreeAdd.Size = new System.Drawing.Size(55, 55);
+            this.btnTreeAdd.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btnTreeAdd, "Thêm mới");
+            this.btnTreeAdd.UseVisualStyleBackColor = false;
+            this.btnTreeAdd.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // Form1
             // 
@@ -92,6 +114,7 @@
             this.Text = "Quản lý";
             this.tbcMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -102,6 +125,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnTreeAdd;
+        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }

@@ -58,5 +58,10 @@ namespace KhoaLuan
             return true;
         }
 
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            btnTreeAdd.BackColor = Color.LightCyan;
+        }
+
     }
 }

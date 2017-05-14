@@ -117,4 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnTreeAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAOeSURBVGhD7ZlLaxNRFMeDgoqPnY+lz4VP/AKiK6FmZtJ2
+        UdG16DcQKgj5Ci6VSiu1LnLnJrbpzJ0UxXShK1eiYtMqClYLQhHa+lio8Z6ZIyHJmSRzZ25ioX/4Qenc
+        x/90zr1z72lqQw06Vx7blhG54xmHnzUETwPwM/yuT4it2Oz/UWZycpfl2ZcN175rCTZvOeyPJXiVQgbz
+        228j+EhGsEtDZbYTh+m+jFL+tCXscWnoW6PRjnH4munye/1u7hQOq19WKXfEdO0p0lAcXLtgOPwQTpO8
+        hhjbbHr8pkyRn6SBJHD4D8vlN2AunDYZWVNT+0zBnpCTasB02aM+kduD08fTgCgclnn+jppIJzKdFqyZ
+        3EG0oabAPF9qHLxbmA77rBwEpE0v/vKNwJuInE7+gu1izrcD1kSkhe3vNsRAvcQUfBjttRbs80ltlQNe
+        3od6FhnYYjtZD0l+pJ4tLVafLn0kn6kgv9p5tEkrOB7QnVV4ufzFh3qmijGdP4l2mxWcbeiOKmgJwLXH
+        0G69/FNlnIMZgZYAHL56fmZ8B9quCY7EVIc46AjAx7Evou2agvM80TgGugKQG80dtF0TXjTIDqroCkCm
+        0RzaDgTXwFY3KVW0BSD4L/ll3oL25QKW91WqYVx0BQCkncIxtC8DkJduqlFcdAYgz2pn0L5cwIKnqUZh
+        XJstVW+9eN6WxbUVH+pZI1dnPXKuMORCvoD2owcw/eFtNWkV3y+Qc4VRF0DUFBosFapXyqItla/LPtSz
+        Rga8AjlXGHUptB4XsVniR9F+KgUVs6DoRDdWRVcATdsoaD19yCyXvUHbNckHI00NY6IvAH4bbdcEtUqy
+        cQx0BZDx7CG0XRMUWqFWSXVQRUcAhmArZrG4HW3XCwqtVCdVNL2BUbTbLKgSEx2U0REAbPlolxZUiamO
+        KiQdgMwQhjbDBSVuv4RBDBCVifnX1fuVV+SzqMi9/3va4fvRZmtBiZsapJeYHr+O9toLynjyLTymBuoJ
+        Litls9lNaK8zDc7k9/olbmrArmJXzOKD3WgrmqCU55e4yYH1Y7j2p37v4QG0oyZY1L15E3Yltvl/gvo8
+        lLjpiTQgc145bcIU/M+ADye1xVLAVgm7TeQFG0WQUlAlpgzEAT5SiaVMJ4IqMRRaZUCrlKFOwL6jlmef
+        wGG7Lyi0Qq0Syn3S0Fyrmx3cpOAyAud5OBKHnip7KbjqQdEJLt1QOfCBn+UdtukauKFU6i8OlEnt/OiX
+        iQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
