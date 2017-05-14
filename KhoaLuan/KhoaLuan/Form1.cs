@@ -13,9 +13,23 @@ namespace KhoaLuan
 {
     public partial class Form1 : Form
     {
+
+        private Login login;
+
         public Form1()
         {
             InitializeComponent();
+
+            login = new KhoaLuan.Login(callBackMain);
+            // 
+            // login
+            // 
+            login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            login.Location = new System.Drawing.Point(350, 160);
+            login.Name = "login";
+            login.Size = new System.Drawing.Size(464, 208);
+            login.TabIndex = 0;
+            this.Controls.Add(login);
 
             //using (Image image = Image.FromFile("10-dithering-opt.jpg"))
             //{
@@ -37,5 +51,12 @@ namespace KhoaLuan
             //}
 
         }
+
+        public bool callBackMain()
+        {
+            tbcMain.Visible = true;
+            return true;
+        }
+
     }
 }
