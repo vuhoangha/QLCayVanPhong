@@ -63,5 +63,10 @@ namespace KhoaLuan
             btnTreeAdd.BackColor = Color.LightCyan;
         }
 
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
