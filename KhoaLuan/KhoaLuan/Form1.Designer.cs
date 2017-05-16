@@ -37,12 +37,12 @@
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tpTree = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.nudTreeQuantity = new System.Windows.Forms.NumericUpDown();
+            this.cbTreeType = new System.Windows.Forms.ComboBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTreeCost = new System.Windows.Forms.TextBox();
+            this.txtTreeDesc = new System.Windows.Forms.TextBox();
+            this.txtTreeName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbTreeId = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
@@ -73,7 +73,7 @@
             this.tbcMain.SuspendLayout();
             this.tpTree.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTreeQuantity)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTree)).BeginInit();
@@ -112,12 +112,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel2.Controls.Add(this.numericUpDown1);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.nudTreeQuantity);
+            this.panel2.Controls.Add(this.cbTreeType);
             this.panel2.Controls.Add(this.textBox8);
-            this.panel2.Controls.Add(this.textBox6);
-            this.panel2.Controls.Add(this.textBox7);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.txtTreeCost);
+            this.panel2.Controls.Add(this.txtTreeDesc);
+            this.panel2.Controls.Add(this.txtTreeName);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label6);
@@ -126,28 +126,28 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.lbTreeId);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(732, 49);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(418, 483);
             this.panel2.TabIndex = 3;
             // 
-            // numericUpDown1
+            // nudTreeQuantity
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(147, 190);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(167, 20);
-            this.numericUpDown1.TabIndex = 3;
+            this.nudTreeQuantity.Location = new System.Drawing.Point(147, 190);
+            this.nudTreeQuantity.Name = "nudTreeQuantity";
+            this.nudTreeQuantity.Size = new System.Drawing.Size(167, 20);
+            this.nudTreeQuantity.TabIndex = 3;
             // 
-            // comboBox1
+            // cbTreeType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(147, 133);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBox1.Size = new System.Drawing.Size(239, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cbTreeType.FormattingEnabled = true;
+            this.cbTreeType.Location = new System.Drawing.Point(147, 133);
+            this.cbTreeType.Name = "cbTreeType";
+            this.cbTreeType.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cbTreeType.Size = new System.Drawing.Size(239, 21);
+            this.cbTreeType.TabIndex = 2;
             // 
             // textBox8
             // 
@@ -157,31 +157,31 @@
             this.textBox8.Size = new System.Drawing.Size(239, 22);
             this.textBox8.TabIndex = 1;
             // 
-            // textBox6
+            // txtTreeCost
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(147, 246);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(167, 22);
-            this.textBox6.TabIndex = 1;
+            this.txtTreeCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTreeCost.Location = new System.Drawing.Point(147, 246);
+            this.txtTreeCost.Name = "txtTreeCost";
+            this.txtTreeCost.Size = new System.Drawing.Size(167, 22);
+            this.txtTreeCost.TabIndex = 1;
             // 
-            // textBox7
+            // txtTreeDesc
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(147, 304);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(239, 101);
-            this.textBox7.TabIndex = 1;
+            this.txtTreeDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTreeDesc.Location = new System.Drawing.Point(147, 304);
+            this.txtTreeDesc.Multiline = true;
+            this.txtTreeDesc.Name = "txtTreeDesc";
+            this.txtTreeDesc.Size = new System.Drawing.Size(239, 101);
+            this.txtTreeDesc.TabIndex = 1;
             // 
-            // textBox3
+            // txtTreeName
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(147, 78);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(239, 22);
-            this.textBox3.TabIndex = 1;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTreeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTreeName.Location = new System.Drawing.Point(147, 78);
+            this.txtTreeName.Name = "txtTreeName";
+            this.txtTreeName.Size = new System.Drawing.Size(239, 22);
+            this.txtTreeName.TabIndex = 1;
+            this.txtTreeName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -269,15 +269,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên cây";
             // 
-            // label8
+            // lbTreeId
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(144, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 16);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "123";
+            this.lbTreeId.AutoSize = true;
+            this.lbTreeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTreeId.Location = new System.Drawing.Point(144, 26);
+            this.lbTreeId.Name = "lbTreeId";
+            this.lbTreeId.Size = new System.Drawing.Size(0, 16);
+            this.lbTreeId.TabIndex = 0;
             // 
             // label1
             // 
@@ -402,6 +401,7 @@
             this.dgvTree.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvTree.Size = new System.Drawing.Size(713, 486);
             this.dgvTree.TabIndex = 1;
+            this.dgvTree.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTree_CellClick);
             // 
             // dtcId
             // 
@@ -520,7 +520,7 @@
             this.tpTree.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTreeQuantity)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -552,12 +552,12 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox txtTreeSearch;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown nudTreeQuantity;
+        private System.Windows.Forms.ComboBox cbTreeType;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTreeCost;
+        private System.Windows.Forms.TextBox txtTreeDesc;
+        private System.Windows.Forms.TextBox txtTreeName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -566,7 +566,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbTreeId;
         private System.Windows.Forms.Label label1;
 
     }

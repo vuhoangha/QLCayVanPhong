@@ -116,6 +116,20 @@ namespace KhoaLuan
             #endregion
         }
 
+        private void dgvTree_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            if (dgv.CurrentCell.RowIndex <= 0 || dgv.CurrentCell.ColumnIndex <= 0)
+            {
+                return;
+            }
+
+            DataGridViewRow row = dgv.Rows[e.RowIndex];
+            Tree currTree = DbManager.GetTreeById((int)row.Cells[0].Value);
+            lbTreeId.Text = currTree.TreeId.ToString();
+            txtTreeName.Text = currTree.TreeName;
+        }
+
         #endregion
 
     }

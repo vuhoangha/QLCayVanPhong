@@ -19,6 +19,16 @@ namespace KhoaLuan.DB
             return dbManager.Trees.ToList();
         }
 
+        public static Tree GetTreeById(int treeId)
+        {
+            return dbManager.Trees.Where(p => p.TreeId == treeId).FirstOrDefault();
+        }
+
+        public static Dictionary<int, Tree> GetDicTree()
+        {
+            return dbManager.Trees.ToDictionary(x => x.TreeId, x => x);
+        }
+
         public static Dictionary<int, Category> GetDicCategory()
         {
             return dbManager.Categories.ToDictionary(x => x.CatId, x => x);
