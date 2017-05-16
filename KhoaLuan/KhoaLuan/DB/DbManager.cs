@@ -14,5 +14,15 @@ namespace KhoaLuan.DB
             return dbManager.Users.FirstOrDefault(p => p.UserName == userName && p.PassWord == passWord) == null ? false : true;
         }
 
+        public static List<Tree> GetAllTree()
+        {
+            return dbManager.Trees.ToList();
+        }
+
+        public static Dictionary<int, Category> GetDicCategory()
+        {
+            return dbManager.Categories.ToDictionary(x => x.CatId, x => x);
+        }
+
     }
 }

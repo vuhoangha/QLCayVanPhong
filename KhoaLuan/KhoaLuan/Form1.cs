@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KhoaLuan.DB;
 
 namespace KhoaLuan
 {
@@ -55,6 +56,11 @@ namespace KhoaLuan
         public bool callBackMain()
         {
             tbcMain.Visible = true;
+
+            #region init
+            loadTabTree();
+            #endregion
+
             return true;
         }
 
@@ -67,6 +73,50 @@ namespace KhoaLuan
         {
 
         }
+
+        private void tbcMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabControl tabControl = sender as TabControl;
+            if (tabControl.SelectedIndex == 0)
+            {
+                loadTabTree();
+            }
+        }
+
+
+        #region TREE
+
+        private void loadTabTree()
+        {
+            txtTreeSearch.Text = "";
+
+            #region set dgv tree
+
+            List<Tree> listTree = DbManager.GetAllTree();
+            Dictionary<int, Category> DicCategory = DbManager.GetDicCategory();
+
+            dgvTree.DataSource = null;
+            dgvTree.Rows.Clear();
+
+            for (int i = 0; i < listTree.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvTree);  // this line was missing
+                var tree = listTree[i];
+                newRow.Cells[0].Value = tree.TreeId;
+                newRow.Cells[1].Value = tree.TreeName;
+                newRow.Cells[2].Value = DicCategory[(int)tree.CatId].CatName;
+                newRow.Cells[3].Value = tree.Cost;
+                newRow.Cells[4].Value = tree.Quantity;
+                dgvTree.Rows.Add(newRow);
+            }
+
+            dgvTree.Refresh();
+
+            #endregion
+        }
+
+        #endregion
 
     }
 }
