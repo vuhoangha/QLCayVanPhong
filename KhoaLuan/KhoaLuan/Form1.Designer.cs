@@ -39,11 +39,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.nudTreeQuantity = new System.Windows.Forms.NumericUpDown();
             this.cbTreeType = new System.Windows.Forms.ComboBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.txtTreeCost = new System.Windows.Forms.TextBox();
             this.txtTreeDesc = new System.Windows.Forms.TextBox();
             this.txtTreeName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -114,11 +112,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel2.Controls.Add(this.nudTreeQuantity);
             this.panel2.Controls.Add(this.cbTreeType);
-            this.panel2.Controls.Add(this.textBox8);
             this.panel2.Controls.Add(this.txtTreeCost);
             this.panel2.Controls.Add(this.txtTreeDesc);
             this.panel2.Controls.Add(this.txtTreeName);
-            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label10);
@@ -149,14 +145,6 @@
             this.cbTreeType.Size = new System.Drawing.Size(239, 21);
             this.cbTreeType.TabIndex = 2;
             // 
-            // textBox8
-            // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(147, 436);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(239, 22);
-            this.textBox8.TabIndex = 1;
-            // 
             // txtTreeCost
             // 
             this.txtTreeCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,18 +169,6 @@
             this.txtTreeName.Name = "txtTreeName";
             this.txtTreeName.Size = new System.Drawing.Size(239, 22);
             this.txtTreeName.TabIndex = 1;
-            this.txtTreeName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(67, 439);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 16);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Ảnh";
             // 
             // label5
             // 
@@ -316,6 +292,7 @@
             this.button3.TabIndex = 0;
             this.toolTip1.SetToolTip(this.button3, "Làm mới");
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel1
             // 
@@ -554,11 +531,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.NumericUpDown nudTreeQuantity;
         private System.Windows.Forms.ComboBox cbTreeType;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox txtTreeCost;
         private System.Windows.Forms.TextBox txtTreeDesc;
         private System.Windows.Forms.TextBox txtTreeName;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;

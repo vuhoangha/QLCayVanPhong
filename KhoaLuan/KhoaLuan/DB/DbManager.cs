@@ -34,5 +34,10 @@ namespace KhoaLuan.DB
             return dbManager.Categories.ToDictionary(x => x.CatId, x => x);
         }
 
+        public static List<Category> GetListCategory()
+        {
+            return dbManager.Categories.ToList();
+        }
+
     }
 }

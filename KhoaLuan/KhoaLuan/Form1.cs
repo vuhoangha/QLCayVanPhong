@@ -118,16 +118,48 @@ namespace KhoaLuan
 
         private void dgvTree_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dgv = sender as DataGridView;
-            if (dgv.CurrentCell.RowIndex <= 0 || dgv.CurrentCell.ColumnIndex <= 0)
+            try
             {
-                return;
-            }
+                DataGridView dgv = sender as DataGridView;
+                if (dgv.CurrentCell.RowIndex < 0 || dgv.CurrentCell.ColumnIndex < 0 || dgv.CurrentCell.RowIndex >= dgv.RowCount - 1)
+                {
+                    return;
+                }
 
-            DataGridViewRow row = dgv.Rows[e.RowIndex];
-            Tree currTree = DbManager.GetTreeById((int)row.Cells[0].Value);
-            lbTreeId.Text = currTree.TreeId.ToString();
-            txtTreeName.Text = currTree.TreeName;
+                DataGridViewRow row = dgv.Rows[e.RowIndex];
+                Tree currTree = DbManager.GetTreeById((int)row.Cells[0].Value);
+                //  id
+                lbTreeId.Text = currTree.TreeId.ToString();
+                //  name
+                txtTreeName.Text = currTree.TreeName;
+                //  category
+                cbTreeType.Items.Clear();
+                List<Category> listCat = DbManager.GetListCategory();
+                for (int i = 0; i < listCat.Count; i++)
+                {
+                    cbTreeType.Items.Add(listCat[i].CatName);
+                    if (listCat[i].CatId == currTree.CatId)
+                    {
+                        cbTreeType.SelectedIndex = i;
+                    }
+                }
+                //  so luong
+                nudTreeQuantity.Value = (int)currTree.Quantity;
+                //  gia
+                txtTreeCost.Text = currTree.Cost.ToString();
+                //  mo ta
+                txtTreeDesc.Text = currTree.Description;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            loadTabTree();
         }
 
         #endregion
