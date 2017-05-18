@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tpTree = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -49,12 +49,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbTreeId = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
             this.txtTreeSearch = new System.Windows.Forms.TextBox();
             this.dgvTree = new System.Windows.Forms.DataGridView();
             this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,11 +60,13 @@
             this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTreeDelete = new System.Windows.Forms.Button();
+            this.btnTreeUpdate = new System.Windows.Forms.Button();
             this.btnTreeAdd = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnClearTree = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbcMain.SuspendLayout();
             this.tpTree.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -122,8 +121,6 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.lbTreeId);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(732, 49);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(418, 483);
@@ -132,6 +129,11 @@
             // nudTreeQuantity
             // 
             this.nudTreeQuantity.Location = new System.Drawing.Point(147, 190);
+            this.nudTreeQuantity.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudTreeQuantity.Name = "nudTreeQuantity";
             this.nudTreeQuantity.Size = new System.Drawing.Size(167, 20);
             this.nudTreeQuantity.TabIndex = 3;
@@ -169,6 +171,7 @@
             this.txtTreeName.Name = "txtTreeName";
             this.txtTreeName.Size = new System.Drawing.Size(239, 22);
             this.txtTreeName.TabIndex = 1;
+            this.txtTreeName.TextChanged += new System.EventHandler(this.txtTreeName_TextChanged);
             // 
             // label5
             // 
@@ -245,26 +248,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên cây";
             // 
-            // lbTreeId
-            // 
-            this.lbTreeId.AutoSize = true;
-            this.lbTreeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTreeId.Location = new System.Drawing.Point(144, 26);
-            this.lbTreeId.Name = "lbTreeId";
-            this.lbTreeId.Size = new System.Drawing.Size(0, 16);
-            this.lbTreeId.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(67, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã cây";
-            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Honeydew;
@@ -297,50 +280,35 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtTreeSearch);
             this.panel1.Location = new System.Drawing.Point(5, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(664, 35);
             this.panel1.TabIndex = 4;
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(232, 0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(35, 35);
-            this.button6.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.button6, "Tìm kiếm");
-            this.button6.UseVisualStyleBackColor = false;
-            // 
             // txtTreeSearch
             // 
             this.txtTreeSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTreeSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTreeSearch.Location = new System.Drawing.Point(3, 6);
+            this.txtTreeSearch.Location = new System.Drawing.Point(437, 6);
             this.txtTreeSearch.Name = "txtTreeSearch";
             this.txtTreeSearch.Size = new System.Drawing.Size(223, 24);
             this.txtTreeSearch.TabIndex = 3;
+            this.txtTreeSearch.TextChanged += new System.EventHandler(this.txtTreeSearch_TextChanged);
             // 
             // dgvTree
             // 
             this.dgvTree.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvTree.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTree.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTree.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvTree.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTree.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dtcId,
@@ -348,30 +316,30 @@
             this.dtcTreeType,
             this.dtcTreeCost,
             this.dtcQuantity});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTree.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTree.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvTree.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.dgvTree.Location = new System.Drawing.Point(3, 48);
             this.dgvTree.Name = "dgvTree";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTree.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvTree.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTree.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvTree.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvTree.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvTree.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvTree.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -412,9 +380,10 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.btnTreeDelete);
+            this.flowLayoutPanel1.Controls.Add(this.btnTreeUpdate);
             this.flowLayoutPanel1.Controls.Add(this.btnTreeAdd);
+            this.flowLayoutPanel1.Controls.Add(this.btnClearTree);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(732, 3);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -423,37 +392,39 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(421, 43);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // button2
+            // btnTreeDelete
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(383, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 35);
-            this.button2.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.button2, "Xóa");
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnTreeDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnTreeDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTreeDelete.FlatAppearance.BorderSize = 0;
+            this.btnTreeDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnTreeDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnTreeDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTreeDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnTreeDelete.Image")));
+            this.btnTreeDelete.Location = new System.Drawing.Point(383, 3);
+            this.btnTreeDelete.Name = "btnTreeDelete";
+            this.btnTreeDelete.Size = new System.Drawing.Size(35, 35);
+            this.btnTreeDelete.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnTreeDelete, "Xóa");
+            this.btnTreeDelete.UseVisualStyleBackColor = false;
+            this.btnTreeDelete.Click += new System.EventHandler(this.btnTreeDelete_Click);
             // 
-            // button1
+            // btnTreeUpdate
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(342, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button1, "Lưu");
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnTreeUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnTreeUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTreeUpdate.FlatAppearance.BorderSize = 0;
+            this.btnTreeUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnTreeUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnTreeUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTreeUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnTreeUpdate.Image")));
+            this.btnTreeUpdate.Location = new System.Drawing.Point(342, 3);
+            this.btnTreeUpdate.Name = "btnTreeUpdate";
+            this.btnTreeUpdate.Size = new System.Drawing.Size(35, 35);
+            this.btnTreeUpdate.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btnTreeUpdate, "Lưu");
+            this.btnTreeUpdate.UseVisualStyleBackColor = false;
+            this.btnTreeUpdate.Click += new System.EventHandler(this.btnTreeUpdate_Click);
             // 
             // btnTreeAdd
             // 
@@ -470,6 +441,7 @@
             this.btnTreeAdd.TabIndex = 0;
             this.toolTip1.SetToolTip(this.btnTreeAdd, "Thêm mới");
             this.btnTreeAdd.UseVisualStyleBackColor = false;
+            this.btnTreeAdd.Click += new System.EventHandler(this.btnTreeAdd_Click);
             this.btnTreeAdd.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // tabPage2
@@ -481,6 +453,32 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Loại cây";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnClearTree
+            // 
+            this.btnClearTree.BackColor = System.Drawing.Color.Transparent;
+            this.btnClearTree.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearTree.FlatAppearance.BorderSize = 0;
+            this.btnClearTree.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnClearTree.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnClearTree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearTree.Image = ((System.Drawing.Image)(resources.GetObject("btnClearTree.Image")));
+            this.btnClearTree.Location = new System.Drawing.Point(260, 3);
+            this.btnClearTree.Name = "btnClearTree";
+            this.btnClearTree.Size = new System.Drawing.Size(35, 35);
+            this.btnClearTree.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btnClearTree, "Làm mới");
+            this.btnClearTree.UseVisualStyleBackColor = false;
+            this.btnClearTree.Click += new System.EventHandler(this.btnClearTree_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(380, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Tìm kiếm";
             // 
             // Form1
             // 
@@ -515,8 +513,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnTreeAdd;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTreeUpdate;
+        private System.Windows.Forms.Button btnTreeDelete;
         private System.Windows.Forms.DataGridView dgvTree;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeName;
@@ -526,7 +524,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox txtTreeSearch;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.NumericUpDown nudTreeQuantity;
@@ -541,7 +538,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbTreeId;
+        private System.Windows.Forms.Button btnClearTree;
         private System.Windows.Forms.Label label1;
 
     }
