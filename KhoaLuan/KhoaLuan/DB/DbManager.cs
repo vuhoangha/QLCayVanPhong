@@ -149,6 +149,101 @@ namespace KhoaLuan.DB
             return dbManager.Categories.FirstOrDefault(p => p.CatName == catName);
         }
 
+        public static Category GetCategoryById(int catId)
+        {
+            return dbManager.Categories.FirstOrDefault(p => p.CatId == catId);
+        }
+
+        public static bool addCat(Category cat)
+        {
+            try
+            {
+                dbManager.Categories.Add(cat);
+                dbManager.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public static bool updateCat(Category cat, int catId)
+        {
+            try
+            {
+                Category updateCat = dbManager.Categories.FirstOrDefault(p => p.CatId == catId);
+                updateCat.CatName = cat.CatName;
+                dbManager.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public static bool deleteCat(int catId)
+        {
+            try
+            {
+                Category delCat = dbManager.Categories.FirstOrDefault(p => p.CatId == catId);
+                if (delCat != null)
+                {
+                    dbManager.Categories.Remove(delCat);
+                    dbManager.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public static int countTree(int catId)
+        {
+            try
+            {
+                return dbManager.Trees.Where(p => p.CatId == catId).ToList().Count;
+            }
+            catch (Exception)
+            {
+                return 0;
+                throw;
+            }
+        }
+
+        public static List<Category> GetCatByNameContentString(string catName)
+        {
+            try
+            {
+                return dbManager.Categories.Where(p => p.CatName.Contains(catName)).ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+                throw;
+            }
+        }
+
+        public static Category GetCatByNameNotId(int id, string catName)
+        {
+            try
+            {
+                return dbManager.Categories.FirstOrDefault(p => p.CatName == catName && p.CatId != id);
+            }
+            catch (Exception)
+            {
+                return null;
+                throw;
+            }
+        }
+
         #endregion
 
     }

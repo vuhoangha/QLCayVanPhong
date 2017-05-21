@@ -17,6 +17,7 @@ namespace KhoaLuan
 
         private Login login;
         private int ID_TREE_SELECTED;
+        private int ID_TYPE_SELECTED;
 
         public Form1()
         {
@@ -81,9 +82,18 @@ namespace KhoaLuan
             if (tabControl.SelectedIndex == 0)
             {
                 loadGridViewTree();
+                txtTreeName.Text = "";
+                cbTreeType.Text = "";
+                nudTreeQuantity.Value = 0;
+                txtTreeCost.Text = "";
+                txtTreeDesc.Text = "";
+            }
+            else if (tabControl.SelectedIndex == 1)
+            {
+                loadGridViewCategory();
+                txtTypeName.Text = "";
             }
         }
-
 
         #region TREE
 
@@ -235,6 +245,7 @@ namespace KhoaLuan
             nudTreeQuantity.Value = 0;
             txtTreeCost.Text = "";
             txtTreeDesc.Text = "";
+            ID_TREE_SELECTED = 0;
         }
 
         private void btnTreeSearch_Click(object sender, EventArgs e)
@@ -389,6 +400,214 @@ namespace KhoaLuan
             #endregion
         }
 
+        private void loadGridViewCategory()
+        {
+            txtTypeSearch.Text = "";
+
+            #region set dgv cat
+
+            List<Category> listCat = DbManager.GetListCategory();
+            Dictionary<int, Category> DicCategory = DbManager.GetDicCategory();
+
+            dgvType.DataSource = null;
+            dgvType.Rows.Clear();
+
+            for (int i = 0; i < listCat.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvType);  // this line was missing
+                var cat = listCat[i];
+                newRow.Cells[0].Value = cat.CatId;
+                newRow.Cells[1].Value = cat.CatName;
+                newRow.Cells[2].Value = DbManager.countTree(cat.CatId);
+                dgvType.Rows.Add(newRow);
+            }
+
+            dgvType.Refresh();
+
+            #endregion
+        }
+
         #endregion
+
+        private void dgvType_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridView dgv = sender as DataGridView;
+                if (dgv.CurrentCell.RowIndex < 0 || dgv.CurrentCell.ColumnIndex < 0 || dgv.CurrentCell.RowIndex >= dgv.RowCount - 1)
+                {
+                    return;
+                }
+
+                DataGridViewRow row = dgv.Rows[e.RowIndex];
+                ID_TYPE_SELECTED = (int)row.Cells[0].Value;
+                Category currCat = DbManager.GetCategoryById((int)row.Cells[0].Value);
+                //  name
+                txtTypeName.Text = currCat.CatName;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnTypeRefresh_Click(object sender, EventArgs e)
+        {
+            loadGridViewCategory();
+        }
+
+        private void txtTypeSearch_TextChanged(object sender, EventArgs e)
+        {
+            #region set dgv category
+
+            List<Category> listCat = DbManager.GetCatByNameContentString(txtTypeSearch.Text.ToUpper());
+
+            dgvType.DataSource = null;
+            dgvType.Rows.Clear();
+
+            for (int i = 0; i < listCat.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvType);  // this line was missing
+                var cat = listCat[i];
+                newRow.Cells[0].Value = cat.CatId;
+                newRow.Cells[1].Value = cat.CatName;
+                newRow.Cells[2].Value = DbManager.countTree(cat.CatId);
+                dgvType.Rows.Add(newRow);
+            }
+
+            dgvType.Refresh();
+
+            #endregion
+        }
+
+        private void btnTypeClean_Click(object sender, EventArgs e)
+        {
+            txtTypeName.Text = "";
+            ID_TYPE_SELECTED = 0;
+        }
+
+        private void btnTypeAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //  check validate
+                if (txtTypeName.Text == string.Empty)
+                {
+                    MessageBox.Show("Thêm loại cây không thành công, bạn vui lòng nhập đủ thông tin.", "Thêm loại cây",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                //  check cat existing
+                Category catTemp = DbManager.GetCategoryByName(txtTypeName.Text.ToUpper());
+                if (catTemp != null)
+                {
+                    MessageBox.Show("Thêm loại cây không thành công, loại cây bạn muốn thêm đã tồn tại trong hệ thống.", "Thêm loại cây",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Category newCat = new Category();
+                //  cat name
+                newCat.CatName = txtTypeName.Text.ToUpper();
+
+                //  them loại cay
+                if (DbManager.addCat(newCat))
+                {
+                    MessageBox.Show("Thành công", "Thêm loại cây", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    loadGridViewCategory();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm loại cây không thành công, bạn vui lòng chỉnh sửa lại thông tin loại cây muốn thêm.", "Thêm loại cây",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void btnTypeUpdate_Click(object sender, EventArgs e)
+        {
+            //  check is selected category
+            if (ID_TYPE_SELECTED == null)
+            {
+                MessageBox.Show("Cập nhật loại cây không thành công, chọn loại cây cần cập nhật.", "Cập nhật loại cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  check validate
+            if (txtTypeName.Text == string.Empty)
+            {
+                MessageBox.Show("Cập nhật loại cây không thành công, bạn vui lòng nhập đủ thông tin.", "Cập nhật loại cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  check id is valid ?
+            Category catById = DbManager.GetCategoryById(ID_TYPE_SELECTED);
+            if (catById == null)
+            {
+                MessageBox.Show("Cập nhật loại cây không thành công, loại cây bạn muốn cập nhật không tồn tại trong hệ thống.", "Cập nhật loại cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  check name is valid ?
+            Category catTemp = DbManager.GetCatByNameNotId(ID_TYPE_SELECTED, txtTypeName.Text.ToUpper());
+            if (catTemp != null)
+            {
+                MessageBox.Show("Cập nhật loại cây không thành công, loại cây bạn muốn thêm đã tồn tại trong hệ thống.", "Cập nhật loại cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Category updateCat = new Category();
+            //  cat id
+            updateCat.CatId = ID_TYPE_SELECTED;
+            //  cat name
+            updateCat.CatName = txtTypeName.Text.ToUpper();
+
+            //  add to db
+            if (DbManager.updateCat(updateCat, ID_TYPE_SELECTED))
+            {
+                MessageBox.Show("Thành công", "Cập nhật loại cây", MessageBoxButtons.OK, MessageBoxIcon.None);
+                loadGridViewCategory();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật loại cây không thành công, bạn vui lòng chỉnh sửa lại thông tin loại cây muốn cập nhật.", "Cập nhật loại cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnTypeDel_Click(object sender, EventArgs e)
+        {
+            //  check is selected tree
+            if (ID_TYPE_SELECTED == null)
+            {
+                MessageBox.Show("Xóa loại cây không thành công, chọn loại cây cần xóa.", "Xóa loại cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  desc
+            if (DbManager.deleteCat(ID_TYPE_SELECTED))
+            {
+                MessageBox.Show("Thành công", "Xóa loại cây", MessageBoxButtons.OK, MessageBoxIcon.None);
+                loadGridViewCategory();
+            }
+            else
+            {
+                MessageBox.Show("Xóa loại cây không thành công, bạn vui lòng chọn lại loại cây cần xóa.", "Xóa loại cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
