@@ -12,23 +12,19 @@ namespace KhoaLuan.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Provider
     {
-        public User()
+        public Provider()
         {
-            this.Bills = new HashSet<Bill>();
             this.Imports = new HashSet<Import>();
         }
     
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public string PassWord { get; set; }
-        public string FullName { get; set; }
-        public string IDNumber { get; set; }
-        public string BirthDay { get; set; }
+        public int ProviderId { get; set; }
+        public string ProviderName { get; set; }
         public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
     
-        public virtual ICollection<Bill> Bills { get; set; }
         public virtual ICollection<Import> Imports { get; set; }
     }
 }

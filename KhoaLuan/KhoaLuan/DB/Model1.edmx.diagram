@@ -4,13 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e02cfa5b06294d2ca0ff52eb32a6dd54" Name="Diagram1">
-        <EntityTypeShape EntityType="DbModel.Category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbModel.Customer" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbModel.Tree" Width="1.5" PointX="5.375" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbModel.User" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="DbModel.FK_Tree_Category" ManuallyRouted="false" />
+      <Diagram DiagramId="f57750d702bd4b6199c3670b7b52c379" Name="Diagram1">
+        <EntityTypeShape EntityType="DbManager.Bill" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.BillDetail" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.Category" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.Customer" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.Import" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.ImportDetail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.Provider" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.sysdiagram" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.Tree" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.User" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="DbManager.FK_Bill_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DbManager.FK_BillDetail_Bill" ManuallyRouted="false" />
+        <AssociationConnector Association="DbManager.FK_BillDetail_Tree" ManuallyRouted="false" />
+        <AssociationConnector Association="DbManager.FK_Tree_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DbManager.FK_Import_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="DbManager.FK_Import_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DbManager.FK_ImportDetail_Import" ManuallyRouted="false" />
+        <AssociationConnector Association="DbManager.FK_ImportDetail_Tree" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

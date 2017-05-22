@@ -609,5 +609,11 @@ namespace KhoaLuan
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddBill addBill = new AddBill();
+            addBill.Show();
+        }
     }
 }

@@ -12,24 +12,21 @@ namespace KhoaLuan.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Tree
+    public partial class Import
     {
-        public Tree()
+        public Import()
         {
-            this.BillDetails = new HashSet<BillDetail>();
             this.ImportDetails = new HashSet<ImportDetail>();
         }
     
-        public int TreeId { get; set; }
-        public string TreeName { get; set; }
-        public Nullable<int> CatId { get; set; }
-        public Nullable<int> Cost { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public string Description { get; set; }
-        public string Image { get; set; }
+        public int ImportId { get; set; }
+        public Nullable<System.DateTime> TimeChanged { get; set; }
+        public Nullable<int> TotalCost { get; set; }
+        public Nullable<int> ProviderId { get; set; }
+        public Nullable<int> UserId { get; set; }
     
-        public virtual ICollection<BillDetail> BillDetails { get; set; }
-        public virtual Category Category { get; set; }
+        public virtual Provider Provider { get; set; }
+        public virtual User User { get; set; }
         public virtual ICollection<ImportDetail> ImportDetails { get; set; }
     }
 }
