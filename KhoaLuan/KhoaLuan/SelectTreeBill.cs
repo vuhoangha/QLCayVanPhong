@@ -14,9 +14,11 @@ namespace KhoaLuan
     public partial class SelectTreeBill : Form
     {
         Tree TREE_SELECTED;
+        Func<Tree, int, bool> callBackTree = null;
 
-        public SelectTreeBill()
+        public SelectTreeBill(Func<Tree, int, bool> callBack)
         {
+            callBackTree = callBack;
             InitializeComponent();
         }
 
@@ -118,6 +120,11 @@ namespace KhoaLuan
         {
             //  thanh tien
             lbSelectTreeTotalCost.Text = (TREE_SELECTED.Cost * nudSelectTreeQuantity.Value).ToString();
+        }
+
+        private void btnBillAdd_Click(object sender, EventArgs e)
+        {
+            callBackTree(TREE_SELECTED, Int32.Parse(nudSelectTreeQuantity.Value.ToString()));
         }
 
     }
