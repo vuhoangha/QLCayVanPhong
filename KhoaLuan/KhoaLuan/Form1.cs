@@ -93,6 +93,10 @@ namespace KhoaLuan
                 loadGridViewCategory();
                 txtTypeName.Text = "";
             }
+            else if (tabControl.SelectedIndex == 2)
+            {
+                loadGridViewBill();
+            }
         }
 
         #region TREE
@@ -396,6 +400,44 @@ namespace KhoaLuan
             }
 
             dgvTree.Refresh();
+
+            #endregion
+        }
+
+        private void loadGridViewBill()
+        {
+            txtBillSearch.Text = "";
+            dtpBill.Value = DateTime.Now;
+
+            #region set dgv cat
+
+            List<Bill> listBill = DbManager.getListBillByDate(DateTime.Now);
+
+            dgvBill.DataSource = null;
+            dgvBill.Rows.Clear();
+
+            for (int i = 0; i < listBill.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvBill);  // this line was missing
+                var bill = listBill[i];
+
+                newRow.Cells[0].Value = bill.BillId;
+                newRow.Cells[1].Value = bill.TimeChanged;
+                newRow.Cells[2].Value = bill.TotalCost;
+                User currUser = DbManager.getUserByUserId((int)bill.UserId);
+                if (currUser != null)
+                {
+                    newRow.Cells[3].Value = currUser.FullName;
+                }
+                newRow.Cells[4].Value = bill.CustomerName;
+                newRow.Cells[5].Value = bill.CustomerId;
+                newRow.Cells[6].Value = bill.CustomerAddress;
+
+                dgvBill.Rows.Add(newRow);
+            }
+
+            dgvBill.Refresh();
 
             #endregion
         }

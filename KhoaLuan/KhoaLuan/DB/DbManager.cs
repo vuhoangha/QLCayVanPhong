@@ -17,6 +17,11 @@ namespace KhoaLuan.DB
             return dbManager.Users.FirstOrDefault(p => p.UserName == userName && p.PassWord == passWord);
         }
 
+        public static User getUserByUserId(int userId)
+        {
+            return dbManager.Users.FirstOrDefault(p => p.UserId == userId);
+        }
+
         #endregion
 
         #region Tree
@@ -260,6 +265,13 @@ namespace KhoaLuan.DB
             {
                 throw;
             }
+        }
+
+        public static List<Bill> getListBillByDate(DateTime dateValue)
+        {
+            return dbManager.Bills.Where(x => ((DateTime)x.TimeChanged).Year == dateValue.Year
+                && ((DateTime)x.TimeChanged).Month == dateValue.Month
+                && ((DateTime)x.TimeChanged).Day == dateValue.Day).ToList();
         }
 
         #endregion
