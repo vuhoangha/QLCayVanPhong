@@ -12,9 +12,9 @@ namespace KhoaLuan.DB
 
         #region Login
 
-        public static bool Login(string userName, string passWord)
+        public static User Login(string userName, string passWord)
         {
-            return dbManager.Users.FirstOrDefault(p => p.UserName == userName && p.PassWord == passWord) == null ? false : true;
+            return dbManager.Users.FirstOrDefault(p => p.UserName == userName && p.PassWord == passWord);
         }
 
         #endregion
@@ -240,6 +240,52 @@ namespace KhoaLuan.DB
             catch (Exception)
             {
                 return null;
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Bill
+
+        public static Bill addBill(Bill newBill)
+        {
+            try
+            {
+                dbManager.Bills.Add(newBill);
+                dbManager.SaveChanges();
+                return newBill;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Bill Detail
+
+        public static void addListBillDetail(List<BillDetail> listBillDetail)
+        {
+            try
+            {
+                foreach (var item in listBillDetail)
+                {
+                    //  add bill detail
+                    dbManager.BillDetails.Add(item);
+
+                    //  update quantity tree
+                    Tree currTree = dbManager.Trees.FirstOrDefault(p => p.TreeId == item.TreeId);
+                    if (currTree != null)
+                    {
+                        currTree.Quantity -= item.Quantity;
+                    }
+                }
+                dbManager.SaveChanges();
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }

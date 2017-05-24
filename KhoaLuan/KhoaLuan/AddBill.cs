@@ -54,7 +54,7 @@ namespace KhoaLuan
                     {
                         if (row.Index >= 0 && row.Index < dgvAddBill.RowCount - 1 && (int)row.Cells[0].Value == selected.TreeId)
                         {
-                            var totalTreeBuy = (int)row.Cells[2].Value + count;
+                            var totalTreeBuy = Int32.Parse(row.Cells[2].Value.ToString()) + count;
                             if (currTree.Quantity < totalTreeBuy)
                             {
                                 MessageBox.Show("Thêm cây không thành công, cửa hàng chỉ còn " + currTree.Quantity + " cây", "Chọn cây",
@@ -103,6 +103,15 @@ namespace KhoaLuan
 
         private void dgvAddBill_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //  check row valid
+            if (e.RowIndex < 0
+                || e.ColumnIndex < 0
+                || e.RowIndex >= dgvAddBill.RowCount - 1
+                || e.ColumnIndex == -1 && e.RowIndex == -1)
+            {
+                return;
+            }
+
             DataGridViewRow row = dgvAddBill.Rows[e.RowIndex];
             ROW_SELECTED = dgvAddBill.Rows[e.RowIndex];
             ID_TREE_SELECTED = (int)row.Cells[0].Value;
@@ -112,12 +121,12 @@ namespace KhoaLuan
             lbBillTreeName.Text = currTree.TreeName;
             //  tree id
             lbBillTreeId.Text = currTree.TreeId.ToString();
-            //  quantity
-            nudBillTreeQuantity.Value = (int)row.Cells[2].Value;
             //  max quantity
             nudBillTreeQuantity.Maximum = (decimal)currTree.Quantity;
+            //  quantity
+            nudBillTreeQuantity.Value = Int32.Parse(row.Cells[2].Value.ToString());
             //  total cost
-            lbBillTotalCostTree.Text = ((int)row.Cells[2].Value * currTree.Cost).ToString();
+            lbBillTotalCostTree.Text = (Int32.Parse(row.Cells[2].Value.ToString()) * currTree.Cost).ToString();
         }
 
         private void btnBillUpdate_Click(object sender, EventArgs e)
@@ -136,7 +145,7 @@ namespace KhoaLuan
             {
                 if (row.Index >= 0 && row.Index < dgvAddBill.RowCount - 1)
                 {
-                    totalCost += (int)row.Cells[3].Value;
+                    totalCost += Int32.Parse(row.Cells[3].Value.ToString());
                 }
             }
             lbAddBillToTalBill.Text = totalCost.ToString();
@@ -146,6 +155,59 @@ namespace KhoaLuan
         {
             Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
             lbBillTotalCostTree.Text = (nudBillTreeQuantity.Value * currTree.Cost).ToString();
+        }
+
+        private void btnBillDel_Click(object sender, EventArgs e)
+        {
+            dgvAddBill.Rows.RemoveAt(ROW_SELECTED.Index);
+            dgvAddBill.Refresh();
+            calculateTotalCost();
+        }
+
+        private void btnAddBillExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //  create new bill
+                Bill newBill = new Bill();
+                newBill.TimeChanged = DateTime.Now;
+                newBill.TotalCost = Int32.Parse(lbAddBillToTalBill.Text);
+                newBill.UserId = Login.USER_LOGIN.UserId;
+                newBill.CustomerId = txtCustomerId.Text;
+                newBill.CustomerName = txtCustomerName.Text;
+                newBill.CustomerAddress = txtAddress.Text;
+
+                //  add to db
+                newBill = DbManager.addBill(newBill);
+
+                //  add to bill detail
+                List<BillDetail> listBillDetail = new List<BillDetail>();
+                foreach (DataGridViewRow row in dgvAddBill.Rows)
+                {
+                    if (row.Index >= 0 && row.Index < dgvAddBill.RowCount - 1)
+                    {
+                        //  create bill detail
+                        BillDetail billDetail = new BillDetail();
+                        billDetail.BillId = newBill.BillId;
+                        Tree currTree = DbManager.GetTreeById(Int32.Parse(row.Cells[0].Value.ToString()));
+                        billDetail.TreeId = currTree.TreeId;
+                        billDetail.Quantity = Int32.Parse(row.Cells[2].Value.ToString());
+                        billDetail.Cost = currTree.Cost;
+
+                        //  add bill detail to list
+                        listBillDetail.Add(billDetail);
+                    }
+                }
+
+                //  save to db
+                DbManager.addListBillDetail(listBillDetail);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
     }
