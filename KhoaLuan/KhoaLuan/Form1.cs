@@ -777,6 +777,11 @@ namespace KhoaLuan
 
         private void btnProviderClear_Click(object sender, EventArgs e)
         {
+            resetProviderForm();
+        }
+
+        private void resetProviderForm()
+        {
             txtProviderAddress.Text = "";
             txtProviderEmail.Text = "";
             txtProviderName.Text = "";
@@ -819,7 +824,8 @@ namespace KhoaLuan
                 if (DbManager.addProvider(newProvider))
                 {
                     MessageBox.Show("Thành công", "Thêm nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    loadGridViewCategory();
+                    loadGridViewProvider();
+                    resetProviderForm();
                 }
                 else
                 {
@@ -888,7 +894,8 @@ namespace KhoaLuan
             if (DbManager.updateProvider(updateProvider, ID_PROVIDER_SELECTED))
             {
                 MessageBox.Show("Thành công", "Cập nhật nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
-                loadGridViewCategory();
+                loadGridViewProvider();
+                resetProviderForm();
             }
             else
             {
@@ -911,7 +918,8 @@ namespace KhoaLuan
             if (DbManager.deletePro(ID_PROVIDER_SELECTED))
             {
                 MessageBox.Show("Thành công", "Xóa nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
-                loadGridViewCategory();
+                loadGridViewProvider();
+                resetProviderForm();
             }
             else
             {
