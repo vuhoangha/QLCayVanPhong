@@ -274,6 +274,14 @@ namespace KhoaLuan.DB
                 && ((DateTime)x.TimeChanged).Day == dateValue.Day).ToList();
         }
 
+        public static List<Bill> getListBillByDateAndSearch(DateTime dateValue, string query)
+        {
+            return dbManager.Bills.Where(x => ((DateTime)x.TimeChanged).Year == dateValue.Year
+                && ((DateTime)x.TimeChanged).Month == dateValue.Month
+                && ((DateTime)x.TimeChanged).Day == dateValue.Day
+                && (x.BillId.ToString().Contains(query) || x.CustomerName.Contains(query))).ToList();
+        }
+
         #endregion
 
         #region Bill Detail
@@ -298,6 +306,97 @@ namespace KhoaLuan.DB
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Provider
+
+        public static List<Provider> GetListProvider()
+        {
+            return dbManager.Providers.ToList();
+        }
+
+        public static List<Provider> GetListProviderByContainName(string name)
+        {
+            return dbManager.Providers.Where(p => p.ProviderName.Contains(name)).ToList();
+        }
+
+        public static Provider GetProviderByName(string name)
+        {
+            return dbManager.Providers.FirstOrDefault(p => p.ProviderName == name);
+        }
+
+        public static bool addProvider(Provider pro)
+        {
+            try
+            {
+                dbManager.Providers.Add(pro);
+                dbManager.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public static Provider GetProviderById(int proId)
+        {
+            return dbManager.Providers.FirstOrDefault(p => p.ProviderId == proId);
+        }
+
+        public static Provider GetProByNameNotId(int id, string proName)
+        {
+            try
+            {
+                return dbManager.Providers.FirstOrDefault(p => p.ProviderName == proName && p.ProviderId != id);
+            }
+            catch (Exception)
+            {
+                return null;
+                throw;
+            }
+        }
+
+        public static bool updateProvider(Provider pro, int proId)
+        {
+            try
+            {
+                Provider updatePro = dbManager.Providers.FirstOrDefault(p => p.ProviderId == proId);
+                updatePro.ProviderName = pro.ProviderName;
+                updatePro.Address = pro.Address;
+                updatePro.Phone = pro.Phone;
+                updatePro.Email = pro.Email;
+                dbManager.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public static bool deletePro(int proId)
+        {
+            try
+            {
+                Provider delPro = dbManager.Providers.FirstOrDefault(p => p.ProviderId == proId);
+                if (delPro != null)
+                {
+                    dbManager.Providers.Remove(delPro);
+                    dbManager.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
                 throw;
             }
         }

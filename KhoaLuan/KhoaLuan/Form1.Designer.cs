@@ -42,6 +42,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tpTree = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -93,14 +97,6 @@
             this.txtTypeSearch = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvBill = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnBillAdd = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.dtpBill = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtBillSearch = new System.Windows.Forms.TextBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,6 +104,40 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnBillRefresh = new System.Windows.Forms.Button();
+            this.btnBillAdd = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBillSearch = new System.Windows.Forms.TextBox();
+            this.dtpBill = new System.Windows.Forms.DateTimePicker();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvProvider = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnProviderRefresh = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtProviderSearch = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txtProviderName = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnProviderDelete = new System.Windows.Forms.Button();
+            this.btnProviderUpdate = new System.Windows.Forms.Button();
+            this.btnProviderAdd = new System.Windows.Forms.Button();
+            this.btnProviderClear = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtProviderAddress = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtProviderPhone = new System.Windows.Forms.TextBox();
+            this.txtProviderEmail = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label15 = new System.Windows.Forms.Label();
             this.tbcMain.SuspendLayout();
             this.tpTree.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -126,6 +156,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
             this.flowLayoutPanel5.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProvider)).BeginInit();
+            this.flowLayoutPanel6.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcMain
@@ -133,6 +169,7 @@
             this.tbcMain.Controls.Add(this.tpTree);
             this.tbcMain.Controls.Add(this.tabPage2);
             this.tbcMain.Controls.Add(this.tabPage1);
+            this.tbcMain.Controls.Add(this.tabPage3);
             this.tbcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcMain.ItemSize = new System.Drawing.Size(72, 30);
             this.tbcMain.Location = new System.Drawing.Point(0, 0);
@@ -834,90 +871,6 @@
             this.dgvBill.Size = new System.Drawing.Size(1147, 486);
             this.dgvBill.TabIndex = 5;
             // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.BackColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutPanel5.Controls.Add(this.button1);
-            this.flowLayoutPanel5.Controls.Add(this.btnBillAdd);
-            this.flowLayoutPanel5.Controls.Add(this.panel5);
-            this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 0);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(1147, 43);
-            this.flowLayoutPanel5.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1109, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button1, "Làm mới");
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnBillAdd
-            // 
-            this.btnBillAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnBillAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBillAdd.FlatAppearance.BorderSize = 0;
-            this.btnBillAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnBillAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnBillAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBillAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnBillAdd.Image")));
-            this.btnBillAdd.Location = new System.Drawing.Point(1068, 3);
-            this.btnBillAdd.Name = "btnBillAdd";
-            this.btnBillAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnBillAdd.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.btnBillAdd, "Thêm hóa đơn");
-            this.btnBillAdd.UseVisualStyleBackColor = false;
-            this.btnBillAdd.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.txtBillSearch);
-            this.panel5.Controls.Add(this.dtpBill);
-            this.panel5.Location = new System.Drawing.Point(453, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel5.Size = new System.Drawing.Size(609, 35);
-            this.panel5.TabIndex = 4;
-            // 
-            // dtpBill
-            // 
-            this.dtpBill.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBill.Location = new System.Drawing.Point(463, 7);
-            this.dtpBill.Name = "dtpBill";
-            this.dtpBill.Size = new System.Drawing.Size(139, 20);
-            this.dtpBill.TabIndex = 5;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(167, 11);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Tìm kiếm";
-            // 
-            // txtBillSearch
-            // 
-            this.txtBillSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBillSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBillSearch.Location = new System.Drawing.Point(222, 5);
-            this.txtBillSearch.Name = "txtBillSearch";
-            this.txtBillSearch.Size = new System.Drawing.Size(223, 24);
-            this.txtBillSearch.TabIndex = 3;
-            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Mã hóa đơn";
@@ -958,6 +911,416 @@
             this.Column4.HeaderText = "Địa chỉ KH";
             this.Column4.Name = "Column4";
             // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.BackColor = System.Drawing.Color.Honeydew;
+            this.flowLayoutPanel5.Controls.Add(this.btnBillRefresh);
+            this.flowLayoutPanel5.Controls.Add(this.btnBillAdd);
+            this.flowLayoutPanel5.Controls.Add(this.panel5);
+            this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 0);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(1147, 43);
+            this.flowLayoutPanel5.TabIndex = 4;
+            // 
+            // btnBillRefresh
+            // 
+            this.btnBillRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btnBillRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBillRefresh.FlatAppearance.BorderSize = 0;
+            this.btnBillRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBillRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBillRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBillRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnBillRefresh.Image")));
+            this.btnBillRefresh.Location = new System.Drawing.Point(1109, 3);
+            this.btnBillRefresh.Name = "btnBillRefresh";
+            this.btnBillRefresh.Size = new System.Drawing.Size(35, 35);
+            this.btnBillRefresh.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btnBillRefresh, "Làm mới");
+            this.btnBillRefresh.UseVisualStyleBackColor = false;
+            this.btnBillRefresh.Click += new System.EventHandler(this.btnBillRefresh_Click);
+            // 
+            // btnBillAdd
+            // 
+            this.btnBillAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnBillAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBillAdd.FlatAppearance.BorderSize = 0;
+            this.btnBillAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBillAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBillAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBillAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnBillAdd.Image")));
+            this.btnBillAdd.Location = new System.Drawing.Point(1068, 3);
+            this.btnBillAdd.Name = "btnBillAdd";
+            this.btnBillAdd.Size = new System.Drawing.Size(35, 35);
+            this.btnBillAdd.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btnBillAdd, "Thêm hóa đơn");
+            this.btnBillAdd.UseVisualStyleBackColor = false;
+            this.btnBillAdd.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.txtBillSearch);
+            this.panel5.Controls.Add(this.dtpBill);
+            this.panel5.Location = new System.Drawing.Point(453, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.panel5.Size = new System.Drawing.Size(609, 35);
+            this.panel5.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(167, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Tìm kiếm";
+            // 
+            // txtBillSearch
+            // 
+            this.txtBillSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBillSearch.Location = new System.Drawing.Point(222, 5);
+            this.txtBillSearch.Name = "txtBillSearch";
+            this.txtBillSearch.Size = new System.Drawing.Size(223, 24);
+            this.txtBillSearch.TabIndex = 3;
+            this.txtBillSearch.TextChanged += new System.EventHandler(this.txtBillSearch_TextChanged);
+            // 
+            // dtpBill
+            // 
+            this.dtpBill.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBill.Location = new System.Drawing.Point(463, 7);
+            this.dtpBill.Name = "dtpBill";
+            this.dtpBill.Size = new System.Drawing.Size(139, 20);
+            this.dtpBill.TabIndex = 5;
+            this.dtpBill.ValueChanged += new System.EventHandler(this.dtpBill_ValueChanged);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.panel7);
+            this.tabPage3.Controls.Add(this.flowLayoutPanel7);
+            this.tabPage3.Controls.Add(this.flowLayoutPanel6);
+            this.tabPage3.Controls.Add(this.dgvProvider);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1153, 540);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Nhà cung cấp";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgvProvider
+            // 
+            this.dgvProvider.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgvProvider.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProvider.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvProvider.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProvider.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.Column5,
+            this.Column6});
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProvider.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvProvider.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.dgvProvider.Location = new System.Drawing.Point(1, 51);
+            this.dgvProvider.Name = "dgvProvider";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProvider.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvProvider.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvProvider.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgvProvider.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvProvider.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.dgvProvider.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvProvider.Size = new System.Drawing.Size(713, 486);
+            this.dgvProvider.TabIndex = 5;
+            this.dgvProvider.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProvider_CellClick);
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.BackColor = System.Drawing.Color.Honeydew;
+            this.flowLayoutPanel6.Controls.Add(this.btnProviderRefresh);
+            this.flowLayoutPanel6.Controls.Add(this.panel6);
+            this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(1, 4);
+            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(713, 43);
+            this.flowLayoutPanel6.TabIndex = 6;
+            // 
+            // btnProviderRefresh
+            // 
+            this.btnProviderRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btnProviderRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProviderRefresh.FlatAppearance.BorderSize = 0;
+            this.btnProviderRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProviderRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderRefresh.Image")));
+            this.btnProviderRefresh.Location = new System.Drawing.Point(675, 3);
+            this.btnProviderRefresh.Name = "btnProviderRefresh";
+            this.btnProviderRefresh.Size = new System.Drawing.Size(35, 35);
+            this.btnProviderRefresh.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btnProviderRefresh, "Làm mới");
+            this.btnProviderRefresh.UseVisualStyleBackColor = false;
+            this.btnProviderRefresh.Click += new System.EventHandler(this.btnProviderRefresh_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.txtProviderSearch);
+            this.panel6.Location = new System.Drawing.Point(5, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(664, 35);
+            this.panel6.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(380, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Tìm kiếm";
+            // 
+            // txtProviderSearch
+            // 
+            this.txtProviderSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProviderSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProviderSearch.Location = new System.Drawing.Point(437, 6);
+            this.txtProviderSearch.Name = "txtProviderSearch";
+            this.txtProviderSearch.Size = new System.Drawing.Size(223, 24);
+            this.txtProviderSearch.TabIndex = 3;
+            this.txtProviderSearch.TextChanged += new System.EventHandler(this.txtProviderSearch_TextChanged);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel7.Controls.Add(this.txtProviderEmail);
+            this.panel7.Controls.Add(this.txtProviderPhone);
+            this.panel7.Controls.Add(this.txtProviderAddress);
+            this.panel7.Controls.Add(this.txtProviderName);
+            this.panel7.Controls.Add(this.label15);
+            this.panel7.Controls.Add(this.label14);
+            this.panel7.Controls.Add(this.label13);
+            this.panel7.Controls.Add(this.label12);
+            this.panel7.Location = new System.Drawing.Point(733, 50);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(418, 483);
+            this.panel7.TabIndex = 8;
+            // 
+            // txtProviderName
+            // 
+            this.txtProviderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProviderName.Location = new System.Drawing.Point(164, 104);
+            this.txtProviderName.Name = "txtProviderName";
+            this.txtProviderName.Size = new System.Drawing.Size(239, 22);
+            this.txtProviderName.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Gray;
+            this.label12.Location = new System.Drawing.Point(37, 107);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 16);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Tên nhà cung cấp";
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.BackColor = System.Drawing.Color.Honeydew;
+            this.flowLayoutPanel7.Controls.Add(this.btnProviderDelete);
+            this.flowLayoutPanel7.Controls.Add(this.btnProviderUpdate);
+            this.flowLayoutPanel7.Controls.Add(this.btnProviderAdd);
+            this.flowLayoutPanel7.Controls.Add(this.btnProviderClear);
+            this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(733, 4);
+            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(421, 43);
+            this.flowLayoutPanel7.TabIndex = 7;
+            // 
+            // btnProviderDelete
+            // 
+            this.btnProviderDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnProviderDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProviderDelete.FlatAppearance.BorderSize = 0;
+            this.btnProviderDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProviderDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderDelete.Image")));
+            this.btnProviderDelete.Location = new System.Drawing.Point(383, 3);
+            this.btnProviderDelete.Name = "btnProviderDelete";
+            this.btnProviderDelete.Size = new System.Drawing.Size(35, 35);
+            this.btnProviderDelete.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnProviderDelete, "Xóa");
+            this.btnProviderDelete.UseVisualStyleBackColor = false;
+            this.btnProviderDelete.Click += new System.EventHandler(this.btnProviderDelete_Click);
+            // 
+            // btnProviderUpdate
+            // 
+            this.btnProviderUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnProviderUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProviderUpdate.FlatAppearance.BorderSize = 0;
+            this.btnProviderUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProviderUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderUpdate.Image")));
+            this.btnProviderUpdate.Location = new System.Drawing.Point(342, 3);
+            this.btnProviderUpdate.Name = "btnProviderUpdate";
+            this.btnProviderUpdate.Size = new System.Drawing.Size(35, 35);
+            this.btnProviderUpdate.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btnProviderUpdate, "Lưu");
+            this.btnProviderUpdate.UseVisualStyleBackColor = false;
+            this.btnProviderUpdate.Click += new System.EventHandler(this.btnProviderUpdate_Click);
+            // 
+            // btnProviderAdd
+            // 
+            this.btnProviderAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnProviderAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProviderAdd.FlatAppearance.BorderSize = 0;
+            this.btnProviderAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProviderAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderAdd.Image")));
+            this.btnProviderAdd.Location = new System.Drawing.Point(301, 3);
+            this.btnProviderAdd.Name = "btnProviderAdd";
+            this.btnProviderAdd.Size = new System.Drawing.Size(35, 35);
+            this.btnProviderAdd.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btnProviderAdd, "Thêm mới");
+            this.btnProviderAdd.UseVisualStyleBackColor = false;
+            this.btnProviderAdd.Click += new System.EventHandler(this.btnProviderAdd_Click);
+            // 
+            // btnProviderClear
+            // 
+            this.btnProviderClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnProviderClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProviderClear.FlatAppearance.BorderSize = 0;
+            this.btnProviderClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnProviderClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProviderClear.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderClear.Image")));
+            this.btnProviderClear.Location = new System.Drawing.Point(260, 3);
+            this.btnProviderClear.Name = "btnProviderClear";
+            this.btnProviderClear.Size = new System.Drawing.Size(35, 35);
+            this.btnProviderClear.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btnProviderClear, "Làm mới");
+            this.btnProviderClear.UseVisualStyleBackColor = false;
+            this.btnProviderClear.Click += new System.EventHandler(this.btnProviderClear_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Gray;
+            this.label13.Location = new System.Drawing.Point(37, 192);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 16);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Địa chỉ";
+            // 
+            // txtProviderAddress
+            // 
+            this.txtProviderAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProviderAddress.Location = new System.Drawing.Point(164, 189);
+            this.txtProviderAddress.Name = "txtProviderAddress";
+            this.txtProviderAddress.Size = new System.Drawing.Size(239, 22);
+            this.txtProviderAddress.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Gray;
+            this.label14.Location = new System.Drawing.Point(37, 274);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(86, 16);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Số điện thoại";
+            // 
+            // txtProviderPhone
+            // 
+            this.txtProviderPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProviderPhone.Location = new System.Drawing.Point(164, 271);
+            this.txtProviderPhone.Name = "txtProviderPhone";
+            this.txtProviderPhone.Size = new System.Drawing.Size(239, 22);
+            this.txtProviderPhone.TabIndex = 1;
+            // 
+            // txtProviderEmail
+            // 
+            this.txtProviderEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProviderEmail.Location = new System.Drawing.Point(164, 360);
+            this.txtProviderEmail.Name = "txtProviderEmail";
+            this.txtProviderEmail.Size = new System.Drawing.Size(239, 22);
+            this.txtProviderEmail.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Mã nhà cung cấp";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Tên nhà cung cấp";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Địa chỉ";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Số điện thoại";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Email";
+            this.Column6.Name = "Column6";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Gray;
+            this.label15.Location = new System.Drawing.Point(37, 363);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(42, 16);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Email";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -992,6 +1355,14 @@
             this.flowLayoutPanel5.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProvider)).EndInit();
+            this.flowLayoutPanel6.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.flowLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1051,7 +1422,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvBill;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBillRefresh;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DateTimePicker dtpBill;
         private System.Windows.Forms.Label label8;
@@ -1064,6 +1435,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private System.Windows.Forms.Button btnProviderRefresh;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtProviderSearch;
+        private System.Windows.Forms.DataGridView dgvProvider;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtProviderName;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+        private System.Windows.Forms.Button btnProviderDelete;
+        private System.Windows.Forms.Button btnProviderUpdate;
+        private System.Windows.Forms.Button btnProviderAdd;
+        private System.Windows.Forms.Button btnProviderClear;
+        private System.Windows.Forms.TextBox txtProviderEmail;
+        private System.Windows.Forms.TextBox txtProviderPhone;
+        private System.Windows.Forms.TextBox txtProviderAddress;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Label label15;
 
     }
 }

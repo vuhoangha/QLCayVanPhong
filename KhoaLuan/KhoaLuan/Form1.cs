@@ -18,6 +18,7 @@ namespace KhoaLuan
         private Login login;
         private int ID_TREE_SELECTED;
         private int ID_TYPE_SELECTED;
+        private int ID_PROVIDER_SELECTED;
 
         public Form1()
         {
@@ -95,7 +96,18 @@ namespace KhoaLuan
             }
             else if (tabControl.SelectedIndex == 2)
             {
+                dtpBill.Value = DateTime.Now;
                 loadGridViewBill();
+            }
+            else if (tabControl.SelectedIndex == 3)
+            {
+                loadGridViewProvider();
+
+                txtProviderAddress.Text = "";
+                txtProviderEmail.Text = "";
+                txtProviderName.Text = "";
+                txtProviderPhone.Text = "";
+                txtProviderSearch.Text = "";
             }
         }
 
@@ -407,11 +419,10 @@ namespace KhoaLuan
         private void loadGridViewBill()
         {
             txtBillSearch.Text = "";
-            dtpBill.Value = DateTime.Now;
 
             #region set dgv cat
 
-            List<Bill> listBill = DbManager.getListBillByDate(DateTime.Now);
+            List<Bill> listBill = DbManager.getListBillByDate(dtpBill.Value);
 
             dgvBill.DataSource = null;
             dgvBill.Rows.Clear();
@@ -466,6 +477,35 @@ namespace KhoaLuan
             }
 
             dgvType.Refresh();
+
+            #endregion
+        }
+
+        private void loadGridViewProvider()
+        {
+            txtProviderSearch.Text = "";
+
+            #region set dgv provider
+
+            List<Provider> listProvider = DbManager.GetListProvider();
+
+            dgvProvider.DataSource = null;
+            dgvProvider.Rows.Clear();
+
+            for (int i = 0; i < listProvider.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvProvider);  // this line was missing
+                var provider = listProvider[i];
+                newRow.Cells[0].Value = provider.ProviderId;
+                newRow.Cells[1].Value = provider.ProviderName;
+                newRow.Cells[2].Value = provider.Address;
+                newRow.Cells[3].Value = provider.Phone;
+                newRow.Cells[4].Value = provider.Email;
+                dgvProvider.Rows.Add(newRow);
+            }
+
+            dgvProvider.Refresh();
 
             #endregion
         }
@@ -656,6 +696,261 @@ namespace KhoaLuan
         {
             AddBill addBill = new AddBill();
             addBill.Show();
+        }
+
+        private void dtpBill_ValueChanged(object sender, EventArgs e)
+        {
+            loadGridViewBill();
+        }
+
+        private void btnBillRefresh_Click(object sender, EventArgs e)
+        {
+            loadGridViewBill();
+        }
+
+        private void txtBillSearch_TextChanged(object sender, EventArgs e)
+        {
+            #region set dgv cat
+
+            List<Bill> listBill = DbManager.getListBillByDateAndSearch(dtpBill.Value, txtBillSearch.Text);
+
+            dgvBill.DataSource = null;
+            dgvBill.Rows.Clear();
+
+            for (int i = 0; i < listBill.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvBill);  // this line was missing
+                var bill = listBill[i];
+
+                newRow.Cells[0].Value = bill.BillId;
+                newRow.Cells[1].Value = bill.TimeChanged;
+                newRow.Cells[2].Value = bill.TotalCost;
+                User currUser = DbManager.getUserByUserId((int)bill.UserId);
+                if (currUser != null)
+                {
+                    newRow.Cells[3].Value = currUser.FullName;
+                }
+                newRow.Cells[4].Value = bill.CustomerName;
+                newRow.Cells[5].Value = bill.CustomerId;
+                newRow.Cells[6].Value = bill.CustomerAddress;
+
+                dgvBill.Rows.Add(newRow);
+            }
+
+            dgvBill.Refresh();
+
+            #endregion
+        }
+
+        private void btnProviderRefresh_Click(object sender, EventArgs e)
+        {
+            loadGridViewProvider();
+        }
+
+        private void txtProviderSearch_TextChanged(object sender, EventArgs e)
+        {
+            #region set dgv provider
+
+            List<Provider> listProvider = DbManager.GetListProviderByContainName(txtProviderSearch.Text);
+
+            dgvProvider.DataSource = null;
+            dgvProvider.Rows.Clear();
+
+            for (int i = 0; i < listProvider.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvProvider);  // this line was missing
+                var provider = listProvider[i];
+                newRow.Cells[0].Value = provider.ProviderId;
+                newRow.Cells[1].Value = provider.ProviderName;
+                newRow.Cells[2].Value = provider.Address;
+                newRow.Cells[3].Value = provider.Phone;
+                newRow.Cells[4].Value = provider.Email;
+                dgvProvider.Rows.Add(newRow);
+            }
+
+            dgvProvider.Refresh();
+
+            #endregion
+        }
+
+        private void btnProviderClear_Click(object sender, EventArgs e)
+        {
+            txtProviderAddress.Text = "";
+            txtProviderEmail.Text = "";
+            txtProviderName.Text = "";
+            txtProviderPhone.Text = "";
+            ID_PROVIDER_SELECTED = 0;
+        }
+
+        private void btnProviderAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //  check validate
+                if (txtProviderName.Text == string.Empty)
+                {
+                    MessageBox.Show("Thêm nhà cung cấp không thành công, bạn vui lòng nhập đủ thông tin.", "Thêm nhà cung cấp",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                //  check pro existing
+                Provider proTemp = DbManager.GetProviderByName(txtProviderName.Text.ToUpper());
+                if (proTemp != null)
+                {
+                    MessageBox.Show("Thêm nhà cung cấp không thành công, nhà cung cấp bạn muốn thêm đã tồn tại trong hệ thống.", "Thêm nhà cung cấp",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Provider newProvider = new Provider();
+                //  pro name
+                newProvider.ProviderName = txtProviderName.Text.ToUpper();
+                //  address
+                newProvider.Address = txtProviderAddress.Text;
+                //  email
+                newProvider.Email = txtProviderEmail.Text;
+                //  phone
+                newProvider.Phone = txtProviderPhone.Text;
+
+                //  them loại cay
+                if (DbManager.addProvider(newProvider))
+                {
+                    MessageBox.Show("Thành công", "Thêm nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    loadGridViewCategory();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm nhà cung cấp không thành công, bạn vui lòng chỉnh sửa lại thông tin nhà cung cấp muốn thêm.", "Thêm nhà cung cấp",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void btnProviderUpdate_Click(object sender, EventArgs e)
+        {
+            //  check is selected
+            if (ID_PROVIDER_SELECTED == null)
+            {
+                MessageBox.Show("Cập nhật nhà cung cấp không thành công, chọn nhà cung cấp cần cập nhật.", "Cập nhật nhà cung cấp",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  check validate
+            if (txtProviderName.Text == string.Empty)
+            {
+                MessageBox.Show("Cập nhật nhà cung cấp không thành công, bạn vui lòng nhập đủ thông tin.", "Cập nhật nhà cung cấp",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  check id is valid ?
+            Provider proById = DbManager.GetProviderById(ID_PROVIDER_SELECTED);
+            if (proById == null)
+            {
+                MessageBox.Show("Cập nhật nhà cung cấp không thành công, nhà cung cấp bạn muốn cập nhật không tồn tại trong hệ thống.", "Cập nhật nhà cung cấp",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  check name is valid ?
+            Provider proTemp = DbManager.GetProByNameNotId(ID_PROVIDER_SELECTED, txtProviderName.Text.ToUpper());
+            if (proTemp != null)
+            {
+                MessageBox.Show("Cập nhật nhà cung cấp không thành công, nhà cung cấp bạn muốn thêm đã tồn tại trong hệ thống.", "Cập nhật nhà cung cấp",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Provider updateProvider = new Provider();
+            //  pro id
+            updateProvider.ProviderId = ID_PROVIDER_SELECTED;
+            //  pro name
+            updateProvider.ProviderName = txtProviderName.Text.ToUpper();
+
+            //  address
+            updateProvider.Address = txtProviderAddress.Text;
+
+            //  phone
+            updateProvider.Phone = txtProviderPhone.Text;
+
+            //  phone
+            updateProvider.Email = txtProviderEmail.Text;
+
+            //  add to db
+            if (DbManager.updateProvider(updateProvider, ID_PROVIDER_SELECTED))
+            {
+                MessageBox.Show("Thành công", "Cập nhật nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
+                loadGridViewCategory();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật nhà cung cấp không thành công, bạn vui lòng chỉnh sửa lại thông tin nhà cung cấp muốn cập nhật.", "Cập nhật nhà cung cấp",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnProviderDelete_Click(object sender, EventArgs e)
+        {
+            //  check is selected tree
+            if (ID_PROVIDER_SELECTED == null)
+            {
+                MessageBox.Show("Xóa nhà cung cấp không thành công, chọn nhà cung cấp cần xóa.", "Xóa nhà cung cấp",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  desc
+            if (DbManager.deletePro(ID_PROVIDER_SELECTED))
+            {
+                MessageBox.Show("Thành công", "Xóa nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
+                loadGridViewCategory();
+            }
+            else
+            {
+                MessageBox.Show("Xóa nhà cung cấp không thành công, bạn vui lòng chọn lại nhà cung cấp cần xóa.", "Xóa nhà cung cấp",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvProvider_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridView dgv = sender as DataGridView;
+                if (dgv.CurrentCell.RowIndex < 0 || dgv.CurrentCell.ColumnIndex < 0 || dgv.CurrentCell.RowIndex >= dgv.RowCount - 1)
+                {
+                    return;
+                }
+
+                DataGridViewRow row = dgv.Rows[e.RowIndex];
+                ID_PROVIDER_SELECTED = (int)row.Cells[0].Value;
+                Provider provider = DbManager.GetProviderById((int)row.Cells[0].Value);
+
+                //  address
+                txtProviderAddress.Text = provider.Address;
+
+                //  email
+                txtProviderEmail.Text = provider.Email;
+
+                //  name
+                txtProviderName.Text = provider.ProviderName;
+
+                //  phone
+                txtProviderPhone.Text = provider.Phone;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
