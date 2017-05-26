@@ -40,29 +40,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSelectTreeSearch = new System.Windows.Forms.TextBox();
             this.dgvSelectTree = new System.Windows.Forms.DataGridView();
-            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbSelectTreeName = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lbSelectTreeTotalCost = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.nudSelectTreeQuantity = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbSelectTreeId = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnBillAdd = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbSelectTreeId = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nudSelectTreeQuantity = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbSelectTreeTotalCost = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lbSelectTreeName = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectTree)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSelectTreeQuantity)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel2
@@ -173,28 +173,22 @@
             this.dgvSelectTree.TabIndex = 3;
             this.dgvSelectTree.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectTree_CellClick);
             // 
-            // dtcId
+            // btnBillAdd
             // 
-            this.dtcId.HeaderText = "Mã cây";
-            this.dtcId.Name = "dtcId";
-            // 
-            // dtcTreeName
-            // 
-            this.dtcTreeName.HeaderText = "Tên cây";
-            this.dtcTreeName.Name = "dtcTreeName";
-            this.dtcTreeName.Width = 200;
-            // 
-            // dtcTreeType
-            // 
-            this.dtcTreeType.HeaderText = "Loại cây";
-            this.dtcTreeType.Name = "dtcTreeType";
-            this.dtcTreeType.Width = 150;
-            // 
-            // dtcTreeCost
-            // 
-            this.dtcTreeCost.HeaderText = "Giá tiền";
-            this.dtcTreeCost.Name = "dtcTreeCost";
-            this.dtcTreeCost.Width = 110;
+            this.btnBillAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnBillAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBillAdd.FlatAppearance.BorderSize = 0;
+            this.btnBillAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBillAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBillAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBillAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnBillAdd.Image")));
+            this.btnBillAdd.Location = new System.Drawing.Point(1044, 414);
+            this.btnBillAdd.Name = "btnBillAdd";
+            this.btnBillAdd.Size = new System.Drawing.Size(50, 50);
+            this.btnBillAdd.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.btnBillAdd, "Thêm mới");
+            this.btnBillAdd.UseVisualStyleBackColor = false;
+            this.btnBillAdd.Click += new System.EventHandler(this.btnBillAdd_Click);
             // 
             // dtcQuantity
             // 
@@ -202,66 +196,81 @@
             this.dtcQuantity.HeaderText = "Số lượng";
             this.dtcQuantity.Name = "dtcQuantity";
             // 
-            // panel2
+            // dtcTreeCost
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.lbSelectTreeName);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.lbSelectTreeTotalCost);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.nudSelectTreeQuantity);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.lbSelectTreeId);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(740, 47);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(357, 358);
-            this.panel2.TabIndex = 18;
+            this.dtcTreeCost.HeaderText = "Giá tiền";
+            this.dtcTreeCost.Name = "dtcTreeCost";
+            this.dtcTreeCost.Width = 110;
             // 
-            // lbSelectTreeName
+            // dtcTreeType
             // 
-            this.lbSelectTreeName.AutoSize = true;
-            this.lbSelectTreeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSelectTreeName.ForeColor = System.Drawing.Color.Gray;
-            this.lbSelectTreeName.Location = new System.Drawing.Point(95, 46);
-            this.lbSelectTreeName.Name = "lbSelectTreeName";
-            this.lbSelectTreeName.Size = new System.Drawing.Size(0, 16);
-            this.lbSelectTreeName.TabIndex = 18;
+            this.dtcTreeType.HeaderText = "Loại cây";
+            this.dtcTreeType.Name = "dtcTreeType";
+            this.dtcTreeType.Width = 150;
             // 
-            // label10
+            // dtcTreeName
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Gray;
-            this.label10.Location = new System.Drawing.Point(155, 248);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 16);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "VND";
+            this.dtcTreeName.HeaderText = "Tên cây";
+            this.dtcTreeName.Name = "dtcTreeName";
+            this.dtcTreeName.Width = 200;
             // 
-            // lbSelectTreeTotalCost
+            // dtcId
             // 
-            this.lbSelectTreeTotalCost.AutoSize = true;
-            this.lbSelectTreeTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSelectTreeTotalCost.ForeColor = System.Drawing.Color.Gray;
-            this.lbSelectTreeTotalCost.Location = new System.Drawing.Point(95, 248);
-            this.lbSelectTreeTotalCost.Name = "lbSelectTreeTotalCost";
-            this.lbSelectTreeTotalCost.Size = new System.Drawing.Size(16, 16);
-            this.lbSelectTreeTotalCost.TabIndex = 17;
-            this.lbSelectTreeTotalCost.Text = "0";
+            this.dtcId.HeaderText = "Mã cây";
+            this.dtcId.Name = "dtcId";
             // 
-            // label7
+            // label9
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(20, 248);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 16);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Thành tiền";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(273, 118);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(30, 16);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "cây";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Location = new System.Drawing.Point(18, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 16);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Số lượng";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Gray;
+            this.label5.Location = new System.Drawing.Point(20, 187);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 16);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Mã cây";
+            // 
+            // lbSelectTreeId
+            // 
+            this.lbSelectTreeId.AutoSize = true;
+            this.lbSelectTreeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSelectTreeId.ForeColor = System.Drawing.Color.Gray;
+            this.lbSelectTreeId.Location = new System.Drawing.Point(95, 187);
+            this.lbSelectTreeId.Name = "lbSelectTreeId";
+            this.lbSelectTreeId.Size = new System.Drawing.Size(0, 16);
+            this.lbSelectTreeId.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Gray;
+            this.label6.Location = new System.Drawing.Point(18, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Tên cây";
             // 
             // nudSelectTreeQuantity
             // 
@@ -286,75 +295,66 @@
             0});
             this.nudSelectTreeQuantity.ValueChanged += new System.EventHandler(this.nudSelectTreeQuantity_ValueChanged);
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(18, 46);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 16);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Tên cây";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Gray;
+            this.label7.Location = new System.Drawing.Point(20, 248);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 16);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Thành tiền";
             // 
-            // lbSelectTreeId
+            // lbSelectTreeTotalCost
             // 
-            this.lbSelectTreeId.AutoSize = true;
-            this.lbSelectTreeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSelectTreeId.ForeColor = System.Drawing.Color.Gray;
-            this.lbSelectTreeId.Location = new System.Drawing.Point(95, 187);
-            this.lbSelectTreeId.Name = "lbSelectTreeId";
-            this.lbSelectTreeId.Size = new System.Drawing.Size(0, 16);
-            this.lbSelectTreeId.TabIndex = 12;
+            this.lbSelectTreeTotalCost.AutoSize = true;
+            this.lbSelectTreeTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSelectTreeTotalCost.ForeColor = System.Drawing.Color.Gray;
+            this.lbSelectTreeTotalCost.Location = new System.Drawing.Point(95, 248);
+            this.lbSelectTreeTotalCost.Name = "lbSelectTreeTotalCost";
+            this.lbSelectTreeTotalCost.Size = new System.Drawing.Size(16, 16);
+            this.lbSelectTreeTotalCost.TabIndex = 17;
+            this.lbSelectTreeTotalCost.Text = "0";
             // 
-            // label5
+            // label10
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(20, 187);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 16);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Mã cây";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Gray;
+            this.label10.Location = new System.Drawing.Point(155, 248);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(37, 16);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "VND";
             // 
-            // label4
+            // lbSelectTreeName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(18, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 16);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Số lượng";
+            this.lbSelectTreeName.AutoSize = true;
+            this.lbSelectTreeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSelectTreeName.ForeColor = System.Drawing.Color.Gray;
+            this.lbSelectTreeName.Location = new System.Drawing.Point(95, 46);
+            this.lbSelectTreeName.Name = "lbSelectTreeName";
+            this.lbSelectTreeName.Size = new System.Drawing.Size(0, 16);
+            this.lbSelectTreeName.TabIndex = 18;
             // 
-            // label9
+            // panel2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(273, 118);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 16);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "cây";
-            // 
-            // btnBillAdd
-            // 
-            this.btnBillAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnBillAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBillAdd.FlatAppearance.BorderSize = 0;
-            this.btnBillAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnBillAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnBillAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBillAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnBillAdd.Image")));
-            this.btnBillAdd.Location = new System.Drawing.Point(1044, 414);
-            this.btnBillAdd.Name = "btnBillAdd";
-            this.btnBillAdd.Size = new System.Drawing.Size(50, 50);
-            this.btnBillAdd.TabIndex = 19;
-            this.toolTip1.SetToolTip(this.btnBillAdd, "Thêm mới");
-            this.btnBillAdd.UseVisualStyleBackColor = false;
-            this.btnBillAdd.Click += new System.EventHandler(this.btnBillAdd_Click);
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lbSelectTreeName);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.lbSelectTreeTotalCost);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.nudSelectTreeQuantity);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.lbSelectTreeId);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Location = new System.Drawing.Point(740, 47);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(357, 358);
+            this.panel2.TabIndex = 18;
             // 
             // SelectTreeBill
             // 
@@ -372,9 +372,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectTree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSelectTreeQuantity)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSelectTreeQuantity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,23 +387,23 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSelectTreeSearch;
         private System.Windows.Forms.DataGridView dgvSelectTree;
+        private System.Windows.Forms.Button btnBillAdd;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcQuantity;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lbSelectTreeTotalCost;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown nudSelectTreeQuantity;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbSelectTreeId;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnBillAdd;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbSelectTreeId;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown nudSelectTreeQuantity;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbSelectTreeTotalCost;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbSelectTreeName;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -403,5 +403,51 @@ namespace KhoaLuan.DB
 
         #endregion
 
+        #region Import
+
+        public static Import addImport(Import newImport)
+        {
+            try
+            {
+                dbManager.Imports.Add(newImport);
+                dbManager.SaveChanges();
+                return newImport;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Bill Detail
+
+        public static void addListImportDetail(List<ImportDetail> listImportDetail)
+        {
+            try
+            {
+                foreach (var item in listImportDetail)
+                {
+                    //  add bill detail
+                    dbManager.ImportDetails.Add(item);
+
+                    //  update quantity tree
+                    Tree currTree = dbManager.Trees.FirstOrDefault(p => p.TreeId == item.TreeId);
+                    if (currTree != null)
+                    {
+                        currTree.Quantity -= item.Quantity;
+                    }
+                }
+                dbManager.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
     }
 }

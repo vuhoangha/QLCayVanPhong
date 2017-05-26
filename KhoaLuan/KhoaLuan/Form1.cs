@@ -960,5 +960,11 @@ namespace KhoaLuan
                 throw;
             }
         }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            AddImport newForm = new AddImport();
+            newForm.Show();
+        }
     }
 }
