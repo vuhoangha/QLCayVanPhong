@@ -19,6 +19,8 @@ namespace KhoaLuan
         private int ID_TREE_SELECTED;
         private int ID_TYPE_SELECTED;
         private int ID_PROVIDER_SELECTED;
+        private int BILL_ID_SELECTED;
+        private int IMPORT_ID_SELECTED;
 
         public Form1()
         {
@@ -108,6 +110,11 @@ namespace KhoaLuan
                 txtProviderName.Text = "";
                 txtProviderPhone.Text = "";
                 txtProviderSearch.Text = "";
+            }
+            else if (tabControl.SelectedIndex == 4)
+            {
+                dtpImport.Value = DateTime.Now;
+                loadGridViewImport();
             }
         }
 
@@ -449,6 +456,45 @@ namespace KhoaLuan
             }
 
             dgvBill.Refresh();
+
+            #endregion
+        }
+
+        private void loadGridViewImport()
+        {
+            txtImportSearch.Text = "";
+
+            #region set dgv cat
+
+            List<Import> listImport = DbManager.getListImportByDate(dtpImport.Value);
+
+            dgvImport.DataSource = null;
+            dgvImport.Rows.Clear();
+
+            for (int i = 0; i < listImport.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvImport);  // this line was missing
+                var bill = listImport[i];
+
+                newRow.Cells[0].Value = bill.ImportId;
+                newRow.Cells[1].Value = bill.TimeChanged;
+                Provider currPro = DbManager.GetProviderById((int)bill.ProviderId);
+                if (currPro != null)
+                {
+                    newRow.Cells[2].Value = currPro.ProviderName;
+                }
+                newRow.Cells[3].Value = bill.TotalCost;
+                User currUser = DbManager.getUserByUserId((int)bill.UserId);
+                if (currUser != null)
+                {
+                    newRow.Cells[4].Value = currUser.FullName;
+                }
+
+                dgvImport.Rows.Add(newRow);
+            }
+
+            dgvImport.Refresh();
 
             #endregion
         }
@@ -965,6 +1011,85 @@ namespace KhoaLuan
         {
             AddImport newForm = new AddImport();
             newForm.Show();
+        }
+
+        private void txtImportSearch_TextChanged(object sender, EventArgs e)
+        {
+            #region set dgv cat
+
+            List<Import> listImport = DbManager.getListImportByDateAndSearch(dtpImport.Value, txtImportSearch.Text);
+
+            dgvImport.DataSource = null;
+            dgvImport.Rows.Clear();
+
+            for (int i = 0; i < listImport.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvImport);  // this line was missing
+                var bill = listImport[i];
+
+                newRow.Cells[0].Value = bill.ImportId;
+                newRow.Cells[1].Value = bill.TimeChanged;
+                Provider currPro = DbManager.GetProviderById((int)bill.ProviderId);
+                if (currPro != null)
+                {
+                    newRow.Cells[2].Value = currPro.ProviderName;
+                }
+                newRow.Cells[3].Value = bill.TotalCost;
+                User currUser = DbManager.getUserByUserId((int)bill.UserId);
+                if (currUser != null)
+                {
+                    newRow.Cells[3].Value = currUser.FullName;
+                }
+
+                dgvImport.Rows.Add(newRow);
+            }
+
+            dgvImport.Refresh();
+
+            #endregion
+        }
+
+        private void btnImportRefresh_Click(object sender, EventArgs e)
+        {
+            loadGridViewImport();
+        }
+
+        private void dtpImport_ValueChanged(object sender, EventArgs e)
+        {
+            loadGridViewImport();
+        }
+
+        private void dgvBill_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvBill.CurrentCell.RowIndex < 0 || dgvBill.CurrentCell.ColumnIndex < 0 || dgvBill.CurrentCell.RowIndex >= dgvBill.RowCount - 1)
+            {
+                return;
+            }
+            DataGridViewRow row = dgvBill.Rows[e.RowIndex];
+            BILL_ID_SELECTED = (int)row.Cells[0].Value;
+        }
+
+        private void btnBillDetail_Click(object sender, EventArgs e)
+        {
+            BillDetailView newForm = new BillDetailView(BILL_ID_SELECTED);
+            newForm.Show();
+        }
+
+        private void btnImportDetail_Click(object sender, EventArgs e)
+        {
+            ImportDetailView newForm = new ImportDetailView(IMPORT_ID_SELECTED);
+            newForm.Show();
+        }
+
+        private void dgvImport_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvImport.CurrentCell.RowIndex < 0 || dgvImport.CurrentCell.ColumnIndex < 0 || dgvImport.CurrentCell.RowIndex >= dgvImport.RowCount - 1)
+            {
+                return;
+            }
+            DataGridViewRow row = dgvImport.Rows[e.RowIndex];
+            IMPORT_ID_SELECTED = (int)row.Cells[0].Value;
         }
     }
 }

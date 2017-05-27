@@ -150,6 +150,8 @@ namespace KhoaLuan
         {
             try
             {
+                #region Create Import
+
                 //  create new bill
                 Import newImport = new Import();
                 newImport.TimeChanged = DateTime.Now;
@@ -160,8 +162,12 @@ namespace KhoaLuan
                 //  add to db
                 newImport = DbManager.addImport(newImport);
 
+                #endregion
+
                 //  add to import detail
                 List<ImportDetail> listImportDetail = new List<ImportDetail>();
+                List<Tree> listTree = new List<Tree>();
+
                 foreach (DataGridViewRow row in dgvAddImport.Rows)
                 {
                     if (row.Index >= 0 && row.Index < dgvAddImport.RowCount - 1)
@@ -176,11 +182,21 @@ namespace KhoaLuan
 
                         //  add bill detail to list
                         listImportDetail.Add(billDetail);
+
+                        //  add tree
+                        Tree newTree = new Tree();
+                        newTree.Quantity = currTree.Quantity + billDetail.Quantity;
+                        newTree.TreeId = currTree.TreeId;
+                        listTree.Add(newTree);
                     }
                 }
 
                 //  save to db
                 DbManager.addListImportDetail(listImportDetail);
+
+                //  update quantity tree
+                DbManager.updateListTree(listTree);
+
                 this.Close();
             }
             catch (Exception)

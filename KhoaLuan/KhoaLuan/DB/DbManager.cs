@@ -36,11 +36,6 @@ namespace KhoaLuan.DB
             return dbManager.Trees.Where(p => p.TreeId == treeId).FirstOrDefault();
         }
 
-        public static Dictionary<int, Tree> GetDicTree()
-        {
-            return dbManager.Trees.ToDictionary(x => x.TreeId, x => x);
-        }
-
         public static Tree GetTreeByName(string treeName)
         {
             try
@@ -95,6 +90,11 @@ namespace KhoaLuan.DB
             }
         }
 
+        public static Dictionary<int, Tree> GetDicTree()
+        {
+            return dbManager.Trees.ToDictionary(x => x.TreeId, x => x);
+        }
+
         public static bool updateTree(Tree tree, int treeId)
         {
             try
@@ -106,6 +106,25 @@ namespace KhoaLuan.DB
                 updateTree.Cost = tree.Cost;
                 updateTree.Description = tree.Description;
                 dbManager.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public static bool updateListTree(List<Tree> listTree)
+        {
+            try
+            {
+                foreach (var tree in listTree)
+                {
+                    Tree updateTree = dbManager.Trees.FirstOrDefault(p => p.TreeId == tree.TreeId);
+                    updateTree.Quantity = tree.Quantity;
+                    dbManager.SaveChanges();
+                }
                 return true;
             }
             catch (Exception)
@@ -310,6 +329,18 @@ namespace KhoaLuan.DB
             }
         }
 
+        public static List<BillDetail> getBillDetailByBillId(int billId)
+        {
+            try
+            {
+                return dbManager.BillDetails.Where(p => p.BillId == billId).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         #endregion
 
         #region Provider
@@ -419,6 +450,21 @@ namespace KhoaLuan.DB
             }
         }
 
+        public static List<Import> getListImportByDate(DateTime dateValue)
+        {
+            return dbManager.Imports.Where(x => ((DateTime)x.TimeChanged).Year == dateValue.Year
+                && ((DateTime)x.TimeChanged).Month == dateValue.Month
+                && ((DateTime)x.TimeChanged).Day == dateValue.Day).ToList();
+        }
+
+        public static List<Import> getListImportByDateAndSearch(DateTime dateValue, string query)
+        {
+            return dbManager.Imports.Where(x => ((DateTime)x.TimeChanged).Year == dateValue.Year
+                && ((DateTime)x.TimeChanged).Month == dateValue.Month
+                && ((DateTime)x.TimeChanged).Day == dateValue.Day
+                && (x.ImportId.ToString().Contains(query))).ToList();
+        }
+
         #endregion
 
         #region Bill Detail
@@ -440,6 +486,18 @@ namespace KhoaLuan.DB
                     }
                 }
                 dbManager.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static List<ImportDetail> getImportDetailByBillId(int importId)
+        {
+            try
+            {
+                return dbManager.ImportDetails.Where(p => p.ImportId == importId).ToList();
             }
             catch (Exception)
             {

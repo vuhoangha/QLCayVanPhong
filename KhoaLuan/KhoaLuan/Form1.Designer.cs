@@ -142,20 +142,22 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnImport = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dgvImport = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnImportRefresh = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtImportSearch = new System.Windows.Forms.TextBox();
+            this.dtpImport = new System.Windows.Forms.DateTimePicker();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnBillDetail = new System.Windows.Forms.Button();
+            this.btnImportDetail = new System.Windows.Forms.Button();
             this.tbcMain.SuspendLayout();
             this.tpTree.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -181,7 +183,7 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvider)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).BeginInit();
             this.flowLayoutPanel8.SuspendLayout();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
@@ -893,6 +895,7 @@
             this.dgvBill.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvBill.Size = new System.Drawing.Size(1147, 486);
             this.dgvBill.TabIndex = 5;
+            this.dgvBill.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBill_CellClick);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -938,6 +941,7 @@
             // 
             this.flowLayoutPanel5.BackColor = System.Drawing.Color.Honeydew;
             this.flowLayoutPanel5.Controls.Add(this.btnBillRefresh);
+            this.flowLayoutPanel5.Controls.Add(this.btnBillDetail);
             this.flowLayoutPanel5.Controls.Add(this.btnBillAdd);
             this.flowLayoutPanel5.Controls.Add(this.panel5);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -973,7 +977,7 @@
             this.btnBillAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnBillAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBillAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnBillAdd.Image")));
-            this.btnBillAdd.Location = new System.Drawing.Point(1068, 3);
+            this.btnBillAdd.Location = new System.Drawing.Point(1027, 3);
             this.btnBillAdd.Name = "btnBillAdd";
             this.btnBillAdd.Size = new System.Drawing.Size(35, 35);
             this.btnBillAdd.TabIndex = 1;
@@ -987,7 +991,7 @@
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.txtBillSearch);
             this.panel5.Controls.Add(this.dtpBill);
-            this.panel5.Location = new System.Drawing.Point(453, 3);
+            this.panel5.Location = new System.Drawing.Point(412, 3);
             this.panel5.Name = "panel5";
             this.panel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel5.Size = new System.Drawing.Size(609, 35);
@@ -1346,7 +1350,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.dataGridView1);
+            this.tabPage4.Controls.Add(this.dgvImport);
             this.tabPage4.Controls.Add(this.flowLayoutPanel8);
             this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
@@ -1355,10 +1359,10 @@
             this.tabPage4.Text = "Nhập hàng";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvImport
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvImport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgvImport.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1366,9 +1370,9 @@
             dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvImport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvImport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn12,
@@ -1381,10 +1385,10 @@
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.dataGridView1.Location = new System.Drawing.Point(3, 50);
-            this.dataGridView1.Name = "dataGridView1";
+            this.dgvImport.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dgvImport.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.dgvImport.Location = new System.Drawing.Point(3, 50);
+            this.dgvImport.Name = "dgvImport";
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1392,102 +1396,19 @@
             dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dgvImport.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.Size = new System.Drawing.Size(1147, 486);
-            this.dataGridView1.TabIndex = 7;
-            // 
-            // flowLayoutPanel8
-            // 
-            this.flowLayoutPanel8.BackColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutPanel8.Controls.Add(this.button1);
-            this.flowLayoutPanel8.Controls.Add(this.btnImport);
-            this.flowLayoutPanel8.Controls.Add(this.panel8);
-            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 4);
-            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(1147, 43);
-            this.flowLayoutPanel8.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1109, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button1, "Làm mới");
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnImport
-            // 
-            this.btnImport.BackColor = System.Drawing.Color.Transparent;
-            this.btnImport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImport.FlatAppearance.BorderSize = 0;
-            this.btnImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
-            this.btnImport.Location = new System.Drawing.Point(1068, 3);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(35, 35);
-            this.btnImport.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.btnImport, "Nhập hàng");
-            this.btnImport.UseVisualStyleBackColor = false;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.Controls.Add(this.label17);
-            this.panel8.Controls.Add(this.textBox1);
-            this.panel8.Controls.Add(this.dateTimePicker1);
-            this.panel8.Location = new System.Drawing.Point(453, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel8.Size = new System.Drawing.Size(609, 35);
-            this.panel8.TabIndex = 4;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(167, 11);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(49, 13);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "Tìm kiếm";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(222, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 24);
-            this.textBox1.TabIndex = 3;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(463, 7);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(139, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dgvImport.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            this.dgvImport.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgvImport.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvImport.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.dgvImport.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvImport.Size = new System.Drawing.Size(1147, 486);
+            this.dgvImport.TabIndex = 7;
+            this.dgvImport.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImport_CellClick);
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -1517,6 +1438,128 @@
             this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn13.HeaderText = "Tên nhân viên";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.BackColor = System.Drawing.Color.Honeydew;
+            this.flowLayoutPanel8.Controls.Add(this.btnImportRefresh);
+            this.flowLayoutPanel8.Controls.Add(this.btnImportDetail);
+            this.flowLayoutPanel8.Controls.Add(this.btnImport);
+            this.flowLayoutPanel8.Controls.Add(this.panel8);
+            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 4);
+            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(1147, 43);
+            this.flowLayoutPanel8.TabIndex = 6;
+            // 
+            // btnImportRefresh
+            // 
+            this.btnImportRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btnImportRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImportRefresh.FlatAppearance.BorderSize = 0;
+            this.btnImportRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnImportRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnImportRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnImportRefresh.Image")));
+            this.btnImportRefresh.Location = new System.Drawing.Point(1109, 3);
+            this.btnImportRefresh.Name = "btnImportRefresh";
+            this.btnImportRefresh.Size = new System.Drawing.Size(35, 35);
+            this.btnImportRefresh.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btnImportRefresh, "Làm mới");
+            this.btnImportRefresh.UseVisualStyleBackColor = false;
+            this.btnImportRefresh.Click += new System.EventHandler(this.btnImportRefresh_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.BackColor = System.Drawing.Color.Transparent;
+            this.btnImport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImport.FlatAppearance.BorderSize = 0;
+            this.btnImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
+            this.btnImport.Location = new System.Drawing.Point(1027, 3);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(35, 35);
+            this.btnImport.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btnImport, "Nhập hàng");
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.Controls.Add(this.label17);
+            this.panel8.Controls.Add(this.txtImportSearch);
+            this.panel8.Controls.Add(this.dtpImport);
+            this.panel8.Location = new System.Drawing.Point(412, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.panel8.Size = new System.Drawing.Size(609, 35);
+            this.panel8.TabIndex = 4;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(167, 11);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(49, 13);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "Tìm kiếm";
+            // 
+            // txtImportSearch
+            // 
+            this.txtImportSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtImportSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImportSearch.Location = new System.Drawing.Point(222, 5);
+            this.txtImportSearch.Name = "txtImportSearch";
+            this.txtImportSearch.Size = new System.Drawing.Size(223, 24);
+            this.txtImportSearch.TabIndex = 3;
+            this.txtImportSearch.TextChanged += new System.EventHandler(this.txtImportSearch_TextChanged);
+            // 
+            // dtpImport
+            // 
+            this.dtpImport.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpImport.Location = new System.Drawing.Point(463, 7);
+            this.dtpImport.Name = "dtpImport";
+            this.dtpImport.Size = new System.Drawing.Size(139, 20);
+            this.dtpImport.TabIndex = 5;
+            this.dtpImport.ValueChanged += new System.EventHandler(this.dtpImport_ValueChanged);
+            // 
+            // btnBillDetail
+            // 
+            this.btnBillDetail.BackColor = System.Drawing.Color.Transparent;
+            this.btnBillDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBillDetail.FlatAppearance.BorderSize = 0;
+            this.btnBillDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBillDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBillDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBillDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnBillDetail.Image")));
+            this.btnBillDetail.Location = new System.Drawing.Point(1068, 3);
+            this.btnBillDetail.Name = "btnBillDetail";
+            this.btnBillDetail.Size = new System.Drawing.Size(35, 35);
+            this.btnBillDetail.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.btnBillDetail, "Chi tiết");
+            this.btnBillDetail.UseVisualStyleBackColor = false;
+            this.btnBillDetail.Click += new System.EventHandler(this.btnBillDetail_Click);
+            // 
+            // btnImportDetail
+            // 
+            this.btnImportDetail.BackColor = System.Drawing.Color.Transparent;
+            this.btnImportDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImportDetail.FlatAppearance.BorderSize = 0;
+            this.btnImportDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnImportDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnImportDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnImportDetail.Image")));
+            this.btnImportDetail.Location = new System.Drawing.Point(1068, 3);
+            this.btnImportDetail.Name = "btnImportDetail";
+            this.btnImportDetail.Size = new System.Drawing.Size(35, 35);
+            this.btnImportDetail.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnImportDetail, "Chi tiết");
+            this.btnImportDetail.UseVisualStyleBackColor = false;
+            this.btnImportDetail.Click += new System.EventHandler(this.btnImportDetail_Click);
             // 
             // Form1
             // 
@@ -1561,7 +1604,7 @@
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvider)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).EndInit();
             this.flowLayoutPanel8.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -1664,19 +1707,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvImport;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImportRefresh;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtImportSearch;
+        private System.Windows.Forms.DateTimePicker dtpImport;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.Button btnBillDetail;
+        private System.Windows.Forms.Button btnImportDetail;
 
     }
 }

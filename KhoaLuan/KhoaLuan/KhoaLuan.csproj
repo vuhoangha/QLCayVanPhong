@@ -65,6 +65,12 @@
     <Compile Include="AddImport.Designer.cs">
       <DependentUpon>AddImport.cs</DependentUpon>
     </Compile>
+    <Compile Include="BillDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillDetailView.Designer.cs">
+      <DependentUpon>BillDetailView.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB\Bill.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -117,6 +123,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImportDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportDetailView.Designer.cs">
+      <DependentUpon>ImportDetailView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -149,8 +161,14 @@
     <EmbeddedResource Include="AddImport.resx">
       <DependentUpon>AddImport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BillDetailView.resx">
+      <DependentUpon>BillDetailView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportDetailView.resx">
+      <DependentUpon>ImportDetailView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
