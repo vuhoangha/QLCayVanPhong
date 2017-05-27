@@ -71,11 +71,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTreeSearch = new System.Windows.Forms.TextBox();
             this.dgvTree = new System.Windows.Forms.DataGridView();
-            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnTreeDelete = new System.Windows.Forms.Button();
             this.btnTreeUpdate = new System.Windows.Forms.Button();
@@ -110,6 +105,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnBillRefresh = new System.Windows.Forms.Button();
+            this.btnBillDetail = new System.Windows.Forms.Button();
             this.btnBillAdd = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -150,14 +146,19 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnImportRefresh = new System.Windows.Forms.Button();
+            this.btnImportDetail = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.txtImportSearch = new System.Windows.Forms.TextBox();
             this.dtpImport = new System.Windows.Forms.DateTimePicker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnBillDetail = new System.Windows.Forms.Button();
-            this.btnImportDetail = new System.Windows.Forms.Button();
+            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.tbcMain.SuspendLayout();
             this.tpTree.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -366,6 +367,7 @@
             // 
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Honeydew;
             this.flowLayoutPanel2.Controls.Add(this.button3);
+            this.flowLayoutPanel2.Controls.Add(this.button1);
             this.flowLayoutPanel2.Controls.Add(this.panel1);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -396,15 +398,15 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtTreeSearch);
-            this.panel1.Location = new System.Drawing.Point(5, 3);
+            this.panel1.Location = new System.Drawing.Point(337, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 35);
+            this.panel1.Size = new System.Drawing.Size(291, 35);
             this.panel1.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(380, 11);
+            this.label1.Location = new System.Drawing.Point(6, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 4;
@@ -414,7 +416,7 @@
             // 
             this.txtTreeSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTreeSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTreeSearch.Location = new System.Drawing.Point(437, 6);
+            this.txtTreeSearch.Location = new System.Drawing.Point(63, 6);
             this.txtTreeSearch.Name = "txtTreeSearch";
             this.txtTreeSearch.Size = new System.Drawing.Size(223, 24);
             this.txtTreeSearch.TabIndex = 3;
@@ -426,7 +428,7 @@
             this.dgvTree.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
@@ -441,7 +443,7 @@
             this.dtcQuantity});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -449,10 +451,11 @@
             this.dgvTree.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTree.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.dgvTree.Location = new System.Drawing.Point(3, 48);
+            this.dgvTree.MultiSelect = false;
             this.dgvTree.Name = "dgvTree";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
@@ -460,45 +463,17 @@
             this.dgvTree.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dgvTree.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTree.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvTree.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvTree.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dgvTree.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvTree.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTree.Size = new System.Drawing.Size(713, 486);
             this.dgvTree.TabIndex = 1;
             this.dgvTree.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTree_CellClick);
-            // 
-            // dtcId
-            // 
-            this.dtcId.HeaderText = "Mã cây";
-            this.dtcId.Name = "dtcId";
-            // 
-            // dtcTreeName
-            // 
-            this.dtcTreeName.HeaderText = "Tên cây";
-            this.dtcTreeName.Name = "dtcTreeName";
-            this.dtcTreeName.Width = 200;
-            // 
-            // dtcTreeType
-            // 
-            this.dtcTreeType.HeaderText = "Loại cây";
-            this.dtcTreeType.Name = "dtcTreeType";
-            this.dtcTreeType.Width = 150;
-            // 
-            // dtcTreeCost
-            // 
-            this.dtcTreeCost.HeaderText = "Giá tiền";
-            this.dtcTreeCost.Name = "dtcTreeCost";
-            this.dtcTreeCost.Width = 110;
-            // 
-            // dtcQuantity
-            // 
-            this.dtcQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dtcQuantity.HeaderText = "Số lượng";
-            this.dtcQuantity.Name = "dtcQuantity";
             // 
             // flowLayoutPanel1
             // 
@@ -967,6 +942,23 @@
             this.toolTip1.SetToolTip(this.btnBillRefresh, "Làm mới");
             this.btnBillRefresh.UseVisualStyleBackColor = false;
             this.btnBillRefresh.Click += new System.EventHandler(this.btnBillRefresh_Click);
+            // 
+            // btnBillDetail
+            // 
+            this.btnBillDetail.BackColor = System.Drawing.Color.Transparent;
+            this.btnBillDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBillDetail.FlatAppearance.BorderSize = 0;
+            this.btnBillDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBillDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBillDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBillDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnBillDetail.Image")));
+            this.btnBillDetail.Location = new System.Drawing.Point(1068, 3);
+            this.btnBillDetail.Name = "btnBillDetail";
+            this.btnBillDetail.Size = new System.Drawing.Size(35, 35);
+            this.btnBillDetail.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.btnBillDetail, "Chi tiết");
+            this.btnBillDetail.UseVisualStyleBackColor = false;
+            this.btnBillDetail.Click += new System.EventHandler(this.btnBillDetail_Click);
             // 
             // btnBillAdd
             // 
@@ -1470,6 +1462,23 @@
             this.btnImportRefresh.UseVisualStyleBackColor = false;
             this.btnImportRefresh.Click += new System.EventHandler(this.btnImportRefresh_Click);
             // 
+            // btnImportDetail
+            // 
+            this.btnImportDetail.BackColor = System.Drawing.Color.Transparent;
+            this.btnImportDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImportDetail.FlatAppearance.BorderSize = 0;
+            this.btnImportDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnImportDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnImportDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnImportDetail.Image")));
+            this.btnImportDetail.Location = new System.Drawing.Point(1068, 3);
+            this.btnImportDetail.Name = "btnImportDetail";
+            this.btnImportDetail.Size = new System.Drawing.Size(35, 35);
+            this.btnImportDetail.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnImportDetail, "Chi tiết");
+            this.btnImportDetail.UseVisualStyleBackColor = false;
+            this.btnImportDetail.Click += new System.EventHandler(this.btnImportDetail_Click);
+            // 
             // btnImport
             // 
             this.btnImport.BackColor = System.Drawing.Color.Transparent;
@@ -1527,39 +1536,56 @@
             this.dtpImport.TabIndex = 5;
             this.dtpImport.ValueChanged += new System.EventHandler(this.dtpImport_ValueChanged);
             // 
-            // btnBillDetail
+            // dtcId
             // 
-            this.btnBillDetail.BackColor = System.Drawing.Color.Transparent;
-            this.btnBillDetail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBillDetail.FlatAppearance.BorderSize = 0;
-            this.btnBillDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnBillDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnBillDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBillDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnBillDetail.Image")));
-            this.btnBillDetail.Location = new System.Drawing.Point(1068, 3);
-            this.btnBillDetail.Name = "btnBillDetail";
-            this.btnBillDetail.Size = new System.Drawing.Size(35, 35);
-            this.btnBillDetail.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.btnBillDetail, "Chi tiết");
-            this.btnBillDetail.UseVisualStyleBackColor = false;
-            this.btnBillDetail.Click += new System.EventHandler(this.btnBillDetail_Click);
+            this.dtcId.HeaderText = "Mã cây";
+            this.dtcId.Name = "dtcId";
+            this.dtcId.ReadOnly = true;
             // 
-            // btnImportDetail
+            // dtcTreeName
             // 
-            this.btnImportDetail.BackColor = System.Drawing.Color.Transparent;
-            this.btnImportDetail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImportDetail.FlatAppearance.BorderSize = 0;
-            this.btnImportDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnImportDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnImportDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnImportDetail.Image")));
-            this.btnImportDetail.Location = new System.Drawing.Point(1068, 3);
-            this.btnImportDetail.Name = "btnImportDetail";
-            this.btnImportDetail.Size = new System.Drawing.Size(35, 35);
-            this.btnImportDetail.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.btnImportDetail, "Chi tiết");
-            this.btnImportDetail.UseVisualStyleBackColor = false;
-            this.btnImportDetail.Click += new System.EventHandler(this.btnImportDetail_Click);
+            this.dtcTreeName.HeaderText = "Tên cây";
+            this.dtcTreeName.Name = "dtcTreeName";
+            this.dtcTreeName.ReadOnly = true;
+            this.dtcTreeName.Width = 200;
+            // 
+            // dtcTreeType
+            // 
+            this.dtcTreeType.HeaderText = "Loại cây";
+            this.dtcTreeType.Name = "dtcTreeType";
+            this.dtcTreeType.ReadOnly = true;
+            this.dtcTreeType.Width = 150;
+            // 
+            // dtcTreeCost
+            // 
+            this.dtcTreeCost.HeaderText = "Giá tiền";
+            this.dtcTreeCost.Name = "dtcTreeCost";
+            this.dtcTreeCost.ReadOnly = true;
+            this.dtcTreeCost.Width = 110;
+            // 
+            // dtcQuantity
+            // 
+            this.dtcQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dtcQuantity.HeaderText = "Số lượng";
+            this.dtcQuantity.Name = "dtcQuantity";
+            this.dtcQuantity.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(634, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.button1, "Thêm mới");
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -1623,11 +1649,6 @@
         private System.Windows.Forms.Button btnTreeUpdate;
         private System.Windows.Forms.Button btnTreeDelete;
         private System.Windows.Forms.DataGridView dgvTree;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcQuantity;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel1;
@@ -1722,6 +1743,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Button btnBillDetail;
         private System.Windows.Forms.Button btnImportDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcQuantity;
+        private System.Windows.Forms.Button button1;
 
     }
 }

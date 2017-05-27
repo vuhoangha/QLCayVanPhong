@@ -1091,5 +1091,11 @@ namespace KhoaLuan
             DataGridViewRow row = dgvImport.Rows[e.RowIndex];
             IMPORT_ID_SELECTED = (int)row.Cells[0].Value;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddTree newForm = new AddTree();
+            newForm.Show();
+        }
     }
 }
