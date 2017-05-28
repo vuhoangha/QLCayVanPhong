@@ -69,32 +69,16 @@ namespace KhoaLuan
             return true;
         }
 
-        private void button1_MouseHover(object sender, EventArgs e)
-        {
-            btnTreeAdd.BackColor = Color.LightCyan;
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tbcMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabControl tabControl = sender as TabControl;
             if (tabControl.SelectedIndex == 0)
             {
                 loadGridViewTree();
-                txtTreeName.Text = "";
-                cbTreeType.Text = "";
-                nudTreeQuantity.Value = 0;
-                txtTreeCost.Text = "";
-                txtTreeDesc.Text = "";
             }
             else if (tabControl.SelectedIndex == 1)
             {
                 loadGridViewCategory();
-                txtTypeName.Text = "";
             }
             else if (tabControl.SelectedIndex == 2)
             {
@@ -104,11 +88,6 @@ namespace KhoaLuan
             else if (tabControl.SelectedIndex == 3)
             {
                 loadGridViewProvider();
-
-                txtProviderAddress.Text = "";
-                txtProviderEmail.Text = "";
-                txtProviderName.Text = "";
-                txtProviderPhone.Text = "";
                 txtProviderSearch.Text = "";
             }
             else if (tabControl.SelectedIndex == 4)
@@ -145,6 +124,12 @@ namespace KhoaLuan
                 dgvTree.Rows.Add(newRow);
             }
 
+            //  save ID_TREE_SELECTED
+            if (listTree.Count > 0)
+            {
+                ID_TREE_SELECTED = listTree[0].TreeId;
+            }
+
             dgvTree.Refresh();
 
             #endregion
@@ -155,33 +140,13 @@ namespace KhoaLuan
             try
             {
                 DataGridView dgv = sender as DataGridView;
-                if (dgv.CurrentCell.RowIndex < 0 || dgv.CurrentCell.ColumnIndex < 0 || dgv.CurrentCell.RowIndex >= dgv.RowCount - 1)
+                if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
                 {
                     return;
                 }
 
                 DataGridViewRow row = dgv.Rows[e.RowIndex];
                 ID_TREE_SELECTED = (int)row.Cells[0].Value;
-                Tree currTree = DbManager.GetTreeById((int)row.Cells[0].Value);
-                //  name
-                txtTreeName.Text = currTree.TreeName;
-                //  category
-                cbTreeType.Items.Clear();
-                List<Category> listCat = DbManager.GetListCategory();
-                for (int i = 0; i < listCat.Count; i++)
-                {
-                    cbTreeType.Items.Add(listCat[i].CatName);
-                    if (listCat[i].CatId == currTree.CatId)
-                    {
-                        cbTreeType.SelectedIndex = i;
-                    }
-                }
-                //  so luong
-                nudTreeQuantity.Value = (int)currTree.Quantity;
-                //  gia
-                txtTreeCost.Text = currTree.Cost.ToString();
-                //  mo ta
-                txtTreeDesc.Text = currTree.Description;
             }
             catch (Exception)
             {
@@ -198,77 +163,6 @@ namespace KhoaLuan
         private void txtTreeName_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnTreeAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //  check validate
-                if (txtTreeName.Text == string.Empty ||
-                    cbTreeType.Text == string.Empty ||
-                    txtTreeCost.Text == string.Empty)
-                {
-                    MessageBox.Show("Thêm cây không thành công, bạn vui lòng nhập đủ thông tin.", "Thêm cây",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                //  check tree existing
-                Tree treeTemp = DbManager.GetTreeByName(txtTreeName.Text.ToUpper());
-                if (treeTemp != null)
-                {
-                    MessageBox.Show("Thêm cây không thành công, cây bạn muốn thêm đã tồn tại trong hệ thống.", "Thêm cây",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                Tree newTree = new Tree();
-                //  tree name
-                newTree.TreeName = txtTreeName.Text.ToUpper();
-                //  catId
-                Category cat = DbManager.GetCategoryByName(cbTreeType.Text);
-                if (cat != null)
-                {
-                    newTree.CatId = cat.CatId;
-                }
-                else
-                {
-                    MessageBox.Show("Thêm cây không thành công, không tồn tại loại cây bạn nhập.", "Thêm cây",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                //  quantity
-                newTree.Quantity = (int)nudTreeQuantity.Value;
-                //  cost
-                newTree.Cost = Int32.Parse(txtTreeCost.Text);
-                //  desc
-                newTree.Description = txtTreeDesc.Text;
-                if (DbManager.addTree(newTree))
-                {
-                    MessageBox.Show("Thành công", "Thêm cây", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    loadGridViewTree();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm cây không thành công, bạn vui lòng chỉnh sửa lại thông tin cây muốn thêm.", "Thêm cây",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        private void btnClearTree_Click(object sender, EventArgs e)
-        {
-            txtTreeName.Text = "";
-            cbTreeType.SelectedIndex = 0;
-            nudTreeQuantity.Value = 0;
-            txtTreeCost.Text = "";
-            txtTreeDesc.Text = "";
-            ID_TREE_SELECTED = 0;
         }
 
         private void btnTreeSearch_Click(object sender, EventArgs e)
@@ -301,75 +195,9 @@ namespace KhoaLuan
 
         private void btnTreeUpdate_Click(object sender, EventArgs e)
         {
-            //  check is selected tree
-            if (ID_TREE_SELECTED == null)
-            {
-                MessageBox.Show("Cập nhật cây không thành công, chọn cây cần cập nhật.", "Cập nhật cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //  check validate
-            if (txtTreeName.Text == string.Empty ||
-                    cbTreeType.Text == string.Empty ||
-                    txtTreeCost.Text == string.Empty)
-            {
-                MessageBox.Show("Cập nhật cây không thành công, bạn vui lòng nhập đủ thông tin.", "Cập nhật cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //  check id is valid ?
-            Tree treeById = DbManager.GetTreeById(ID_TREE_SELECTED);
-            if (treeById == null)
-            {
-                MessageBox.Show("Cập nhật cây không thành công, cây bạn muốn cập nhật không tồn tại trong hệ thống.", "Cập nhật cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //  check name is valid ?
-            Tree treeTemp = DbManager.GetTreeByNameNotId(ID_TREE_SELECTED, txtTreeName.Text.ToUpper());
-            if (treeTemp != null)
-            {
-                MessageBox.Show("Cập nhật cây không thành công, cây bạn muốn thêm đã tồn tại trong hệ thống.", "Cập nhật cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            Tree updateTree = new Tree();
-            //  tree id
-            updateTree.TreeId = ID_TREE_SELECTED;
-            //  tree name
-            updateTree.TreeName = txtTreeName.Text.ToUpper();
-            //  catId
-            Category cat = DbManager.GetCategoryByName(cbTreeType.Text);
-            if (cat != null)
-            {
-                updateTree.CatId = cat.CatId;
-            }
-            else
-            {
-                MessageBox.Show("Cập nhật cây không thành công, không tồn tại loại cây bạn nhập.", "Cập nhật cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            //  quantity
-            updateTree.Quantity = (int)nudTreeQuantity.Value;
-            //  cost
-            updateTree.Cost = Int32.Parse(txtTreeCost.Text);
-            //  desc
-            updateTree.Description = txtTreeDesc.Text;
-            if (DbManager.updateTree(updateTree, ID_TREE_SELECTED))
-            {
-                MessageBox.Show("Thành công", "Cập nhật cây", MessageBoxButtons.OK, MessageBoxIcon.None);
-                loadGridViewTree();
-            }
-            else
-            {
-                MessageBox.Show("Cập nhật cây không thành công, bạn vui lòng chỉnh sửa lại thông tin cây muốn cập nhật.", "Cập nhật cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Tree updateTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+            UpdateTree newForm = new UpdateTree(updateTree);
+            newForm.Show();
         }
 
         private void btnTreeDelete_Click(object sender, EventArgs e)
@@ -527,7 +355,7 @@ namespace KhoaLuan
             #endregion
         }
 
-        private void loadGridViewProvider()
+        private void loadGridViewProvider(object sender, EventArgs e)
         {
             txtProviderSearch.Text = "";
 
@@ -563,7 +391,7 @@ namespace KhoaLuan
             try
             {
                 DataGridView dgv = sender as DataGridView;
-                if (dgv.CurrentCell.RowIndex < 0 || dgv.CurrentCell.ColumnIndex < 0 || dgv.CurrentCell.RowIndex >= dgv.RowCount - 1)
+                if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
                 {
                     return;
                 }
@@ -571,8 +399,6 @@ namespace KhoaLuan
                 DataGridViewRow row = dgv.Rows[e.RowIndex];
                 ID_TYPE_SELECTED = (int)row.Cells[0].Value;
                 Category currCat = DbManager.GetCategoryById((int)row.Cells[0].Value);
-                //  name
-                txtTypeName.Text = currCat.CatName;
             }
             catch (Exception)
             {
@@ -609,110 +435,6 @@ namespace KhoaLuan
             dgvType.Refresh();
 
             #endregion
-        }
-
-        private void btnTypeClean_Click(object sender, EventArgs e)
-        {
-            txtTypeName.Text = "";
-            ID_TYPE_SELECTED = 0;
-        }
-
-        private void btnTypeAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //  check validate
-                if (txtTypeName.Text == string.Empty)
-                {
-                    MessageBox.Show("Thêm loại cây không thành công, bạn vui lòng nhập đủ thông tin.", "Thêm loại cây",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                //  check cat existing
-                Category catTemp = DbManager.GetCategoryByName(txtTypeName.Text.ToUpper());
-                if (catTemp != null)
-                {
-                    MessageBox.Show("Thêm loại cây không thành công, loại cây bạn muốn thêm đã tồn tại trong hệ thống.", "Thêm loại cây",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                Category newCat = new Category();
-                //  cat name
-                newCat.CatName = txtTypeName.Text.ToUpper();
-
-                //  them loại cay
-                if (DbManager.addCat(newCat))
-                {
-                    MessageBox.Show("Thành công", "Thêm loại cây", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    loadGridViewCategory();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm loại cây không thành công, bạn vui lòng chỉnh sửa lại thông tin loại cây muốn thêm.", "Thêm loại cây",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        private void btnTypeUpdate_Click(object sender, EventArgs e)
-        {
-            //  check is selected category
-            if (ID_TYPE_SELECTED == null)
-            {
-                MessageBox.Show("Cập nhật loại cây không thành công, chọn loại cây cần cập nhật.", "Cập nhật loại cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //  check validate
-            if (txtTypeName.Text == string.Empty)
-            {
-                MessageBox.Show("Cập nhật loại cây không thành công, bạn vui lòng nhập đủ thông tin.", "Cập nhật loại cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //  check id is valid ?
-            Category catById = DbManager.GetCategoryById(ID_TYPE_SELECTED);
-            if (catById == null)
-            {
-                MessageBox.Show("Cập nhật loại cây không thành công, loại cây bạn muốn cập nhật không tồn tại trong hệ thống.", "Cập nhật loại cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //  check name is valid ?
-            Category catTemp = DbManager.GetCatByNameNotId(ID_TYPE_SELECTED, txtTypeName.Text.ToUpper());
-            if (catTemp != null)
-            {
-                MessageBox.Show("Cập nhật loại cây không thành công, loại cây bạn muốn thêm đã tồn tại trong hệ thống.", "Cập nhật loại cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            Category updateCat = new Category();
-            //  cat id
-            updateCat.CatId = ID_TYPE_SELECTED;
-            //  cat name
-            updateCat.CatName = txtTypeName.Text.ToUpper();
-
-            //  add to db
-            if (DbManager.updateCat(updateCat, ID_TYPE_SELECTED))
-            {
-                MessageBox.Show("Thành công", "Cập nhật loại cây", MessageBoxButtons.OK, MessageBoxIcon.None);
-                loadGridViewCategory();
-            }
-            else
-            {
-                MessageBox.Show("Cập nhật loại cây không thành công, bạn vui lòng chỉnh sửa lại thông tin loại cây muốn cập nhật.", "Cập nhật loại cây",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btnTypeDel_Click(object sender, EventArgs e)
@@ -821,135 +543,6 @@ namespace KhoaLuan
             #endregion
         }
 
-        private void btnProviderClear_Click(object sender, EventArgs e)
-        {
-            resetProviderForm();
-        }
-
-        private void resetProviderForm()
-        {
-            txtProviderAddress.Text = "";
-            txtProviderEmail.Text = "";
-            txtProviderName.Text = "";
-            txtProviderPhone.Text = "";
-            ID_PROVIDER_SELECTED = 0;
-        }
-
-        private void btnProviderAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //  check validate
-                if (txtProviderName.Text == string.Empty)
-                {
-                    MessageBox.Show("Thêm nhà cung cấp không thành công, bạn vui lòng nhập đủ thông tin.", "Thêm nhà cung cấp",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                //  check pro existing
-                Provider proTemp = DbManager.GetProviderByName(txtProviderName.Text.ToUpper());
-                if (proTemp != null)
-                {
-                    MessageBox.Show("Thêm nhà cung cấp không thành công, nhà cung cấp bạn muốn thêm đã tồn tại trong hệ thống.", "Thêm nhà cung cấp",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                Provider newProvider = new Provider();
-                //  pro name
-                newProvider.ProviderName = txtProviderName.Text.ToUpper();
-                //  address
-                newProvider.Address = txtProviderAddress.Text;
-                //  email
-                newProvider.Email = txtProviderEmail.Text;
-                //  phone
-                newProvider.Phone = txtProviderPhone.Text;
-
-                //  them loại cay
-                if (DbManager.addProvider(newProvider))
-                {
-                    MessageBox.Show("Thành công", "Thêm nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    loadGridViewProvider();
-                    resetProviderForm();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm nhà cung cấp không thành công, bạn vui lòng chỉnh sửa lại thông tin nhà cung cấp muốn thêm.", "Thêm nhà cung cấp",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        private void btnProviderUpdate_Click(object sender, EventArgs e)
-        {
-            //  check is selected
-            if (ID_PROVIDER_SELECTED == null)
-            {
-                MessageBox.Show("Cập nhật nhà cung cấp không thành công, chọn nhà cung cấp cần cập nhật.", "Cập nhật nhà cung cấp",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //  check validate
-            if (txtProviderName.Text == string.Empty)
-            {
-                MessageBox.Show("Cập nhật nhà cung cấp không thành công, bạn vui lòng nhập đủ thông tin.", "Cập nhật nhà cung cấp",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //  check id is valid ?
-            Provider proById = DbManager.GetProviderById(ID_PROVIDER_SELECTED);
-            if (proById == null)
-            {
-                MessageBox.Show("Cập nhật nhà cung cấp không thành công, nhà cung cấp bạn muốn cập nhật không tồn tại trong hệ thống.", "Cập nhật nhà cung cấp",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //  check name is valid ?
-            Provider proTemp = DbManager.GetProByNameNotId(ID_PROVIDER_SELECTED, txtProviderName.Text.ToUpper());
-            if (proTemp != null)
-            {
-                MessageBox.Show("Cập nhật nhà cung cấp không thành công, nhà cung cấp bạn muốn thêm đã tồn tại trong hệ thống.", "Cập nhật nhà cung cấp",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            Provider updateProvider = new Provider();
-            //  pro id
-            updateProvider.ProviderId = ID_PROVIDER_SELECTED;
-            //  pro name
-            updateProvider.ProviderName = txtProviderName.Text.ToUpper();
-
-            //  address
-            updateProvider.Address = txtProviderAddress.Text;
-
-            //  phone
-            updateProvider.Phone = txtProviderPhone.Text;
-
-            //  phone
-            updateProvider.Email = txtProviderEmail.Text;
-
-            //  add to db
-            if (DbManager.updateProvider(updateProvider, ID_PROVIDER_SELECTED))
-            {
-                MessageBox.Show("Thành công", "Cập nhật nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
-                loadGridViewProvider();
-                resetProviderForm();
-            }
-            else
-            {
-                MessageBox.Show("Cập nhật nhà cung cấp không thành công, bạn vui lòng chỉnh sửa lại thông tin nhà cung cấp muốn cập nhật.", "Cập nhật nhà cung cấp",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnProviderDelete_Click(object sender, EventArgs e)
         {
             //  check is selected tree
@@ -965,7 +558,6 @@ namespace KhoaLuan
             {
                 MessageBox.Show("Thành công", "Xóa nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
                 loadGridViewProvider();
-                resetProviderForm();
             }
             else
             {
@@ -979,7 +571,7 @@ namespace KhoaLuan
             try
             {
                 DataGridView dgv = sender as DataGridView;
-                if (dgv.CurrentCell.RowIndex < 0 || dgv.CurrentCell.ColumnIndex < 0 || dgv.CurrentCell.RowIndex >= dgv.RowCount - 1)
+                if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
                 {
                     return;
                 }
@@ -987,18 +579,6 @@ namespace KhoaLuan
                 DataGridViewRow row = dgv.Rows[e.RowIndex];
                 ID_PROVIDER_SELECTED = (int)row.Cells[0].Value;
                 Provider provider = DbManager.GetProviderById((int)row.Cells[0].Value);
-
-                //  address
-                txtProviderAddress.Text = provider.Address;
-
-                //  email
-                txtProviderEmail.Text = provider.Email;
-
-                //  name
-                txtProviderName.Text = provider.ProviderName;
-
-                //  phone
-                txtProviderPhone.Text = provider.Phone;
             }
             catch (Exception)
             {
@@ -1062,10 +642,12 @@ namespace KhoaLuan
 
         private void dgvBill_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvBill.CurrentCell.RowIndex < 0 || dgvBill.CurrentCell.ColumnIndex < 0 || dgvBill.CurrentCell.RowIndex >= dgvBill.RowCount - 1)
+            DataGridView dgv = sender as DataGridView;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
             {
                 return;
             }
+
             DataGridViewRow row = dgvBill.Rows[e.RowIndex];
             BILL_ID_SELECTED = (int)row.Cells[0].Value;
         }
@@ -1084,10 +666,12 @@ namespace KhoaLuan
 
         private void dgvImport_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvImport.CurrentCell.RowIndex < 0 || dgvImport.CurrentCell.ColumnIndex < 0 || dgvImport.CurrentCell.RowIndex >= dgvImport.RowCount - 1)
+            DataGridView dgv = sender as DataGridView;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
             {
                 return;
             }
+
             DataGridViewRow row = dgvImport.Rows[e.RowIndex];
             IMPORT_ID_SELECTED = (int)row.Cells[0].Value;
         }
@@ -1097,5 +681,61 @@ namespace KhoaLuan
             AddTree newForm = new AddTree();
             newForm.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            addCategory newForm = new addCategory();
+            newForm.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Category update = DbManager.GetCategoryById(ID_TYPE_SELECTED);
+            UpdateCategory newForm = new UpdateCategory(update);
+            newForm.Show();
+        }
+
+        private void loadGridViewProvider()
+        {
+            txtProviderSearch.Text = "";
+
+            #region set dgv provider
+
+            List<Provider> listProvider = DbManager.GetListProvider();
+
+            dgvProvider.DataSource = null;
+            dgvProvider.Rows.Clear();
+
+            for (int i = 0; i < listProvider.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvProvider);  // this line was missing
+                var provider = listProvider[i];
+                newRow.Cells[0].Value = provider.ProviderId;
+                newRow.Cells[1].Value = provider.ProviderName;
+                newRow.Cells[2].Value = provider.Address;
+                newRow.Cells[3].Value = provider.Phone;
+                newRow.Cells[4].Value = provider.Email;
+                dgvProvider.Rows.Add(newRow);
+            }
+
+            dgvProvider.Refresh();
+
+            #endregion
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            AddProvider newForm = new AddProvider();
+            newForm.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Provider update = DbManager.GetProviderById(ID_PROVIDER_SELECTED);
+            UpdateProvider newForm = new UpdateProvider(update);
+            newForm.Show();
+        }
+
     }
 }

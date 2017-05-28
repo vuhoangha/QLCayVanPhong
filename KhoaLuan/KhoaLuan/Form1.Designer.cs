@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,48 +49,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tpTree = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.nudTreeQuantity = new System.Windows.Forms.NumericUpDown();
-            this.cbTreeType = new System.Windows.Forms.ComboBox();
-            this.txtTreeCost = new System.Windows.Forms.TextBox();
-            this.txtTreeDesc = new System.Windows.Forms.TextBox();
-            this.txtTreeName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtTreeSearch = new System.Windows.Forms.TextBox();
-            this.dgvTree = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnTreeDelete = new System.Windows.Forms.Button();
+            this.dgvTree = new System.Windows.Forms.DataGridView();
+            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTreeUpdate = new System.Windows.Forms.Button();
-            this.btnTreeAdd = new System.Windows.Forms.Button();
-            this.btnClearTree = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtTypeName = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnTypeDel = new System.Windows.Forms.Button();
-            this.btnTypeUpdate = new System.Windows.Forms.Button();
-            this.btnTypeAdd = new System.Windows.Forms.Button();
-            this.btnTypeClean = new System.Windows.Forms.Button();
             this.dgvType = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnTypeRefresh = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTypeSearch = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -112,31 +85,9 @@
             this.txtBillSearch = new System.Windows.Forms.TextBox();
             this.dtpBill = new System.Windows.Forms.DateTimePicker();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtProviderEmail = new System.Windows.Forms.TextBox();
-            this.txtProviderPhone = new System.Windows.Forms.TextBox();
-            this.txtProviderAddress = new System.Windows.Forms.TextBox();
-            this.txtProviderName = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnProviderDelete = new System.Windows.Forms.Button();
-            this.btnProviderUpdate = new System.Windows.Forms.Button();
-            this.btnProviderAdd = new System.Windows.Forms.Button();
-            this.btnProviderClear = new System.Windows.Forms.Button();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnProviderRefresh = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.txtProviderSearch = new System.Windows.Forms.TextBox();
             this.dgvProvider = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvImport = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,35 +104,33 @@
             this.txtImportSearch = new System.Windows.Forms.TextBox();
             this.dtpImport = new System.Windows.Forms.DateTimePicker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.tbcMain.SuspendLayout();
             this.tpTree.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTreeQuantity)).BeginInit();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTree)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvType)).BeginInit();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
             this.flowLayoutPanel5.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvider)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).BeginInit();
@@ -209,218 +158,56 @@
             // 
             // tpTree
             // 
-            this.tpTree.BackColor = System.Drawing.Color.White;
-            this.tpTree.Controls.Add(this.panel2);
-            this.tpTree.Controls.Add(this.flowLayoutPanel2);
+            this.tpTree.BackColor = System.Drawing.Color.Honeydew;
+            this.tpTree.Controls.Add(this.txtTreeSearch);
+            this.tpTree.Controls.Add(this.label1);
+            this.tpTree.Controls.Add(this.button2);
+            this.tpTree.Controls.Add(this.btnTreeDelete);
             this.tpTree.Controls.Add(this.dgvTree);
-            this.tpTree.Controls.Add(this.flowLayoutPanel1);
+            this.tpTree.Controls.Add(this.btnTreeUpdate);
+            this.tpTree.Controls.Add(this.button1);
             this.tpTree.Location = new System.Drawing.Point(4, 34);
             this.tpTree.Name = "tpTree";
             this.tpTree.Size = new System.Drawing.Size(1153, 540);
             this.tpTree.TabIndex = 0;
             this.tpTree.Text = "Cây";
-            this.tpTree.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel2.Controls.Add(this.nudTreeQuantity);
-            this.panel2.Controls.Add(this.cbTreeType);
-            this.panel2.Controls.Add(this.txtTreeCost);
-            this.panel2.Controls.Add(this.txtTreeDesc);
-            this.panel2.Controls.Add(this.txtTreeName);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(732, 49);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(418, 483);
-            this.panel2.TabIndex = 3;
-            // 
-            // nudTreeQuantity
-            // 
-            this.nudTreeQuantity.Location = new System.Drawing.Point(147, 190);
-            this.nudTreeQuantity.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudTreeQuantity.Name = "nudTreeQuantity";
-            this.nudTreeQuantity.Size = new System.Drawing.Size(167, 20);
-            this.nudTreeQuantity.TabIndex = 3;
-            // 
-            // cbTreeType
-            // 
-            this.cbTreeType.FormattingEnabled = true;
-            this.cbTreeType.Location = new System.Drawing.Point(147, 133);
-            this.cbTreeType.Name = "cbTreeType";
-            this.cbTreeType.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbTreeType.Size = new System.Drawing.Size(239, 21);
-            this.cbTreeType.TabIndex = 2;
-            // 
-            // txtTreeCost
-            // 
-            this.txtTreeCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTreeCost.Location = new System.Drawing.Point(147, 246);
-            this.txtTreeCost.Name = "txtTreeCost";
-            this.txtTreeCost.Size = new System.Drawing.Size(167, 22);
-            this.txtTreeCost.TabIndex = 1;
-            // 
-            // txtTreeDesc
-            // 
-            this.txtTreeDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTreeDesc.Location = new System.Drawing.Point(147, 304);
-            this.txtTreeDesc.Multiline = true;
-            this.txtTreeDesc.Name = "txtTreeDesc";
-            this.txtTreeDesc.Size = new System.Drawing.Size(239, 101);
-            this.txtTreeDesc.TabIndex = 1;
-            // 
-            // txtTreeName
-            // 
-            this.txtTreeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTreeName.Location = new System.Drawing.Point(147, 78);
-            this.txtTreeName.Name = "txtTreeName";
-            this.txtTreeName.Size = new System.Drawing.Size(239, 22);
-            this.txtTreeName.TabIndex = 1;
-            this.txtTreeName.TextChanged += new System.EventHandler(this.txtTreeName_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(67, 249);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 16);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Giá";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(67, 307);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 16);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Mô tả";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(325, 249);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 16);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "VND";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(325, 191);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 16);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "cây";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(67, 190);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Số lượng";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(67, 135);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Loại cây";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(67, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên cây";
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutPanel2.Controls.Add(this.button3);
-            this.flowLayoutPanel2.Controls.Add(this.button1);
-            this.flowLayoutPanel2.Controls.Add(this.panel1);
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(713, 43);
-            this.flowLayoutPanel2.TabIndex = 2;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(675, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button3, "Làm mới");
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtTreeSearch);
-            this.panel1.Location = new System.Drawing.Point(337, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(291, 35);
-            this.panel1.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Tìm kiếm";
             // 
             // txtTreeSearch
             // 
             this.txtTreeSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTreeSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTreeSearch.Location = new System.Drawing.Point(63, 6);
+            this.txtTreeSearch.Location = new System.Drawing.Point(699, 17);
             this.txtTreeSearch.Name = "txtTreeSearch";
             this.txtTreeSearch.Size = new System.Drawing.Size(223, 24);
             this.txtTreeSearch.TabIndex = 3;
             this.txtTreeSearch.TextChanged += new System.EventHandler(this.txtTreeSearch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(637, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Tìm kiếm";
+            // 
+            // btnTreeDelete
+            // 
+            this.btnTreeDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnTreeDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTreeDelete.FlatAppearance.BorderSize = 0;
+            this.btnTreeDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnTreeDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnTreeDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTreeDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnTreeDelete.Image")));
+            this.btnTreeDelete.Location = new System.Drawing.Point(1053, 12);
+            this.btnTreeDelete.Name = "btnTreeDelete";
+            this.btnTreeDelete.Size = new System.Drawing.Size(35, 35);
+            this.btnTreeDelete.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnTreeDelete, "Xóa");
+            this.btnTreeDelete.UseVisualStyleBackColor = false;
+            this.btnTreeDelete.Click += new System.EventHandler(this.btnTreeDelete_Click);
             // 
             // dgvTree
             // 
@@ -428,7 +215,7 @@
             this.dgvTree.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
@@ -443,14 +230,15 @@
             this.dtcQuantity});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTree.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvTree.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvTree.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.dgvTree.Location = new System.Drawing.Point(3, 48);
+            this.dgvTree.Location = new System.Drawing.Point(0, 59);
             this.dgvTree.MultiSelect = false;
             this.dgvTree.Name = "dgvTree";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -462,6 +250,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTree.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
@@ -471,41 +260,43 @@
             this.dgvTree.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dgvTree.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvTree.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTree.Size = new System.Drawing.Size(713, 486);
+            this.dgvTree.Size = new System.Drawing.Size(1153, 481);
             this.dgvTree.TabIndex = 1;
             this.dgvTree.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTree_CellClick);
             // 
-            // flowLayoutPanel1
+            // dtcId
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutPanel1.Controls.Add(this.btnTreeDelete);
-            this.flowLayoutPanel1.Controls.Add(this.btnTreeUpdate);
-            this.flowLayoutPanel1.Controls.Add(this.btnTreeAdd);
-            this.flowLayoutPanel1.Controls.Add(this.btnClearTree);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(732, 3);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(421, 43);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.dtcId.HeaderText = "Mã cây";
+            this.dtcId.Name = "dtcId";
+            this.dtcId.ReadOnly = true;
             // 
-            // btnTreeDelete
+            // dtcTreeName
             // 
-            this.btnTreeDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnTreeDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTreeDelete.FlatAppearance.BorderSize = 0;
-            this.btnTreeDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTreeDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTreeDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTreeDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnTreeDelete.Image")));
-            this.btnTreeDelete.Location = new System.Drawing.Point(383, 3);
-            this.btnTreeDelete.Name = "btnTreeDelete";
-            this.btnTreeDelete.Size = new System.Drawing.Size(35, 35);
-            this.btnTreeDelete.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnTreeDelete, "Xóa");
-            this.btnTreeDelete.UseVisualStyleBackColor = false;
-            this.btnTreeDelete.Click += new System.EventHandler(this.btnTreeDelete_Click);
+            this.dtcTreeName.HeaderText = "Tên cây";
+            this.dtcTreeName.Name = "dtcTreeName";
+            this.dtcTreeName.ReadOnly = true;
+            this.dtcTreeName.Width = 200;
+            // 
+            // dtcTreeType
+            // 
+            this.dtcTreeType.HeaderText = "Loại cây";
+            this.dtcTreeType.Name = "dtcTreeType";
+            this.dtcTreeType.ReadOnly = true;
+            this.dtcTreeType.Width = 150;
+            // 
+            // dtcTreeCost
+            // 
+            this.dtcTreeCost.HeaderText = "Giá tiền";
+            this.dtcTreeCost.Name = "dtcTreeCost";
+            this.dtcTreeCost.ReadOnly = true;
+            this.dtcTreeCost.Width = 110;
+            // 
+            // dtcQuantity
+            // 
+            this.dtcQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dtcQuantity.HeaderText = "Số lượng";
+            this.dtcQuantity.Name = "dtcQuantity";
+            this.dtcQuantity.ReadOnly = true;
             // 
             // btnTreeUpdate
             // 
@@ -516,7 +307,7 @@
             this.btnTreeUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnTreeUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTreeUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnTreeUpdate.Image")));
-            this.btnTreeUpdate.Location = new System.Drawing.Point(342, 3);
+            this.btnTreeUpdate.Location = new System.Drawing.Point(1001, 12);
             this.btnTreeUpdate.Name = "btnTreeUpdate";
             this.btnTreeUpdate.Size = new System.Drawing.Size(35, 35);
             this.btnTreeUpdate.TabIndex = 1;
@@ -524,166 +315,39 @@
             this.btnTreeUpdate.UseVisualStyleBackColor = false;
             this.btnTreeUpdate.Click += new System.EventHandler(this.btnTreeUpdate_Click);
             // 
-            // btnTreeAdd
+            // button1
             // 
-            this.btnTreeAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnTreeAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTreeAdd.FlatAppearance.BorderSize = 0;
-            this.btnTreeAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTreeAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTreeAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTreeAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnTreeAdd.Image")));
-            this.btnTreeAdd.Location = new System.Drawing.Point(301, 3);
-            this.btnTreeAdd.Name = "btnTreeAdd";
-            this.btnTreeAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnTreeAdd.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.btnTreeAdd, "Thêm mới");
-            this.btnTreeAdd.UseVisualStyleBackColor = false;
-            this.btnTreeAdd.Click += new System.EventHandler(this.btnTreeAdd_Click);
-            this.btnTreeAdd.MouseHover += new System.EventHandler(this.button1_MouseHover);
-            // 
-            // btnClearTree
-            // 
-            this.btnClearTree.BackColor = System.Drawing.Color.Transparent;
-            this.btnClearTree.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClearTree.FlatAppearance.BorderSize = 0;
-            this.btnClearTree.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnClearTree.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnClearTree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearTree.Image = ((System.Drawing.Image)(resources.GetObject("btnClearTree.Image")));
-            this.btnClearTree.Location = new System.Drawing.Point(260, 3);
-            this.btnClearTree.Name = "btnClearTree";
-            this.btnClearTree.Size = new System.Drawing.Size(35, 35);
-            this.btnClearTree.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnClearTree, "Làm mới");
-            this.btnClearTree.UseVisualStyleBackColor = false;
-            this.btnClearTree.Click += new System.EventHandler(this.btnClearTree_Click);
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(947, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.button1, "Thêm mới");
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.panel4);
-            this.tabPage2.Controls.Add(this.flowLayoutPanel4);
+            this.tabPage2.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.button6);
+            this.tabPage2.Controls.Add(this.txtTypeSearch);
             this.tabPage2.Controls.Add(this.dgvType);
-            this.tabPage2.Controls.Add(this.flowLayoutPanel3);
+            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1153, 540);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Loại cây";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel4.Controls.Add(this.txtTypeName);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Location = new System.Drawing.Point(729, 49);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(418, 483);
-            this.panel4.TabIndex = 6;
-            // 
-            // txtTypeName
-            // 
-            this.txtTypeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTypeName.Location = new System.Drawing.Point(147, 78);
-            this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.Size = new System.Drawing.Size(239, 22);
-            this.txtTypeName.TabIndex = 1;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Gray;
-            this.label16.Location = new System.Drawing.Point(67, 81);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(57, 16);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Tên cây";
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.BackColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutPanel4.Controls.Add(this.btnTypeDel);
-            this.flowLayoutPanel4.Controls.Add(this.btnTypeUpdate);
-            this.flowLayoutPanel4.Controls.Add(this.btnTypeAdd);
-            this.flowLayoutPanel4.Controls.Add(this.btnTypeClean);
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(729, 3);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(421, 43);
-            this.flowLayoutPanel4.TabIndex = 5;
-            // 
-            // btnTypeDel
-            // 
-            this.btnTypeDel.BackColor = System.Drawing.Color.Transparent;
-            this.btnTypeDel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTypeDel.FlatAppearance.BorderSize = 0;
-            this.btnTypeDel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeDel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTypeDel.Image = ((System.Drawing.Image)(resources.GetObject("btnTypeDel.Image")));
-            this.btnTypeDel.Location = new System.Drawing.Point(383, 3);
-            this.btnTypeDel.Name = "btnTypeDel";
-            this.btnTypeDel.Size = new System.Drawing.Size(35, 35);
-            this.btnTypeDel.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnTypeDel, "Xóa");
-            this.btnTypeDel.UseVisualStyleBackColor = false;
-            this.btnTypeDel.Click += new System.EventHandler(this.btnTypeDel_Click);
-            // 
-            // btnTypeUpdate
-            // 
-            this.btnTypeUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.btnTypeUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTypeUpdate.FlatAppearance.BorderSize = 0;
-            this.btnTypeUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTypeUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnTypeUpdate.Image")));
-            this.btnTypeUpdate.Location = new System.Drawing.Point(342, 3);
-            this.btnTypeUpdate.Name = "btnTypeUpdate";
-            this.btnTypeUpdate.Size = new System.Drawing.Size(35, 35);
-            this.btnTypeUpdate.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.btnTypeUpdate, "Lưu");
-            this.btnTypeUpdate.UseVisualStyleBackColor = false;
-            this.btnTypeUpdate.Click += new System.EventHandler(this.btnTypeUpdate_Click);
-            // 
-            // btnTypeAdd
-            // 
-            this.btnTypeAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnTypeAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTypeAdd.FlatAppearance.BorderSize = 0;
-            this.btnTypeAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTypeAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnTypeAdd.Image")));
-            this.btnTypeAdd.Location = new System.Drawing.Point(301, 3);
-            this.btnTypeAdd.Name = "btnTypeAdd";
-            this.btnTypeAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnTypeAdd.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.btnTypeAdd, "Thêm mới");
-            this.btnTypeAdd.UseVisualStyleBackColor = false;
-            this.btnTypeAdd.Click += new System.EventHandler(this.btnTypeAdd_Click);
-            // 
-            // btnTypeClean
-            // 
-            this.btnTypeClean.BackColor = System.Drawing.Color.Transparent;
-            this.btnTypeClean.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTypeClean.FlatAppearance.BorderSize = 0;
-            this.btnTypeClean.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeClean.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeClean.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTypeClean.Image = ((System.Drawing.Image)(resources.GetObject("btnTypeClean.Image")));
-            this.btnTypeClean.Location = new System.Drawing.Point(260, 3);
-            this.btnTypeClean.Name = "btnTypeClean";
-            this.btnTypeClean.Size = new System.Drawing.Size(35, 35);
-            this.btnTypeClean.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnTypeClean, "Làm mới");
-            this.btnTypeClean.UseVisualStyleBackColor = false;
-            this.btnTypeClean.Click += new System.EventHandler(this.btnTypeClean_Click);
             // 
             // dgvType
             // 
@@ -691,7 +355,7 @@
             this.dgvType.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Desktop;
@@ -710,9 +374,13 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvType.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvType.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvType.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.dgvType.Location = new System.Drawing.Point(3, 49);
+            this.dgvType.Location = new System.Drawing.Point(3, 61);
+            this.dgvType.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvType.MultiSelect = false;
             this.dgvType.Name = "dgvType";
+            this.dgvType.ReadOnly = true;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -722,79 +390,27 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvType.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
             this.dgvType.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvType.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvType.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvType.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dgvType.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvType.Size = new System.Drawing.Size(713, 486);
+            this.dgvType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvType.Size = new System.Drawing.Size(1147, 476);
             this.dgvType.TabIndex = 4;
             this.dgvType.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvType_CellClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mã loại cây";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tên loại cây";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 200;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Số cây";
-            this.Quantity.Name = "Quantity";
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutPanel3.Controls.Add(this.btnTypeRefresh);
-            this.flowLayoutPanel3.Controls.Add(this.panel3);
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(713, 43);
-            this.flowLayoutPanel3.TabIndex = 3;
-            // 
-            // btnTypeRefresh
-            // 
-            this.btnTypeRefresh.BackColor = System.Drawing.Color.Transparent;
-            this.btnTypeRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTypeRefresh.FlatAppearance.BorderSize = 0;
-            this.btnTypeRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTypeRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTypeRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnTypeRefresh.Image")));
-            this.btnTypeRefresh.Location = new System.Drawing.Point(675, 3);
-            this.btnTypeRefresh.Name = "btnTypeRefresh";
-            this.btnTypeRefresh.Size = new System.Drawing.Size(35, 35);
-            this.btnTypeRefresh.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.btnTypeRefresh, "Làm mới");
-            this.btnTypeRefresh.UseVisualStyleBackColor = false;
-            this.btnTypeRefresh.Click += new System.EventHandler(this.btnTypeRefresh_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.txtTypeSearch);
-            this.panel3.Location = new System.Drawing.Point(5, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(664, 35);
-            this.panel3.TabIndex = 4;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(380, 11);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label7.Location = new System.Drawing.Point(634, 23);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.Size = new System.Drawing.Size(57, 15);
             this.label7.TabIndex = 4;
             this.label7.Text = "Tìm kiếm";
             // 
@@ -802,7 +418,7 @@
             // 
             this.txtTypeSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTypeSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTypeSearch.Location = new System.Drawing.Point(437, 6);
+            this.txtTypeSearch.Location = new System.Drawing.Point(702, 19);
             this.txtTypeSearch.Name = "txtTypeSearch";
             this.txtTypeSearch.Size = new System.Drawing.Size(223, 24);
             this.txtTypeSearch.TabIndex = 3;
@@ -1019,247 +635,37 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.panel7);
-            this.tabPage3.Controls.Add(this.flowLayoutPanel7);
-            this.tabPage3.Controls.Add(this.flowLayoutPanel6);
+            this.tabPage3.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.txtProviderSearch);
+            this.tabPage3.Controls.Add(this.button7);
+            this.tabPage3.Controls.Add(this.button8);
+            this.tabPage3.Controls.Add(this.button9);
+            this.tabPage3.Controls.Add(this.button10);
             this.tabPage3.Controls.Add(this.dgvProvider);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1153, 540);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Nhà cung cấp";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel7.Controls.Add(this.txtProviderEmail);
-            this.panel7.Controls.Add(this.txtProviderPhone);
-            this.panel7.Controls.Add(this.txtProviderAddress);
-            this.panel7.Controls.Add(this.txtProviderName);
-            this.panel7.Controls.Add(this.label15);
-            this.panel7.Controls.Add(this.label14);
-            this.panel7.Controls.Add(this.label13);
-            this.panel7.Controls.Add(this.label12);
-            this.panel7.Location = new System.Drawing.Point(733, 50);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(418, 483);
-            this.panel7.TabIndex = 8;
-            // 
-            // txtProviderEmail
-            // 
-            this.txtProviderEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProviderEmail.Location = new System.Drawing.Point(164, 360);
-            this.txtProviderEmail.Name = "txtProviderEmail";
-            this.txtProviderEmail.Size = new System.Drawing.Size(239, 22);
-            this.txtProviderEmail.TabIndex = 1;
-            // 
-            // txtProviderPhone
-            // 
-            this.txtProviderPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProviderPhone.Location = new System.Drawing.Point(164, 271);
-            this.txtProviderPhone.Name = "txtProviderPhone";
-            this.txtProviderPhone.Size = new System.Drawing.Size(239, 22);
-            this.txtProviderPhone.TabIndex = 1;
-            // 
-            // txtProviderAddress
-            // 
-            this.txtProviderAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProviderAddress.Location = new System.Drawing.Point(164, 189);
-            this.txtProviderAddress.Name = "txtProviderAddress";
-            this.txtProviderAddress.Size = new System.Drawing.Size(239, 22);
-            this.txtProviderAddress.TabIndex = 1;
-            // 
-            // txtProviderName
-            // 
-            this.txtProviderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProviderName.Location = new System.Drawing.Point(164, 104);
-            this.txtProviderName.Name = "txtProviderName";
-            this.txtProviderName.Size = new System.Drawing.Size(239, 22);
-            this.txtProviderName.TabIndex = 1;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Gray;
-            this.label15.Location = new System.Drawing.Point(37, 363);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(42, 16);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Email";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Gray;
-            this.label14.Location = new System.Drawing.Point(37, 274);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(86, 16);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Số điện thoại";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Gray;
-            this.label13.Location = new System.Drawing.Point(37, 192);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 16);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Địa chỉ";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Gray;
-            this.label12.Location = new System.Drawing.Point(37, 107);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(115, 16);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Tên nhà cung cấp";
-            // 
-            // flowLayoutPanel7
-            // 
-            this.flowLayoutPanel7.BackColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutPanel7.Controls.Add(this.btnProviderDelete);
-            this.flowLayoutPanel7.Controls.Add(this.btnProviderUpdate);
-            this.flowLayoutPanel7.Controls.Add(this.btnProviderAdd);
-            this.flowLayoutPanel7.Controls.Add(this.btnProviderClear);
-            this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(733, 4);
-            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(421, 43);
-            this.flowLayoutPanel7.TabIndex = 7;
-            // 
-            // btnProviderDelete
-            // 
-            this.btnProviderDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnProviderDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProviderDelete.FlatAppearance.BorderSize = 0;
-            this.btnProviderDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProviderDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderDelete.Image")));
-            this.btnProviderDelete.Location = new System.Drawing.Point(383, 3);
-            this.btnProviderDelete.Name = "btnProviderDelete";
-            this.btnProviderDelete.Size = new System.Drawing.Size(35, 35);
-            this.btnProviderDelete.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnProviderDelete, "Xóa");
-            this.btnProviderDelete.UseVisualStyleBackColor = false;
-            this.btnProviderDelete.Click += new System.EventHandler(this.btnProviderDelete_Click);
-            // 
-            // btnProviderUpdate
-            // 
-            this.btnProviderUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.btnProviderUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProviderUpdate.FlatAppearance.BorderSize = 0;
-            this.btnProviderUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProviderUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderUpdate.Image")));
-            this.btnProviderUpdate.Location = new System.Drawing.Point(342, 3);
-            this.btnProviderUpdate.Name = "btnProviderUpdate";
-            this.btnProviderUpdate.Size = new System.Drawing.Size(35, 35);
-            this.btnProviderUpdate.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.btnProviderUpdate, "Lưu");
-            this.btnProviderUpdate.UseVisualStyleBackColor = false;
-            this.btnProviderUpdate.Click += new System.EventHandler(this.btnProviderUpdate_Click);
-            // 
-            // btnProviderAdd
-            // 
-            this.btnProviderAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnProviderAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProviderAdd.FlatAppearance.BorderSize = 0;
-            this.btnProviderAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProviderAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderAdd.Image")));
-            this.btnProviderAdd.Location = new System.Drawing.Point(301, 3);
-            this.btnProviderAdd.Name = "btnProviderAdd";
-            this.btnProviderAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnProviderAdd.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.btnProviderAdd, "Thêm mới");
-            this.btnProviderAdd.UseVisualStyleBackColor = false;
-            this.btnProviderAdd.Click += new System.EventHandler(this.btnProviderAdd_Click);
-            // 
-            // btnProviderClear
-            // 
-            this.btnProviderClear.BackColor = System.Drawing.Color.Transparent;
-            this.btnProviderClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProviderClear.FlatAppearance.BorderSize = 0;
-            this.btnProviderClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProviderClear.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderClear.Image")));
-            this.btnProviderClear.Location = new System.Drawing.Point(260, 3);
-            this.btnProviderClear.Name = "btnProviderClear";
-            this.btnProviderClear.Size = new System.Drawing.Size(35, 35);
-            this.btnProviderClear.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnProviderClear, "Làm mới");
-            this.btnProviderClear.UseVisualStyleBackColor = false;
-            this.btnProviderClear.Click += new System.EventHandler(this.btnProviderClear_Click);
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.BackColor = System.Drawing.Color.Honeydew;
-            this.flowLayoutPanel6.Controls.Add(this.btnProviderRefresh);
-            this.flowLayoutPanel6.Controls.Add(this.panel6);
-            this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(1, 4);
-            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(713, 43);
-            this.flowLayoutPanel6.TabIndex = 6;
-            // 
-            // btnProviderRefresh
-            // 
-            this.btnProviderRefresh.BackColor = System.Drawing.Color.Transparent;
-            this.btnProviderRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProviderRefresh.FlatAppearance.BorderSize = 0;
-            this.btnProviderRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnProviderRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProviderRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnProviderRefresh.Image")));
-            this.btnProviderRefresh.Location = new System.Drawing.Point(675, 3);
-            this.btnProviderRefresh.Name = "btnProviderRefresh";
-            this.btnProviderRefresh.Size = new System.Drawing.Size(35, 35);
-            this.btnProviderRefresh.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.btnProviderRefresh, "Làm mới");
-            this.btnProviderRefresh.UseVisualStyleBackColor = false;
-            this.btnProviderRefresh.Click += new System.EventHandler(this.btnProviderRefresh_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.txtProviderSearch);
-            this.panel6.Location = new System.Drawing.Point(5, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(664, 35);
-            this.panel6.TabIndex = 4;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(380, 11);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label11.Location = new System.Drawing.Point(631, 27);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.Size = new System.Drawing.Size(57, 15);
             this.label11.TabIndex = 4;
             this.label11.Text = "Tìm kiếm";
             // 
             // txtProviderSearch
             // 
             this.txtProviderSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtProviderSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProviderSearch.Location = new System.Drawing.Point(437, 6);
+            this.txtProviderSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtProviderSearch.Location = new System.Drawing.Point(699, 20);
             this.txtProviderSearch.Name = "txtProviderSearch";
-            this.txtProviderSearch.Size = new System.Drawing.Size(223, 24);
+            this.txtProviderSearch.Size = new System.Drawing.Size(223, 29);
             this.txtProviderSearch.TabIndex = 3;
             this.txtProviderSearch.TextChanged += new System.EventHandler(this.txtProviderSearch_TextChanged);
             // 
@@ -1290,9 +696,12 @@
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProvider.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvProvider.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvProvider.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.dgvProvider.Location = new System.Drawing.Point(1, 51);
+            this.dgvProvider.Location = new System.Drawing.Point(0, 66);
+            this.dgvProvider.MultiSelect = false;
             this.dgvProvider.Name = "dgvProvider";
+            this.dgvProvider.ReadOnly = true;
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1302,43 +711,19 @@
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProvider.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9F);
             dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
             this.dgvProvider.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvProvider.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvProvider.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvProvider.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dgvProvider.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvProvider.Size = new System.Drawing.Size(713, 486);
+            this.dgvProvider.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProvider.Size = new System.Drawing.Size(1153, 474);
             this.dgvProvider.TabIndex = 5;
             this.dgvProvider.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProvider_CellClick);
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Mã nhà cung cấp";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Tên nhà cung cấp";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Địa chỉ";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Số điện thoại";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Email";
-            this.Column6.Name = "Column6";
             // 
             // tabPage4
             // 
@@ -1536,56 +921,207 @@
             this.dtpImport.TabIndex = 5;
             this.dtpImport.ValueChanged += new System.EventHandler(this.dtpImport_ValueChanged);
             // 
-            // dtcId
+            // button2
             // 
-            this.dtcId.HeaderText = "Mã cây";
-            this.dtcId.Name = "dtcId";
-            this.dtcId.ReadOnly = true;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(1102, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 35);
+            this.button2.TabIndex = 2;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dtcTreeName
+            // button3
             // 
-            this.dtcTreeName.HeaderText = "Tên cây";
-            this.dtcTreeName.Name = "dtcTreeName";
-            this.dtcTreeName.ReadOnly = true;
-            this.dtcTreeName.Width = 200;
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(1105, 13);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 35);
+            this.button3.TabIndex = 7;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.btnTypeRefresh_Click);
             // 
-            // dtcTreeType
+            // button4
             // 
-            this.dtcTreeType.HeaderText = "Loại cây";
-            this.dtcTreeType.Name = "dtcTreeType";
-            this.dtcTreeType.ReadOnly = true;
-            this.dtcTreeType.Width = 150;
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(1054, 13);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 35);
+            this.button4.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.button4, "Xóa");
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.btnTypeDel_Click);
             // 
-            // dtcTreeCost
+            // button5
             // 
-            this.dtcTreeCost.HeaderText = "Giá tiền";
-            this.dtcTreeCost.Name = "dtcTreeCost";
-            this.dtcTreeCost.ReadOnly = true;
-            this.dtcTreeCost.Width = 110;
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Location = new System.Drawing.Point(1002, 13);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(35, 35);
+            this.button5.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.button5, "Lưu");
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // dtcQuantity
+            // button6
             // 
-            this.dtcQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dtcQuantity.HeaderText = "Số lượng";
-            this.dtcQuantity.Name = "dtcQuantity";
-            this.dtcQuantity.ReadOnly = true;
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.Location = new System.Drawing.Point(948, 13);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(35, 35);
+            this.button6.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.button6, "Thêm mới");
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button1
+            // dataGridViewTextBoxColumn1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(634, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.button1, "Thêm mới");
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã loại cây";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên loại cây";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.HeaderText = "Số cây";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Mã nhà cung cấp";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Tên nhà cung cấp";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Địa chỉ";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Số điện thoại";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "Email";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Transparent;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.Location = new System.Drawing.Point(1102, 15);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(35, 35);
+            this.button7.TabIndex = 9;
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.loadGridViewProvider);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.Location = new System.Drawing.Point(1052, 15);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(35, 35);
+            this.button8.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.button8, "Xóa");
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.btnProviderDelete_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Transparent;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.Location = new System.Drawing.Point(1003, 15);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(35, 35);
+            this.button9.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.button9, "Lưu");
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.Transparent;
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
+            this.button10.Location = new System.Drawing.Point(951, 15);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(35, 35);
+            this.button10.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.button10, "Thêm mới");
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Form1
             // 
@@ -1600,34 +1136,18 @@
             this.Text = "Quản lý";
             this.tbcMain.ResumeLayout(false);
             this.tpTree.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTreeQuantity)).EndInit();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.tpTree.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTree)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.flowLayoutPanel4.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvType)).EndInit();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).EndInit();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvider)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).EndInit();
@@ -1643,48 +1163,15 @@
         private System.Windows.Forms.TabControl tbcMain;
         private System.Windows.Forms.TabPage tpTree;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button btnTreeAdd;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnTreeUpdate;
         private System.Windows.Forms.Button btnTreeDelete;
         private System.Windows.Forms.DataGridView dgvTree;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtTreeSearch;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.NumericUpDown nudTreeQuantity;
-        private System.Windows.Forms.ComboBox cbTreeType;
-        private System.Windows.Forms.TextBox txtTreeCost;
-        private System.Windows.Forms.TextBox txtTreeDesc;
-        private System.Windows.Forms.TextBox txtTreeName;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnClearTree;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtTypeName;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Button btnTypeDel;
-        private System.Windows.Forms.Button btnTypeUpdate;
-        private System.Windows.Forms.Button btnTypeAdd;
-        private System.Windows.Forms.Button btnTypeClean;
         private System.Windows.Forms.DataGridView dgvType;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Button btnTypeRefresh;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtTypeSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvBill;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
@@ -1702,31 +1189,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
-        private System.Windows.Forms.Button btnProviderRefresh;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtProviderSearch;
         private System.Windows.Forms.DataGridView dgvProvider;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtProviderName;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
-        private System.Windows.Forms.Button btnProviderDelete;
-        private System.Windows.Forms.Button btnProviderUpdate;
-        private System.Windows.Forms.Button btnProviderAdd;
-        private System.Windows.Forms.Button btnProviderClear;
-        private System.Windows.Forms.TextBox txtProviderEmail;
-        private System.Windows.Forms.TextBox txtProviderPhone;
-        private System.Windows.Forms.TextBox txtProviderAddress;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dgvImport;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
@@ -1749,6 +1214,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcQuantity;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
 
     }
 }

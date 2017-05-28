@@ -16,6 +16,19 @@ namespace KhoaLuan
         public AddTree()
         {
             InitializeComponent();
+
+            //  init combobox tree type
+            //  category
+            cbTreeType.Items.Clear();
+            List<Category> listCat = DbManager.GetListCategory();
+            for (int i = 0; i < listCat.Count; i++)
+            {
+                cbTreeType.Items.Add(listCat[i].CatName);
+            }
+            if (listCat.Count > 0)
+            {
+                cbTreeType.SelectedIndex = 0;
+            }
         }
 
         private void btnImportAddTree_Click(object sender, EventArgs e)

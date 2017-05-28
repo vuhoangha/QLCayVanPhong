@@ -59,11 +59,23 @@
     <Compile Include="AddBill.Designer.cs">
       <DependentUpon>AddBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="addCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addCategory.Designer.cs">
+      <DependentUpon>addCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddImport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddImport.Designer.cs">
       <DependentUpon>AddImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProvider.Designer.cs">
+      <DependentUpon>AddProvider.cs</DependentUpon>
     </Compile>
     <Compile Include="BillDetailView.cs">
       <SubType>Form</SubType>
@@ -161,11 +173,35 @@
     <Compile Include="SelectTreeImport.Designer.cs">
       <DependentUpon>SelectTreeImport.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateCategory.Designer.cs">
+      <DependentUpon>UpdateCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateProvider.Designer.cs">
+      <DependentUpon>UpdateProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTree.Designer.cs">
+      <DependentUpon>UpdateTree.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddBill.resx">
       <DependentUpon>AddBill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="addCategory.resx">
+      <DependentUpon>addCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddImport.resx">
       <DependentUpon>AddImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProvider.resx">
+      <DependentUpon>AddProvider.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BillDetailView.resx">
       <DependentUpon>BillDetailView.cs</DependentUpon>
@@ -199,6 +235,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SelectTreeImport.resx">
       <DependentUpon>SelectTreeImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateCategory.resx">
+      <DependentUpon>UpdateCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateProvider.resx">
+      <DependentUpon>UpdateProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTree.resx">
+      <DependentUpon>UpdateTree.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DB\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
