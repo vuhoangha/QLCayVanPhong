@@ -737,5 +737,10 @@ namespace KhoaLuan
             newForm.Show();
         }
 
+        private void dgvProvider_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }
