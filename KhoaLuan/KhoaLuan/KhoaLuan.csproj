@@ -191,6 +191,18 @@
     <Compile Include="UpdateTree.Designer.cs">
       <DependentUpon>UpdateTree.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateTreeBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTreeBill.Designer.cs">
+      <DependentUpon>UpdateTreeBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTreeImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTreeImport.Designer.cs">
+      <DependentUpon>UpdateTreeImport.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddBill.resx">
       <DependentUpon>AddBill.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +256,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateTree.resx">
       <DependentUpon>UpdateTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTreeBill.resx">
+      <DependentUpon>UpdateTreeBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTreeImport.resx">
+      <DependentUpon>UpdateTreeImport.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DB\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

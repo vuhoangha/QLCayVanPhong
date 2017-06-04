@@ -91,27 +91,6 @@ namespace KhoaLuan
             ROW_SELECTED = dgvAddImport.Rows[e.RowIndex];
             ID_TREE_SELECTED = (int)row.Cells[0].Value;
             Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
-
-            //  tree name
-            lbImportTreeName.Text = currTree.TreeName;
-            //  tree id
-            lbImportTreeId.Text = currTree.TreeId.ToString();
-            //  quantity
-            nudImportTreeQuantity.Value = Int32.Parse(row.Cells[2].Value.ToString());
-            //  cost
-            txtCost.Text = row.Cells[3].Value.ToString();
-            //  total cost
-            lbTotalCost.Text = row.Cells[4].Value.ToString();
-        }
-
-        private void btnBillUpdate_Click(object sender, EventArgs e)
-        {
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
-            ROW_SELECTED.Cells[2].Value = nudImportTreeQuantity.Value;
-            ROW_SELECTED.Cells[3].Value = txtCost.Text;
-            ROW_SELECTED.Cells[4].Value = (nudImportTreeQuantity.Value * Int32.Parse(txtCost.Text)).ToString();
-            dgvAddImport.Refresh();
-            calculateTotalCost();
         }
 
         private void calculateTotalCost()
@@ -132,18 +111,6 @@ namespace KhoaLuan
             dgvAddImport.Rows.RemoveAt(ROW_SELECTED.Index);
             dgvAddImport.Refresh();
             calculateTotalCost();
-        }
-
-        private void nudImportTreeQuantity_ValueChanged(object sender, EventArgs e)
-        {
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
-            lbTotalCost.Text = (nudImportTreeQuantity.Value * Int32.Parse(txtCost.Text)).ToString();
-        }
-
-        private void txtCost_TextChanged(object sender, EventArgs e)
-        {
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
-            lbTotalCost.Text = (nudImportTreeQuantity.Value * Int32.Parse(txtCost.Text)).ToString();
         }
 
         private void btnAddBillExport_Click(object sender, EventArgs e)
@@ -204,6 +171,36 @@ namespace KhoaLuan
 
                 throw;
             }
+        }
+
+        private bool updateTreeCallBack(int quantity, int cost)
+        {
+            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+            ROW_SELECTED.Cells[2].Value = quantity;
+            ROW_SELECTED.Cells[3].Value = cost;
+            ROW_SELECTED.Cells[4].Value = (quantity * cost).ToString();
+            dgvAddImport.Refresh();
+            calculateTotalCost();
+            return true;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (ROW_SELECTED == null)
+            {
+                MessageBox.Show("Vui lòng chọn cây cần cập nhật", "Cập nhật cây",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  get current tree
+            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+
+            int quantity = Int32.Parse(ROW_SELECTED.Cells[2].Value.ToString());
+            int cost = Int32.Parse(ROW_SELECTED.Cells[3].Value.ToString());
+
+            UpdateTreeImport newFrom = new UpdateTreeImport(currTree, quantity, cost, updateTreeCallBack);
+            newFrom.Show();
         }
 
     }

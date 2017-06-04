@@ -76,6 +76,12 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dtpBill = new System.Windows.Forms.DateTimePicker();
+            this.btnBillDetail = new System.Windows.Forms.Button();
+            this.txtBillSearch = new System.Windows.Forms.TextBox();
+            this.button11 = new System.Windows.Forms.Button();
+            this.btnBillAdd = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.dgvBill = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,11 +90,6 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBillDetail = new System.Windows.Forms.Button();
-            this.btnBillAdd = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtBillSearch = new System.Windows.Forms.TextBox();
-            this.dtpBill = new System.Windows.Forms.DateTimePicker();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
             this.txtProviderSearch = new System.Windows.Forms.TextBox();
@@ -103,20 +104,19 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnImportRefresh = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnImportDetail = new System.Windows.Forms.Button();
             this.dgvImport = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnImportRefresh = new System.Windows.Forms.Button();
-            this.btnImportDetail = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.txtImportSearch = new System.Windows.Forms.TextBox();
             this.dtpImport = new System.Windows.Forms.DateTimePicker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button11 = new System.Windows.Forms.Button();
             this.tbcMain.SuspendLayout();
             this.tpTree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTree)).BeginInit();
@@ -168,7 +168,7 @@
             // 
             this.txtTreeSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTreeSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTreeSearch.Location = new System.Drawing.Point(699, 17);
+            this.txtTreeSearch.Location = new System.Drawing.Point(714, 18);
             this.txtTreeSearch.Name = "txtTreeSearch";
             this.txtTreeSearch.Size = new System.Drawing.Size(223, 24);
             this.txtTreeSearch.TabIndex = 3;
@@ -178,7 +178,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(637, 20);
+            this.label1.Location = new System.Drawing.Point(643, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 15);
             this.label1.TabIndex = 4;
@@ -315,7 +315,7 @@
             this.btnTreeUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnTreeUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTreeUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnTreeUpdate.Image")));
-            this.btnTreeUpdate.Location = new System.Drawing.Point(1001, 12);
+            this.btnTreeUpdate.Location = new System.Drawing.Point(1004, 12);
             this.btnTreeUpdate.Name = "btnTreeUpdate";
             this.btnTreeUpdate.Size = new System.Drawing.Size(35, 35);
             this.btnTreeUpdate.TabIndex = 1;
@@ -332,7 +332,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(947, 12);
+            this.button1.Location = new System.Drawing.Point(955, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 35);
             this.button1.TabIndex = 5;
@@ -352,7 +352,6 @@
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1153, 540);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Loại cây";
@@ -361,7 +360,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label7.Location = new System.Drawing.Point(634, 23);
+            this.label7.Location = new System.Drawing.Point(640, 24);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 15);
             this.label7.TabIndex = 4;
@@ -376,7 +375,7 @@
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(948, 13);
+            this.button6.Location = new System.Drawing.Point(955, 12);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(35, 35);
             this.button6.TabIndex = 9;
@@ -388,7 +387,7 @@
             // 
             this.txtTypeSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTypeSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTypeSearch.Location = new System.Drawing.Point(702, 19);
+            this.txtTypeSearch.Location = new System.Drawing.Point(712, 19);
             this.txtTypeSearch.Name = "txtTypeSearch";
             this.txtTypeSearch.Size = new System.Drawing.Size(223, 24);
             this.txtTypeSearch.TabIndex = 3;
@@ -421,7 +420,7 @@
             this.dgvType.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvType.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvType.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.dgvType.Location = new System.Drawing.Point(3, 61);
+            this.dgvType.Location = new System.Drawing.Point(0, 59);
             this.dgvType.Margin = new System.Windows.Forms.Padding(0);
             this.dgvType.MultiSelect = false;
             this.dgvType.Name = "dgvType";
@@ -445,7 +444,7 @@
             this.dgvType.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dgvType.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvType.Size = new System.Drawing.Size(1147, 476);
+            this.dgvType.Size = new System.Drawing.Size(1153, 481);
             this.dgvType.TabIndex = 4;
             this.dgvType.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvType_CellClick);
             // 
@@ -478,7 +477,7 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(1105, 13);
+            this.button3.Location = new System.Drawing.Point(1102, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(35, 35);
             this.button3.TabIndex = 7;
@@ -494,7 +493,7 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(1054, 13);
+            this.button4.Location = new System.Drawing.Point(1053, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(35, 35);
             this.button4.TabIndex = 8;
@@ -511,7 +510,7 @@
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(1002, 13);
+            this.button5.Location = new System.Drawing.Point(1004, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(35, 35);
             this.button5.TabIndex = 6;
@@ -534,6 +533,87 @@
             this.tabPage1.Size = new System.Drawing.Size(1153, 540);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Hóa đơn";
+            // 
+            // dtpBill
+            // 
+            this.dtpBill.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBill.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBill.Location = new System.Drawing.Point(846, 19);
+            this.dtpBill.Name = "dtpBill";
+            this.dtpBill.Size = new System.Drawing.Size(139, 23);
+            this.dtpBill.TabIndex = 5;
+            this.dtpBill.ValueChanged += new System.EventHandler(this.dtpBill_ValueChanged);
+            // 
+            // btnBillDetail
+            // 
+            this.btnBillDetail.BackColor = System.Drawing.Color.Transparent;
+            this.btnBillDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBillDetail.FlatAppearance.BorderSize = 0;
+            this.btnBillDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBillDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBillDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBillDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnBillDetail.Image")));
+            this.btnBillDetail.Location = new System.Drawing.Point(1053, 12);
+            this.btnBillDetail.Name = "btnBillDetail";
+            this.btnBillDetail.Size = new System.Drawing.Size(35, 35);
+            this.btnBillDetail.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.btnBillDetail, "Chi tiết");
+            this.btnBillDetail.UseVisualStyleBackColor = false;
+            this.btnBillDetail.Click += new System.EventHandler(this.btnBillDetail_Click);
+            // 
+            // txtBillSearch
+            // 
+            this.txtBillSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBillSearch.Location = new System.Drawing.Point(601, 18);
+            this.txtBillSearch.Name = "txtBillSearch";
+            this.txtBillSearch.Size = new System.Drawing.Size(223, 24);
+            this.txtBillSearch.TabIndex = 3;
+            this.txtBillSearch.TextChanged += new System.EventHandler(this.txtBillSearch_TextChanged);
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.Transparent;
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.ForeColor = System.Drawing.Color.Honeydew;
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.Location = new System.Drawing.Point(1102, 12);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(35, 35);
+            this.button11.TabIndex = 1;
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.btnBillRefresh_Click);
+            // 
+            // btnBillAdd
+            // 
+            this.btnBillAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnBillAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBillAdd.FlatAppearance.BorderSize = 0;
+            this.btnBillAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBillAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBillAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBillAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnBillAdd.Image")));
+            this.btnBillAdd.Location = new System.Drawing.Point(1004, 12);
+            this.btnBillAdd.Name = "btnBillAdd";
+            this.btnBillAdd.Size = new System.Drawing.Size(35, 35);
+            this.btnBillAdd.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btnBillAdd, "Thêm hóa đơn");
+            this.btnBillAdd.UseVisualStyleBackColor = false;
+            this.btnBillAdd.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label8.Location = new System.Drawing.Point(529, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 15);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Tìm kiếm";
             // 
             // dgvBill
             // 
@@ -564,9 +644,8 @@
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBill.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvBill.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvBill.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.dgvBill.Location = new System.Drawing.Point(0, 57);
+            this.dgvBill.Location = new System.Drawing.Point(0, 59);
             this.dgvBill.MultiSelect = false;
             this.dgvBill.Name = "dgvBill";
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -588,7 +667,7 @@
             this.dgvBill.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dgvBill.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBill.Size = new System.Drawing.Size(1153, 483);
+            this.dgvBill.Size = new System.Drawing.Size(1153, 487);
             this.dgvBill.TabIndex = 5;
             this.dgvBill.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBill_CellClick);
             // 
@@ -632,70 +711,6 @@
             this.Column4.HeaderText = "Địa chỉ KH";
             this.Column4.Name = "Column4";
             // 
-            // btnBillDetail
-            // 
-            this.btnBillDetail.BackColor = System.Drawing.Color.Transparent;
-            this.btnBillDetail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBillDetail.FlatAppearance.BorderSize = 0;
-            this.btnBillDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnBillDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnBillDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBillDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnBillDetail.Image")));
-            this.btnBillDetail.Location = new System.Drawing.Point(1056, 10);
-            this.btnBillDetail.Name = "btnBillDetail";
-            this.btnBillDetail.Size = new System.Drawing.Size(35, 35);
-            this.btnBillDetail.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.btnBillDetail, "Chi tiết");
-            this.btnBillDetail.UseVisualStyleBackColor = false;
-            this.btnBillDetail.Click += new System.EventHandler(this.btnBillDetail_Click);
-            // 
-            // btnBillAdd
-            // 
-            this.btnBillAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnBillAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBillAdd.FlatAppearance.BorderSize = 0;
-            this.btnBillAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnBillAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnBillAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBillAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnBillAdd.Image")));
-            this.btnBillAdd.Location = new System.Drawing.Point(1004, 10);
-            this.btnBillAdd.Name = "btnBillAdd";
-            this.btnBillAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnBillAdd.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.btnBillAdd, "Thêm hóa đơn");
-            this.btnBillAdd.UseVisualStyleBackColor = false;
-            this.btnBillAdd.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label8.Location = new System.Drawing.Point(526, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 15);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Tìm kiếm";
-            // 
-            // txtBillSearch
-            // 
-            this.txtBillSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBillSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBillSearch.Location = new System.Drawing.Point(599, 16);
-            this.txtBillSearch.Name = "txtBillSearch";
-            this.txtBillSearch.Size = new System.Drawing.Size(223, 24);
-            this.txtBillSearch.TabIndex = 3;
-            this.txtBillSearch.TextChanged += new System.EventHandler(this.txtBillSearch_TextChanged);
-            // 
-            // dtpBill
-            // 
-            this.dtpBill.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpBill.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBill.Location = new System.Drawing.Point(844, 17);
-            this.dtpBill.Name = "dtpBill";
-            this.dtpBill.Size = new System.Drawing.Size(139, 23);
-            this.dtpBill.TabIndex = 5;
-            this.dtpBill.ValueChanged += new System.EventHandler(this.dtpBill_ValueChanged);
-            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Honeydew;
@@ -716,7 +731,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label11.Location = new System.Drawing.Point(645, 22);
+            this.label11.Location = new System.Drawing.Point(645, 23);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 15);
             this.label11.TabIndex = 4;
@@ -726,7 +741,7 @@
             // 
             this.txtProviderSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProviderSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtProviderSearch.Location = new System.Drawing.Point(713, 15);
+            this.txtProviderSearch.Location = new System.Drawing.Point(713, 16);
             this.txtProviderSearch.Name = "txtProviderSearch";
             this.txtProviderSearch.Size = new System.Drawing.Size(223, 29);
             this.txtProviderSearch.TabIndex = 3;
@@ -741,7 +756,7 @@
             this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(1106, 11);
+            this.button7.Location = new System.Drawing.Point(1102, 12);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(35, 35);
             this.button7.TabIndex = 9;
@@ -757,7 +772,7 @@
             this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(1058, 11);
+            this.button8.Location = new System.Drawing.Point(1053, 12);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(35, 35);
             this.button8.TabIndex = 10;
@@ -774,7 +789,7 @@
             this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(1007, 11);
+            this.button9.Location = new System.Drawing.Point(1004, 12);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(35, 35);
             this.button9.TabIndex = 8;
@@ -791,7 +806,7 @@
             this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.Location = new System.Drawing.Point(956, 11);
+            this.button10.Location = new System.Drawing.Point(955, 12);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(35, 35);
             this.button10.TabIndex = 11;
@@ -826,9 +841,8 @@
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProvider.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dgvProvider.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvProvider.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.dgvProvider.Location = new System.Drawing.Point(0, 56);
+            this.dgvProvider.Location = new System.Drawing.Point(0, 59);
             this.dgvProvider.MultiSelect = false;
             this.dgvProvider.Name = "dgvProvider";
             this.dgvProvider.ReadOnly = true;
@@ -904,6 +918,51 @@
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Nhập hàng";
             // 
+            // btnImportRefresh
+            // 
+            this.btnImportRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btnImportRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImportRefresh.FlatAppearance.BorderSize = 0;
+            this.btnImportRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnImportRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnImportRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportRefresh.ForeColor = System.Drawing.Color.Honeydew;
+            this.btnImportRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnImportRefresh.Image")));
+            this.btnImportRefresh.Location = new System.Drawing.Point(1102, 12);
+            this.btnImportRefresh.Name = "btnImportRefresh";
+            this.btnImportRefresh.Size = new System.Drawing.Size(35, 35);
+            this.btnImportRefresh.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btnImportRefresh, "Làm mới");
+            this.btnImportRefresh.UseVisualStyleBackColor = false;
+            this.btnImportRefresh.Click += new System.EventHandler(this.btnImportRefresh_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label17.Location = new System.Drawing.Point(533, 22);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(57, 15);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "Tìm kiếm";
+            // 
+            // btnImportDetail
+            // 
+            this.btnImportDetail.BackColor = System.Drawing.Color.Transparent;
+            this.btnImportDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImportDetail.FlatAppearance.BorderSize = 0;
+            this.btnImportDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnImportDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnImportDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnImportDetail.Image")));
+            this.btnImportDetail.Location = new System.Drawing.Point(1053, 12);
+            this.btnImportDetail.Name = "btnImportDetail";
+            this.btnImportDetail.Size = new System.Drawing.Size(35, 35);
+            this.btnImportDetail.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnImportDetail, "Chi tiết");
+            this.btnImportDetail.UseVisualStyleBackColor = false;
+            this.btnImportDetail.Click += new System.EventHandler(this.btnImportDetail_Click);
+            // 
             // dgvImport
             // 
             this.dgvImport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -932,7 +991,7 @@
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvImport.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvImport.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.dgvImport.Location = new System.Drawing.Point(3, 59);
+            this.dgvImport.Location = new System.Drawing.Point(0, 59);
             this.dgvImport.MultiSelect = false;
             this.dgvImport.Name = "dgvImport";
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -987,41 +1046,6 @@
             this.dataGridViewTextBoxColumn13.HeaderText = "Tên nhân viên";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             // 
-            // btnImportRefresh
-            // 
-            this.btnImportRefresh.BackColor = System.Drawing.Color.Transparent;
-            this.btnImportRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImportRefresh.FlatAppearance.BorderSize = 0;
-            this.btnImportRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnImportRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnImportRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportRefresh.ForeColor = System.Drawing.Color.Transparent;
-            this.btnImportRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnImportRefresh.Image")));
-            this.btnImportRefresh.Location = new System.Drawing.Point(1104, 11);
-            this.btnImportRefresh.Name = "btnImportRefresh";
-            this.btnImportRefresh.Size = new System.Drawing.Size(35, 35);
-            this.btnImportRefresh.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.btnImportRefresh, "Làm mới");
-            this.btnImportRefresh.UseVisualStyleBackColor = false;
-            this.btnImportRefresh.Click += new System.EventHandler(this.btnImportRefresh_Click);
-            // 
-            // btnImportDetail
-            // 
-            this.btnImportDetail.BackColor = System.Drawing.Color.Transparent;
-            this.btnImportDetail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImportDetail.FlatAppearance.BorderSize = 0;
-            this.btnImportDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnImportDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnImportDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnImportDetail.Image")));
-            this.btnImportDetail.Location = new System.Drawing.Point(1057, 11);
-            this.btnImportDetail.Name = "btnImportDetail";
-            this.btnImportDetail.Size = new System.Drawing.Size(35, 35);
-            this.btnImportDetail.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.btnImportDetail, "Chi tiết");
-            this.btnImportDetail.UseVisualStyleBackColor = false;
-            this.btnImportDetail.Click += new System.EventHandler(this.btnImportDetail_Click);
-            // 
             // btnImport
             // 
             this.btnImport.BackColor = System.Drawing.Color.Transparent;
@@ -1031,7 +1055,7 @@
             this.btnImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
-            this.btnImport.Location = new System.Drawing.Point(1008, 11);
+            this.btnImport.Location = new System.Drawing.Point(1004, 12);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(35, 35);
             this.btnImport.TabIndex = 1;
@@ -1039,21 +1063,11 @@
             this.btnImport.UseVisualStyleBackColor = false;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label17.Location = new System.Drawing.Point(530, 22);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(57, 15);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "Tìm kiếm";
-            // 
             // txtImportSearch
             // 
             this.txtImportSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtImportSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImportSearch.Location = new System.Drawing.Point(601, 17);
+            this.txtImportSearch.Location = new System.Drawing.Point(602, 18);
             this.txtImportSearch.Name = "txtImportSearch";
             this.txtImportSearch.Size = new System.Drawing.Size(223, 24);
             this.txtImportSearch.TabIndex = 3;
@@ -1063,28 +1077,11 @@
             // 
             this.dtpImport.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpImport.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpImport.Location = new System.Drawing.Point(842, 18);
+            this.dtpImport.Location = new System.Drawing.Point(842, 19);
             this.dtpImport.Name = "dtpImport";
             this.dtpImport.Size = new System.Drawing.Size(139, 23);
             this.dtpImport.TabIndex = 5;
             this.dtpImport.ValueChanged += new System.EventHandler(this.dtpImport_ValueChanged);
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.Transparent;
-            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.Color.Honeydew;
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(1105, 11);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(35, 35);
-            this.button11.TabIndex = 1;
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.btnBillRefresh_Click);
             // 
             // Form1
             // 

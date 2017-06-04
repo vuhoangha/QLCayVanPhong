@@ -42,6 +42,16 @@ namespace KhoaLuan
             addTree.Show();
         }
 
+        private bool updateTreeCallBack(int count)
+        {
+            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+            ROW_SELECTED.Cells[2].Value = count;
+            ROW_SELECTED.Cells[3].Value = (count * currTree.Cost).ToString();
+            dgvAddBill.Refresh();
+            calculateTotalCost();
+            return true;
+        }
+
         private bool addTreeCallBack(Tree selected, int count)
         {
             try
@@ -115,27 +125,6 @@ namespace KhoaLuan
             DataGridViewRow row = dgvAddBill.Rows[e.RowIndex];
             ROW_SELECTED = dgvAddBill.Rows[e.RowIndex];
             ID_TREE_SELECTED = (int)row.Cells[0].Value;
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
-
-            //  tree name
-            lbBillTreeName.Text = currTree.TreeName;
-            //  tree id
-            lbBillTreeId.Text = currTree.TreeId.ToString();
-            //  max quantity
-            nudBillTreeQuantity.Maximum = (decimal)currTree.Quantity;
-            //  quantity
-            nudBillTreeQuantity.Value = Int32.Parse(row.Cells[2].Value.ToString());
-            //  total cost
-            lbBillTotalCostTree.Text = (Int32.Parse(row.Cells[2].Value.ToString()) * currTree.Cost).ToString();
-        }
-
-        private void btnBillUpdate_Click(object sender, EventArgs e)
-        {
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
-            ROW_SELECTED.Cells[2].Value = nudBillTreeQuantity.Value;
-            ROW_SELECTED.Cells[3].Value = (nudBillTreeQuantity.Value * currTree.Cost).ToString();
-            dgvAddBill.Refresh();
-            calculateTotalCost();
         }
 
         private void calculateTotalCost()
@@ -149,12 +138,6 @@ namespace KhoaLuan
                 }
             }
             lbAddBillToTalBill.Text = totalCost.ToString();
-        }
-
-        private void nudBillTreeQuantity_ValueChanged(object sender, EventArgs e)
-        {
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
-            lbBillTotalCostTree.Text = (nudBillTreeQuantity.Value * currTree.Cost).ToString();
         }
 
         private void btnBillDel_Click(object sender, EventArgs e)
@@ -202,12 +185,35 @@ namespace KhoaLuan
                 //  save to db
                 DbManager.addListBillDetail(listBillDetail);
 
+                this.Close();
+
+                MessageBox.Show("Tạo hóa đơn thành công", "Thêm hóa đơn",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             catch (Exception)
             {
 
                 throw;
             }
+        }
+
+        private void btnBillUpdateTree_Click(object sender, EventArgs e)
+        {
+            if (ROW_SELECTED == null)
+            {
+                MessageBox.Show("Vui lòng chọn cây cần cập nhật", "Cập nhật cây",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  get current tree
+            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+
+            int quantity = Int32.Parse(ROW_SELECTED.Cells[2].Value.ToString());
+
+            UpdateTreeBill newFrom = new UpdateTreeBill(currTree, quantity, updateTreeCallBack);
+            newFrom.Show();
         }
 
     }

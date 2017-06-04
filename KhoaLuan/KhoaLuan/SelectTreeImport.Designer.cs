@@ -194,7 +194,7 @@
             this.Controls.Add(this.dgv);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SelectTreeImport";
-            this.Text = "SelectTreeImport";
+            this.Text = "Chọn cây";
             this.Load += new System.EventHandler(this.SelectTreeImport_Load);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

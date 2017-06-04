@@ -118,42 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnSelectTreeLoad.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        jAAAAYwBs5R0wwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMdSURBVFhHxZZL
-        aBNBGMfj8+BbRAVR9KKCr4PVZndjoQcFoVVPHsSDCIIHURG9+EBSVBDRmxVjZiZaxEOENrubpqignlQE
-        X3ctKmqrtB5EsGLT+P/WbtydfImV1vXwIzPfc/abb2YSK5VK/xVWGCWsMEpYYZSwwpGwPqcWmbbYbDhy
-        v+mIvUZOxevc1BTOthassBaWK03TUY7pyCFQ0iiarrxT33llGefLwQqrgS9tYZJyDBiOOr49m53AxQnC
-        CjksR6SZRDXBIs5ysYKwQh3DlTu5BCNgyLJFExfThxU2dmRmGa7YgpIfGU7epwX+G/rX3GqbyuUhKgRo
-        sGY49WpBRolq1vP4hCZmLrMaDt8rA7B0m7a8adnyguWo25j3a/rf2PJiME+Q0AQlz7EBwvQYttwa9CPq
-        UqlJaNTT0Bc1e+K10ZFZovsQoQnO8AfGOUh3ffu1OWQbdzNLLVcdwNedM2yxqzHbOs2LYct2xo8YQj/d
-        xYW1MZgzvABHftScghQT+UwD2Rmu2oP5N03/CtwA73D8HgbkOkXoD/k5y8nrsqmZaJY3jINPgewStlyH
-        8Q9N59NtdYrFtB0Yd2i6MK7cV14AHTsIH1cYhVAnyRa/l3m97KH3gWy8mPeSEyHr0mwCqM+0nTF6QCB4
-        UmlQZpA6PZ5TKygw9n234YhOxu4TNWG8kF7oLdQWByGrFbdk2OoUrli1jVMGGEw4acP/MgLNdJ6xI4rx
-        wvUZ2KbpGA9qugro+MbwnLZySo0v6PSEVwFHnmH0Pm1kE7fTmxgdRy+OnnjJKDi+gi4s4K3pqquajri/
-        IX9pdiyZHI/xA01XjfcjOftBBlDe5V4l8L8A1TtG+0jvBvZmnLc9eIYZPxbEsGkBeU5ZFVs8s/JiFSUL
-        YrW3zaOrmfWpguWKEzF0+GFO+QeowV6gAsrrIVc+wly/mP5EHy06tjKbnYwgzxmDf4zaQZXzyjf8Cta6
-        hscS3KKixd+68h42FNTcGg/JWPEU78haP2doAT7o8gXevyFbHEV/JEfLrziiCXfDfD0XUSGIGlYYJaww
-        SlhhdJRiPwGYoZVrTov0tgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="dtcId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dtcTreeName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dtcTreeType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dtcTreeCost.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dtcQuantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="btnBillAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBillUpdate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
@@ -172,10 +137,4 @@
         Efkb/wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
-  </metadata>
 </root>
