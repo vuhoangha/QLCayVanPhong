@@ -63,7 +63,7 @@
             this.btnImportAddTree.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnImportAddTree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportAddTree.Image = ((System.Drawing.Image)(resources.GetObject("btnImportAddTree.Image")));
-            this.btnImportAddTree.Location = new System.Drawing.Point(559, 69);
+            this.btnImportAddTree.Location = new System.Drawing.Point(473, 70);
             this.btnImportAddTree.Name = "btnImportAddTree";
             this.btnImportAddTree.Size = new System.Drawing.Size(35, 35);
             this.btnImportAddTree.TabIndex = 35;
@@ -123,7 +123,7 @@
             this.btnBillDel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnBillDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBillDel.Image = ((System.Drawing.Image)(resources.GetObject("btnBillDel.Image")));
-            this.btnBillDel.Location = new System.Drawing.Point(473, 69);
+            this.btnBillDel.Location = new System.Drawing.Point(564, 69);
             this.btnBillDel.Name = "btnBillDel";
             this.btnBillDel.Size = new System.Drawing.Size(35, 35);
             this.btnBillDel.TabIndex = 2;
@@ -159,7 +159,9 @@
             this.dgvAddImport.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAddImport.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.dgvAddImport.Location = new System.Drawing.Point(19, 111);
+            this.dgvAddImport.MultiSelect = false;
             this.dgvAddImport.Name = "dgvAddImport";
+            this.dgvAddImport.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -169,14 +171,16 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvAddImport.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dgvAddImport.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAddImport.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvAddImport.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvAddImport.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dgvAddImport.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvAddImport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAddImport.Size = new System.Drawing.Size(580, 225);
             this.dgvAddImport.TabIndex = 23;
             this.dgvAddImport.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAddImport_CellClick);
@@ -185,29 +189,34 @@
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Mã cây";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "Tên cây";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 150;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.HeaderText = "Số lượng";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 50;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Giá tiền(VND)";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // TotalCost
             // 
             this.TotalCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TotalCost.HeaderText = "Thành tiền(VND)";
             this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
             // 
             // label1
             // 
@@ -255,7 +264,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(517, 69);
+            this.button1.Location = new System.Drawing.Point(520, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 35);
             this.button1.TabIndex = 37;

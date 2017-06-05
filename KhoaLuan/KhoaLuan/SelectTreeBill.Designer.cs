@@ -128,7 +128,9 @@
             this.dgvSelectTree.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvSelectTree.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.dgvSelectTree.Location = new System.Drawing.Point(7, 74);
+            this.dgvSelectTree.MultiSelect = false;
             this.dgvSelectTree.Name = "dgvSelectTree";
+            this.dgvSelectTree.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,14 +140,16 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSelectTree.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dgvSelectTree.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSelectTree.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvSelectTree.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvSelectTree.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dgvSelectTree.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvSelectTree.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSelectTree.Size = new System.Drawing.Size(713, 358);
             this.dgvSelectTree.TabIndex = 3;
             this.dgvSelectTree.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectTree_CellClick);
@@ -154,23 +158,27 @@
             // 
             this.dtcId.HeaderText = "Mã cây";
             this.dtcId.Name = "dtcId";
+            this.dtcId.ReadOnly = true;
             // 
             // dtcTreeName
             // 
             this.dtcTreeName.HeaderText = "Tên cây";
             this.dtcTreeName.Name = "dtcTreeName";
+            this.dtcTreeName.ReadOnly = true;
             this.dtcTreeName.Width = 200;
             // 
             // dtcTreeType
             // 
             this.dtcTreeType.HeaderText = "Loại cây";
             this.dtcTreeType.Name = "dtcTreeType";
+            this.dtcTreeType.ReadOnly = true;
             this.dtcTreeType.Width = 150;
             // 
             // dtcTreeCost
             // 
             this.dtcTreeCost.HeaderText = "Giá tiền";
             this.dtcTreeCost.Name = "dtcTreeCost";
+            this.dtcTreeCost.ReadOnly = true;
             this.dtcTreeCost.Width = 110;
             // 
             // dtcQuantity
@@ -178,6 +186,7 @@
             this.dtcQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dtcQuantity.HeaderText = "Số lượng";
             this.dtcQuantity.Name = "dtcQuantity";
+            this.dtcQuantity.ReadOnly = true;
             // 
             // btnBillAdd
             // 

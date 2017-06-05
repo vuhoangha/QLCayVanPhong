@@ -79,10 +79,8 @@ namespace KhoaLuan
         private void dgvAddImport_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //  check row valid
-            if (e.RowIndex < 0
-                || e.ColumnIndex < 0
-                || e.RowIndex >= dgvAddImport.RowCount - 1
-                || e.ColumnIndex == -1 && e.RowIndex == -1)
+            DataGridView dgv = sender as DataGridView;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
             {
                 return;
             }

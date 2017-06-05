@@ -51,7 +51,8 @@ namespace KhoaLuan
         {
             try
             {
-                if (dgv.CurrentCell.RowIndex < 0 || dgv.CurrentCell.ColumnIndex < 0 || dgv.CurrentCell.RowIndex >= dgv.RowCount - 1)
+                DataGridView dgv = sender as DataGridView;
+                if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
                 {
                     return;
                 }

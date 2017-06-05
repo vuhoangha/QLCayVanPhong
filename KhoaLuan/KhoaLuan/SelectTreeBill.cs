@@ -92,7 +92,7 @@ namespace KhoaLuan
             try
             {
                 DataGridView dgv = sender as DataGridView;
-                if (dgv.CurrentCell.RowIndex < 0 || dgv.CurrentCell.ColumnIndex < 0 || dgv.CurrentCell.RowIndex >= dgv.RowCount - 1)
+                if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
                 {
                     return;
                 }

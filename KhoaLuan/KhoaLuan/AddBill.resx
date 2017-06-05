@@ -132,20 +132,17 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnBillDel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAsRJREFUWEfVV0trFEEQXt+ComL+kwcFFUHFi3jy5slDJDOzI4J4kQii0ZsefEtu
-        HhVFISY9HfTgybOP9X0T7G62/apTm8z01mYnuxPQDz6Wna6qr7umq7qn9d/gzPvutqywh8BriXLzmTJf
-        E2X+EDNtOknh5jJtr2L8wGntt7Db+MjnunvTwl6E4M9MO1+HmNQ3TOT8pPa7OcxoSAt3Eqv7LonUISby
-        pb3ojnO4+qAUYgW3pKCjMNH2xtFHfhOHXx0knir3RAo0Fgs3W2sSqTa3xQBNUNkZlpGRandKdGyQ0DjG
-        clWcW+hOJNr8kJyapenk891dLLuCVNlLssO6sM2yS8if++0omV+CYYVoNk+xmdJMudd9Y8q9RNkmGHsW
-        j/URTazSrNJFe0Q0LJHEW95vIHvazUjl/d5YWpg7yzscNol2L8q+EtHc9gd7AtWpZFQhVs7mASSIirlX
-        EWdQFxRjlIgJXGFzcnCFZFQh0h4L0f/4GV7nZmRAiTHKVO4Vu1AG6u1+WnEsWAaJw+5x7CdSmU/shgxo
-        40QjicrclSZBz7LCPBR9RJrf7BoyYGWjfkrvnEDPMPZA8pFZngAdn6JRlYPEe1jLJKD5kd3oFbiF2CAm
-        1XksTv+lZ1KfiEnx2AUZKOx1yahMajJsHhA2HN45rTieRJ0yxMF0mc1DGz4oGpWJDtdrRPFuL08i934j
-        ldiy3wBi0fvIPiB/57diUwy9+YQOh9WJdU5pp5XXEdfmc5y1FlJyQTJeJ06x7AryN34PHRKCcbMszIez
-        b7s7WLaKduFOiE4NMtX2MMvJwN3+puTYDO00ywxGqGNcIOUAo5POEaoQllkdS83EzkiBRqOdri1eBn1U
-        oDw7ctDhpHY79J0PA31eIVh7LRVCdY7fKfSXnRxmfIQPFlyj6CYTmg3OczrRiLRS6u3UXqnD9TWZfxet
-        1l8fFqRx+Rsy0gAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
+        TUUH4QUbEwgwrlSa5AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAG+SURBVFhH
+        zZdNTsMwEIW9A26AKhYs+JMQJ+gROAoXyQmiSlyBA1Ri3XACVAqRWOQKVVdI8F4yDulokrhJkBnpU2N7
+        PG/qOOPEhVrhzk7e3eX9m7tOwQrkYCvwmn0pfegr08Ybgs7AAuzAdyD05ZyZhDncPtzFEQIkEswSCYFz
+        E8aSsGH26m5PN+7qRQUbDGMxpoTvtrW7ucOkQgeZgIKxRcY2ZklHNXFKitaV4H2actnboIa5JzDIDWdO
+        +gMSka0MHXzUxuz2Q6HW7yOKBp9Zy9GTY+ke8Jupfos1eAJfjT6LRSnOqoVG57+nOH0/3fkx2ks93mBJ
+        H/rimklYPp5dWTGlvFoOTTIfuCOJWlx8uBLaZw9qM1PWdtNBoQWaSXSNdZEyAR4i1qCFJTRUnKyYAE8y
+        a7CNPcER4iRnAjxOrcEu6iRoA8XJ9l8kEP0WRN+EcR/DkEKEc/w5QEAn0Vu2y0IUUorBvEfcUychZ4fl
+        46lKMQ2NvsPoEcy5EqrfIhPxvs1dHUY0NOIexzR0xHshoUV/JaNFfSn1FvW13BuznPJ2MFbvP9fG+4TJ
+        cT7NmoYAcT5OtbFqSdme8PPcuR/6vgwkQkD6hAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnBillAddTree.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
