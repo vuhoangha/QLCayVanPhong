@@ -126,6 +126,11 @@ namespace KhoaLuan
 
         private void btnBillAdd_Click(object sender, EventArgs e)
         {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn đưa cây đã chọn vào hóa đơn?", "Tạo hóa đơn", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
             callBackTree(TREE_SELECTED, Int32.Parse(nudSelectTreeQuantity.Value.ToString()));
         }
 

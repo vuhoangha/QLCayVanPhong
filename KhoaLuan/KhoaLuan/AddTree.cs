@@ -35,6 +35,12 @@ namespace KhoaLuan
         {
             try
             {
+                //  question yes no
+                if (MessageBox.Show("Bạn có muốn thêm cây?", "Thêm cây", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+                {
+                    return;
+                }
+
                 //  check validate
                 if (txtTreeName.Text == string.Empty ||
                     cbTreeType.Text == string.Empty ||

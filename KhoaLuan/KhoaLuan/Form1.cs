@@ -16,10 +16,10 @@ namespace KhoaLuan
     {
 
         private Login login;
-        private int ID_TREE_SELECTED;
-        private int ID_TYPE_SELECTED;
+        private int? ID_TREE_SELECTED;
+        private int? ID_TYPE_SELECTED;
         private int ID_PROVIDER_SELECTED;
-        private int BILL_ID_SELECTED;
+        private int? BILL_ID_SELECTED;
         private int IMPORT_ID_SELECTED;
 
         public Form1()
@@ -130,9 +130,24 @@ namespace KhoaLuan
                 ID_TREE_SELECTED = listTree[0].TreeId;
             }
 
-            dgvTree.Refresh();
+            refreshDgvTree();
 
             #endregion
+        }
+
+        private void refreshDgvTree()
+        {
+            dgvTree.Refresh();
+            if (dgvTree.RowCount >= 2)
+            {
+                dgvTree.Rows[0].Selected = true;
+                DataGridViewRow row = dgvTree.Rows[0];
+                ID_TREE_SELECTED = (int)row.Cells[0].Value;
+            }
+            else
+            {
+                ID_TREE_SELECTED = null;
+            }
         }
 
         private void dgvTree_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -142,6 +157,7 @@ namespace KhoaLuan
                 DataGridView dgv = sender as DataGridView;
                 if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
                 {
+                    ID_TREE_SELECTED = null;
                     return;
                 }
 
@@ -165,43 +181,27 @@ namespace KhoaLuan
 
         }
 
-        private void btnTreeSearch_Click(object sender, EventArgs e)
-        {
-            #region set dgv tree
-
-            List<Tree> listTree = DbManager.GetTreeByNameContentString(txtTreeSearch.Text.ToUpper());
-            Dictionary<int, Category> DicCategory = DbManager.GetDicCategory();
-
-            dgvTree.DataSource = null;
-            dgvTree.Rows.Clear();
-
-            for (int i = 0; i < listTree.Count; i++)
-            {
-                DataGridViewRow newRow = new DataGridViewRow();
-                newRow.CreateCells(dgvTree);  // this line was missing
-                var tree = listTree[i];
-                newRow.Cells[0].Value = tree.TreeId;
-                newRow.Cells[1].Value = tree.TreeName;
-                newRow.Cells[2].Value = DicCategory[(int)tree.CatId].CatName;
-                newRow.Cells[3].Value = tree.Cost;
-                newRow.Cells[4].Value = tree.Quantity;
-                dgvTree.Rows.Add(newRow);
-            }
-
-            dgvTree.Refresh();
-
-            #endregion
-        }
-
         private void btnTreeUpdate_Click(object sender, EventArgs e)
         {
-            Tree updateTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+            if (ID_TREE_SELECTED == null)
+            {
+                MessageBox.Show("Bạn vui lòng chọn cây cần cập nhật.", "Cập nhật cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Tree updateTree = DbManager.GetTreeById((int)ID_TREE_SELECTED);
             UpdateTree newForm = new UpdateTree(updateTree);
             newForm.Show();
         }
 
         private void btnTreeDelete_Click(object sender, EventArgs e)
         {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn xóa cây đã chọn?", "Xóa cây", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
             //  check is selected tree
             if (ID_TREE_SELECTED == null)
             {
@@ -211,7 +211,7 @@ namespace KhoaLuan
             }
 
             //  desc
-            if (DbManager.deleteTree(ID_TREE_SELECTED))
+            if (DbManager.deleteTree((int)ID_TREE_SELECTED))
             {
                 MessageBox.Show("Thành công", "Xóa cây", MessageBoxButtons.OK, MessageBoxIcon.None);
                 loadGridViewTree();
@@ -246,7 +246,7 @@ namespace KhoaLuan
                 dgvTree.Rows.Add(newRow);
             }
 
-            dgvTree.Refresh();
+            refreshDgvTree();
 
             #endregion
         }
@@ -283,9 +283,24 @@ namespace KhoaLuan
                 dgvBill.Rows.Add(newRow);
             }
 
-            dgvBill.Refresh();
+            refreshDgvBill();
 
             #endregion
+        }
+
+        private void refreshDgvBill()
+        {
+            dgvBill.Refresh();
+            if (dgvBill.RowCount >= 2)
+            {
+                dgvBill.Rows[0].Selected = true;
+                DataGridViewRow row = dgvBill.Rows[0];
+                BILL_ID_SELECTED = (int)row.Cells[0].Value;
+            }
+            else
+            {
+                BILL_ID_SELECTED = null;
+            }
         }
 
         private void loadGridViewImport()
@@ -350,9 +365,24 @@ namespace KhoaLuan
                 dgvType.Rows.Add(newRow);
             }
 
-            dgvType.Refresh();
+            refreshDgvCat();
 
             #endregion
+        }
+
+        private void refreshDgvCat()
+        {
+            dgvType.Refresh();
+            if (dgvType.RowCount >= 2)
+            {
+                dgvType.Rows[0].Selected = true;
+                DataGridViewRow row = dgvType.Rows[0];
+                ID_TYPE_SELECTED = (int)row.Cells[0].Value;
+            }
+            else
+            {
+                ID_TYPE_SELECTED = null;
+            }
         }
 
         private void loadGridViewProvider(object sender, EventArgs e)
@@ -393,6 +423,7 @@ namespace KhoaLuan
                 DataGridView dgv = sender as DataGridView;
                 if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
                 {
+                    ID_TYPE_SELECTED = null;
                     return;
                 }
 
@@ -432,13 +463,19 @@ namespace KhoaLuan
                 dgvType.Rows.Add(newRow);
             }
 
-            dgvType.Refresh();
+            refreshDgvCat();
 
             #endregion
         }
 
         private void btnTypeDel_Click(object sender, EventArgs e)
         {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn xóa nhóm cây đã chọn?", "Xóa nhóm cây", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
             //  check is selected tree
             if (ID_TYPE_SELECTED == null)
             {
@@ -448,7 +485,7 @@ namespace KhoaLuan
             }
 
             //  desc
-            if (DbManager.deleteCat(ID_TYPE_SELECTED))
+            if (DbManager.deleteCat((int)ID_TYPE_SELECTED))
             {
                 MessageBox.Show("Thành công", "Xóa loại cây", MessageBoxButtons.OK, MessageBoxIcon.None);
                 loadGridViewCategory();
@@ -506,7 +543,7 @@ namespace KhoaLuan
                 dgvBill.Rows.Add(newRow);
             }
 
-            dgvBill.Refresh();
+            refreshDgvBill();
 
             #endregion
         }
@@ -645,6 +682,7 @@ namespace KhoaLuan
             DataGridView dgv = sender as DataGridView;
             if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
             {
+                BILL_ID_SELECTED = null;
                 return;
             }
 
@@ -654,7 +692,13 @@ namespace KhoaLuan
 
         private void btnBillDetail_Click(object sender, EventArgs e)
         {
-            BillDetailView newForm = new BillDetailView(BILL_ID_SELECTED);
+            if (BILL_ID_SELECTED == null)
+            {
+                MessageBox.Show("Bạn vui lòng chọn hóa đơn cần xem.", "Chi tiết hóa đơn",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            BillDetailView newForm = new BillDetailView((int)BILL_ID_SELECTED);
             newForm.Show();
         }
 
@@ -690,7 +734,13 @@ namespace KhoaLuan
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Category update = DbManager.GetCategoryById(ID_TYPE_SELECTED);
+            if (ID_TYPE_SELECTED == null)
+            {
+                MessageBox.Show("Bạn vui lòng chọn nhóm cây cần cập nhật.", "Cập nhật nhóm cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Category update = DbManager.GetCategoryById((int)ID_TYPE_SELECTED);
             UpdateCategory newForm = new UpdateCategory(update);
             newForm.Show();
         }

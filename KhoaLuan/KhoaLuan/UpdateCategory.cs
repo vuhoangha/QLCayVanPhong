@@ -26,6 +26,12 @@ namespace KhoaLuan
 
         private void btnImportAddTree_Click(object sender, EventArgs e)
         {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn cập nhật nhóm cây?", "Cập nhật nhóm cây", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
             //  check validate
             if (txtTypeName.Text == string.Empty)
             {

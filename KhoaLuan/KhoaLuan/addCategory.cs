@@ -22,6 +22,12 @@ namespace KhoaLuan
         {
             try
             {
+                //  question yes no
+                if (MessageBox.Show("Bạn có muốn thêm nhóm cây?", "Thêm nhóm cây", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+                {
+                    return;
+                }
+
                 //  check validate
                 if (txtTypeName.Text == string.Empty)
                 {

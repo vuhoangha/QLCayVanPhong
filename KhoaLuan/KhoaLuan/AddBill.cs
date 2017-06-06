@@ -14,7 +14,7 @@ namespace KhoaLuan
     public partial class AddBill : Form
     {
         SelectTreeBill addTree;
-        int ID_TREE_SELECTED;
+        int? ID_TREE_SELECTED;
         DataGridViewRow ROW_SELECTED;
 
         public AddBill()
@@ -44,7 +44,7 @@ namespace KhoaLuan
 
         private bool updateTreeCallBack(int count)
         {
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+            Tree currTree = DbManager.GetTreeById((int)ID_TREE_SELECTED);
             ROW_SELECTED.Cells[2].Value = count;
             ROW_SELECTED.Cells[3].Value = (count * currTree.Cost).ToString();
             dgvAddBill.Refresh();
@@ -117,6 +117,7 @@ namespace KhoaLuan
             DataGridView dgv = sender as DataGridView;
             if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
             {
+                ID_TREE_SELECTED = null;
                 return;
             }
 
@@ -140,6 +141,12 @@ namespace KhoaLuan
 
         private void btnBillDel_Click(object sender, EventArgs e)
         {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn xóa cây khỏi hóa đơn?", "Tạo hóa đơn", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
             dgvAddBill.Rows.RemoveAt(ROW_SELECTED.Index);
             dgvAddBill.Refresh();
             calculateTotalCost();
@@ -149,6 +156,12 @@ namespace KhoaLuan
         {
             try
             {
+                //  question yes no
+                if (MessageBox.Show("Bạn có muốn xuất hóa đơn?", "Tạo hóa đơn", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+                {
+                    return;
+                }
+
                 //  create new bill
                 Bill newBill = new Bill();
                 newBill.TimeChanged = DateTime.Now;
@@ -198,7 +211,7 @@ namespace KhoaLuan
 
         private void btnBillUpdateTree_Click(object sender, EventArgs e)
         {
-            if (ROW_SELECTED == null)
+            if (ID_TREE_SELECTED == null)
             {
                 MessageBox.Show("Vui lòng chọn cây cần cập nhật", "Cập nhật cây",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -206,7 +219,7 @@ namespace KhoaLuan
             }
 
             //  get current tree
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+            Tree currTree = DbManager.GetTreeById((int)ID_TREE_SELECTED);
 
             int quantity = Int32.Parse(ROW_SELECTED.Cells[2].Value.ToString());
 
