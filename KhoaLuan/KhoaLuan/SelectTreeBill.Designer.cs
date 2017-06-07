@@ -209,6 +209,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Gray;
             this.label9.Location = new System.Drawing.Point(272, 169);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(30, 16);
@@ -245,6 +246,7 @@
             this.lbSelectTreeId.Name = "lbSelectTreeId";
             this.lbSelectTreeId.Size = new System.Drawing.Size(208, 30);
             this.lbSelectTreeId.TabIndex = 12;
+            this.lbSelectTreeId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -259,6 +261,7 @@
             // 
             // nudSelectTreeQuantity
             // 
+            this.nudSelectTreeQuantity.ForeColor = System.Drawing.Color.Black;
             this.nudSelectTreeQuantity.Location = new System.Drawing.Point(98, 167);
             this.nudSelectTreeQuantity.Maximum = new decimal(new int[] {
             1000,
@@ -285,7 +288,7 @@
             // 
             this.lbSelectTreeTotalCost.AutoSize = true;
             this.lbSelectTreeTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSelectTreeTotalCost.ForeColor = System.Drawing.Color.Gray;
+            this.lbSelectTreeTotalCost.ForeColor = System.Drawing.Color.Black;
             this.lbSelectTreeTotalCost.Location = new System.Drawing.Point(95, 321);
             this.lbSelectTreeTotalCost.Name = "lbSelectTreeTotalCost";
             this.lbSelectTreeTotalCost.Size = new System.Drawing.Size(16, 16);
@@ -306,11 +309,12 @@
             // lbSelectTreeName
             // 
             this.lbSelectTreeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSelectTreeName.ForeColor = System.Drawing.Color.Gray;
+            this.lbSelectTreeName.ForeColor = System.Drawing.Color.Black;
             this.lbSelectTreeName.Location = new System.Drawing.Point(95, 85);
             this.lbSelectTreeName.Name = "lbSelectTreeName";
             this.lbSelectTreeName.Size = new System.Drawing.Size(208, 30);
             this.lbSelectTreeName.TabIndex = 18;
+            this.lbSelectTreeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 

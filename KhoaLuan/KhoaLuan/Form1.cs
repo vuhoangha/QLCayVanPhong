@@ -18,7 +18,7 @@ namespace KhoaLuan
         private Login login;
         private int? ID_TREE_SELECTED;
         private int? ID_TYPE_SELECTED;
-        private int ID_PROVIDER_SELECTED;
+        private int? ID_PROVIDER_SELECTED;
         private int? BILL_ID_SELECTED;
         private int IMPORT_ID_SELECTED;
 
@@ -409,7 +409,7 @@ namespace KhoaLuan
                 dgvProvider.Rows.Add(newRow);
             }
 
-            dgvProvider.Refresh();
+            refreshDgvProvider();
 
             #endregion
         }
@@ -575,13 +575,19 @@ namespace KhoaLuan
                 dgvProvider.Rows.Add(newRow);
             }
 
-            dgvProvider.Refresh();
+            refreshDgvProvider();
 
             #endregion
         }
 
         private void btnProviderDelete_Click(object sender, EventArgs e)
         {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn xóa nhà cung cấp đã chọn?", "Xóa nhà cung cấp", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
             //  check is selected tree
             if (ID_PROVIDER_SELECTED == null)
             {
@@ -591,7 +597,7 @@ namespace KhoaLuan
             }
 
             //  desc
-            if (DbManager.deletePro(ID_PROVIDER_SELECTED))
+            if (DbManager.deletePro((int)ID_PROVIDER_SELECTED))
             {
                 MessageBox.Show("Thành công", "Xóa nhà cung cấp", MessageBoxButtons.OK, MessageBoxIcon.None);
                 loadGridViewProvider();
@@ -769,9 +775,24 @@ namespace KhoaLuan
                 dgvProvider.Rows.Add(newRow);
             }
 
-            dgvProvider.Refresh();
+            refreshDgvProvider();
 
             #endregion
+        }
+
+        private void refreshDgvProvider()
+        {
+            dgvProvider.Refresh();
+            if (dgvProvider.RowCount >= 2)
+            {
+                dgvProvider.Rows[0].Selected = true;
+                DataGridViewRow row = dgvProvider.Rows[0];
+                ID_PROVIDER_SELECTED = (int)row.Cells[0].Value;
+            }
+            else
+            {
+                ID_PROVIDER_SELECTED = null;
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -782,14 +803,9 @@ namespace KhoaLuan
 
         private void button9_Click(object sender, EventArgs e)
         {
-            Provider update = DbManager.GetProviderById(ID_PROVIDER_SELECTED);
+            Provider update = DbManager.GetProviderById((int)ID_PROVIDER_SELECTED);
             UpdateProvider newForm = new UpdateProvider(update);
             newForm.Show();
-        }
-
-        private void dgvProvider_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
     }

@@ -52,9 +52,37 @@ namespace KhoaLuan
                 dgvSelectTree.Rows.Add(newRow);
             }
 
-            dgvSelectTree.Refresh();
+            refreshDgvSelectTree();
 
             #endregion
+        }
+
+        private void refreshDgvSelectTree()
+        {
+            dgvSelectTree.Refresh();
+            if (dgvSelectTree.RowCount >= 2)
+            {
+                dgvSelectTree.Rows[0].Selected = true;
+                DataGridViewRow row = dgvSelectTree.Rows[0];
+
+                Tree currTree = DbManager.GetTreeById((int)row.Cells[0].Value);
+                TREE_SELECTED = currTree;
+
+                //  name
+                lbSelectTreeName.Text = currTree.TreeName;
+                //  so luong
+                nudSelectTreeQuantity.Value = 0;
+                //  max so luong
+                nudSelectTreeQuantity.Maximum = (decimal)currTree.Quantity;
+                //  ma cay
+                lbSelectTreeId.Text = currTree.TreeId.ToString();
+                //  thanh tien
+                lbSelectTreeTotalCost.Text = currTree.Cost.ToString();
+            }
+            else
+            {
+                TREE_SELECTED = null;
+            }
         }
 
         private void txtTreeSearch_TextChanged(object sender, EventArgs e)
@@ -77,7 +105,7 @@ namespace KhoaLuan
                 dgvSelectTree.Rows.Add(newRow);
             }
 
-            dgvSelectTree.Refresh();
+            refreshDgvSelectTree();
 
             #endregion
         }
@@ -131,7 +159,16 @@ namespace KhoaLuan
             {
                 return;
             }
-            callBackTree(TREE_SELECTED, Int32.Parse(nudSelectTreeQuantity.Value.ToString()));
+
+            int quantity = Int32.Parse(nudSelectTreeQuantity.Value.ToString());
+            if (quantity <= 0)
+            {
+                MessageBox.Show("Bạn vui lòng chọn số cây khách hàng muốn mua.", "Chọn cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            callBackTree(TREE_SELECTED, quantity);
         }
 
     }

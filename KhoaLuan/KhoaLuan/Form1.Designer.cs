@@ -876,7 +876,6 @@
             this.dgvProvider.Size = new System.Drawing.Size(1153, 484);
             this.dgvProvider.TabIndex = 5;
             this.dgvProvider.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProvider_CellClick);
-            this.dgvProvider.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProvider_CellContentClick);
             // 
             // dataGridViewTextBoxColumn6
             // 

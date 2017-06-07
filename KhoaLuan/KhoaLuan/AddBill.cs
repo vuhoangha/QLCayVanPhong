@@ -47,9 +47,26 @@ namespace KhoaLuan
             Tree currTree = DbManager.GetTreeById((int)ID_TREE_SELECTED);
             ROW_SELECTED.Cells[2].Value = count;
             ROW_SELECTED.Cells[3].Value = (count * currTree.Cost).ToString();
-            dgvAddBill.Refresh();
+            refreshDgvAddBill();
             calculateTotalCost();
             return true;
+        }
+
+        private void refreshDgvAddBill()
+        {
+            dgvAddBill.Refresh();
+            if (dgvAddBill.RowCount >= 2)
+            {
+                dgvAddBill.Rows[0].Selected = true;
+                DataGridViewRow row = dgvAddBill.Rows[0];
+                ID_TREE_SELECTED = (int)row.Cells[0].Value;
+                ROW_SELECTED = dgvAddBill.Rows[0];
+            }
+            else
+            {
+                ID_TREE_SELECTED = null;
+                ROW_SELECTED = null;
+            }
         }
 
         private bool addTreeCallBack(Tree selected, int count)
@@ -97,7 +114,7 @@ namespace KhoaLuan
                 newRow.Cells[2].Value = count;
                 newRow.Cells[3].Value = selected.Cost * count;
                 dgvAddBill.Rows.Add(newRow);
-                dgvAddBill.Refresh();
+                refreshDgvAddBill();
 
                 addTree.Close();
                 calculateTotalCost();
@@ -148,7 +165,7 @@ namespace KhoaLuan
             }
 
             dgvAddBill.Rows.RemoveAt(ROW_SELECTED.Index);
-            dgvAddBill.Refresh();
+            refreshDgvAddBill();
             calculateTotalCost();
         }
 
@@ -198,8 +215,7 @@ namespace KhoaLuan
 
                 this.Close();
 
-                MessageBox.Show("Tạo hóa đơn thành công", "Thêm hóa đơn",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tạo hóa đơn thành công");
                 return;
             }
             catch (Exception)
