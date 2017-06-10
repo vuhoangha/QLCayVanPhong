@@ -87,21 +87,24 @@ namespace KhoaLuan
 
         private void txtTreeSearch_TextChanged(object sender, EventArgs e)
         {
-            #region set dgv category
+            #region set dgv tree
 
-            List<Category> listCat = DbManager.GetCatByNameContentString(txtSelectTreeSearch.Text.ToUpper());
+            List<Tree> listTree = DbManager.GetTreeByNameContentString(txtSelectTreeSearch.Text);
+            Dictionary<int, Category> DicCategory = DbManager.GetDicCategory();
 
             dgvSelectTree.DataSource = null;
             dgvSelectTree.Rows.Clear();
 
-            for (int i = 0; i < listCat.Count; i++)
+            for (int i = 0; i < listTree.Count; i++)
             {
                 DataGridViewRow newRow = new DataGridViewRow();
                 newRow.CreateCells(dgvSelectTree);  // this line was missing
-                var cat = listCat[i];
-                newRow.Cells[0].Value = cat.CatId;
-                newRow.Cells[1].Value = cat.CatName;
-                newRow.Cells[2].Value = DbManager.countTree(cat.CatId);
+                var tree = listTree[i];
+                newRow.Cells[0].Value = tree.TreeId;
+                newRow.Cells[1].Value = tree.TreeName;
+                newRow.Cells[2].Value = DicCategory[(int)tree.CatId].CatName;
+                newRow.Cells[3].Value = tree.Cost;
+                newRow.Cells[4].Value = tree.Quantity;
                 dgvSelectTree.Rows.Add(newRow);
             }
 

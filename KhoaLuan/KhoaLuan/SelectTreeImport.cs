@@ -48,9 +48,25 @@ namespace KhoaLuan
                 dgv.Rows.Add(newRow);
             }
 
-            dgv.Refresh();
+            refreshDgvImport();
 
             #endregion
+        }
+
+        private void refreshDgvImport()
+        {
+            dgv.Refresh();
+            if (dgv.RowCount >= 2)
+            {
+                dgv.Rows[0].Selected = true;
+                DataGridViewRow row = dgv.Rows[0];
+                Tree currTree = DbManager.GetTreeById((int)row.Cells[0].Value);
+                SELECTED_TREE = currTree;
+            }
+            else
+            {
+                SELECTED_TREE = null;
+            }
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -110,7 +126,7 @@ namespace KhoaLuan
                 dgv.Rows.Add(newRow);
             }
 
-            dgv.Refresh();
+            refreshDgvImport();
 
             #endregion
         }

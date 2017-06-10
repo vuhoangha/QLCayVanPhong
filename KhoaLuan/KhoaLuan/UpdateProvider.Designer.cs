@@ -147,6 +147,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Name = "UpdateProvider";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateProvider";
             this.ResumeLayout(false);
             this.PerformLayout();

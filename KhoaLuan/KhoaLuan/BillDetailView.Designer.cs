@@ -138,6 +138,7 @@
             this.Controls.Add(this.dgv);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BillDetailView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BillDetail";
             this.Load += new System.EventHandler(this.BillDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();

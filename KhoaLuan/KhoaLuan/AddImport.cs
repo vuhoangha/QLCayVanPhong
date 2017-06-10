@@ -14,7 +14,7 @@ namespace KhoaLuan
     public partial class AddImport : Form
     {
         Provider PROVIDER_SELECTED;
-        int ID_TREE_SELECTED;
+        int? ID_TREE_SELECTED;
         DataGridViewRow ROW_SELECTED;
 
         public AddImport()
@@ -66,7 +66,7 @@ namespace KhoaLuan
                 newRow.Cells[3].Value = 0;
                 newRow.Cells[4].Value = 0;
                 dgvAddImport.Rows.Add(newRow);
-                dgvAddImport.Refresh();
+                refreshDgvImport();
                 return true;
             }
             catch (Exception)
@@ -88,7 +88,23 @@ namespace KhoaLuan
             DataGridViewRow row = dgvAddImport.Rows[e.RowIndex];
             ROW_SELECTED = dgvAddImport.Rows[e.RowIndex];
             ID_TREE_SELECTED = (int)row.Cells[0].Value;
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+        }
+
+        private void refreshDgvImport()
+        {
+            dgvAddImport.Refresh();
+            if (dgvAddImport.RowCount >= 2)
+            {
+                dgvAddImport.Rows[0].Selected = true;
+                DataGridViewRow row = dgvAddImport.Rows[0];
+                ROW_SELECTED = row;
+                ID_TREE_SELECTED = (int)row.Cells[0].Value;
+            }
+            else
+            {
+                ID_TREE_SELECTED = null;
+                ROW_SELECTED = null;
+            }
         }
 
         private void calculateTotalCost()
@@ -106,8 +122,14 @@ namespace KhoaLuan
 
         private void btnBillDel_Click(object sender, EventArgs e)
         {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn xóa cây đã chọn?", "Xóa cây", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
             dgvAddImport.Rows.RemoveAt(ROW_SELECTED.Index);
-            dgvAddImport.Refresh();
+            refreshDgvImport();
             calculateTotalCost();
         }
 
@@ -115,6 +137,12 @@ namespace KhoaLuan
         {
             try
             {
+                //  question yes no
+                if (MessageBox.Show("Bạn có muốn thêm hóa đơn nhập hàng?", "Thêm hóa đơn", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+                {
+                    return;
+                }
+
                 #region Create Import
 
                 //  create new bill
@@ -173,11 +201,11 @@ namespace KhoaLuan
 
         private bool updateTreeCallBack(int quantity, int cost)
         {
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+            Tree currTree = DbManager.GetTreeById((int)ID_TREE_SELECTED);
             ROW_SELECTED.Cells[2].Value = quantity;
             ROW_SELECTED.Cells[3].Value = cost;
             ROW_SELECTED.Cells[4].Value = (quantity * cost).ToString();
-            dgvAddImport.Refresh();
+            refreshDgvImport();
             calculateTotalCost();
             return true;
         }
@@ -192,7 +220,7 @@ namespace KhoaLuan
             }
 
             //  get current tree
-            Tree currTree = DbManager.GetTreeById(ID_TREE_SELECTED);
+            Tree currTree = DbManager.GetTreeById((int)ID_TREE_SELECTED);
 
             int quantity = Int32.Parse(ROW_SELECTED.Cells[2].Value.ToString());
             int cost = Int32.Parse(ROW_SELECTED.Cells[3].Value.ToString());

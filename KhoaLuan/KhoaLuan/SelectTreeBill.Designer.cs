@@ -357,6 +357,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SelectTreeBill";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SelectTreeBill";
             this.Load += new System.EventHandler(this.SelectTreeBill_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectTree)).EndInit();

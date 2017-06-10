@@ -297,7 +297,9 @@
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAddBill);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddBill";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBill";
             this.Load += new System.EventHandler(this.AddBill_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddBill)).EndInit();

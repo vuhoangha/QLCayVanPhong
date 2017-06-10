@@ -205,6 +205,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "UpdateTree";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateTree";
             ((System.ComponentModel.ISupportInitialize)(this.nudTreeQuantity)).EndInit();
             this.ResumeLayout(false);

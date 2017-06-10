@@ -184,6 +184,29 @@ namespace KhoaLuan
                     return;
                 }
 
+                #region Validate
+
+                if (txtAddress.Text == null
+                    || txtAddress.Text.ToString() == ""
+                    || txtCustomerId.Text == null
+                    || txtCustomerId.Text.ToString() == ""
+                    || txtCustomerName.Text == null
+                    || txtCustomerName.Text.ToString() == "")
+                {
+                    MessageBox.Show("Bạn vui lòng nhập đầy đủ thông tin hóa đơn", "Thêm hóa đơn",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (dgvAddBill.RowCount <= 1)
+                {
+                    MessageBox.Show("Bạn vui lòng nhập cây vào hóa đơn", "Thêm hóa đơn",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                #endregion
+
                 //  create new bill
                 Bill newBill = new Bill();
                 newBill.TimeChanged = DateTime.Now;

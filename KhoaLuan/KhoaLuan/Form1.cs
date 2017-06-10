@@ -20,7 +20,7 @@ namespace KhoaLuan
         private int? ID_TYPE_SELECTED;
         private int? ID_PROVIDER_SELECTED;
         private int? BILL_ID_SELECTED;
-        private int IMPORT_ID_SELECTED;
+        private int? IMPORT_ID_SELECTED;
 
         public Form1()
         {
@@ -337,9 +337,24 @@ namespace KhoaLuan
                 dgvImport.Rows.Add(newRow);
             }
 
-            dgvImport.Refresh();
+            refreshDgvImport();
 
             #endregion
+        }
+
+        private void refreshDgvImport()
+        {
+            dgvImport.Refresh();
+            if (dgvImport.RowCount >= 2)
+            {
+                dgvImport.Rows[0].Selected = true;
+                DataGridViewRow row = dgvImport.Rows[0];
+                IMPORT_ID_SELECTED = (int)row.Cells[0].Value;
+            }
+            else
+            {
+                IMPORT_ID_SELECTED = null;
+            }
         }
 
         private void loadGridViewCategory()
@@ -662,13 +677,13 @@ namespace KhoaLuan
                 User currUser = DbManager.getUserByUserId((int)bill.UserId);
                 if (currUser != null)
                 {
-                    newRow.Cells[3].Value = currUser.FullName;
+                    newRow.Cells[4].Value = currUser.FullName;
                 }
 
                 dgvImport.Rows.Add(newRow);
             }
 
-            dgvImport.Refresh();
+            refreshDgvImport();
 
             #endregion
         }
@@ -710,7 +725,7 @@ namespace KhoaLuan
 
         private void btnImportDetail_Click(object sender, EventArgs e)
         {
-            ImportDetailView newForm = new ImportDetailView(IMPORT_ID_SELECTED);
+            ImportDetailView newForm = new ImportDetailView((int)IMPORT_ID_SELECTED);
             newForm.Show();
         }
 

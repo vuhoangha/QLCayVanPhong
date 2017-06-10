@@ -79,6 +79,7 @@
             this.Controls.Add(this.txtTypeName);
             this.Controls.Add(this.label2);
             this.Name = "UpdateCategory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateCategory";
             this.ResumeLayout(false);
             this.PerformLayout();

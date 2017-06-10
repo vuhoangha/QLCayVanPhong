@@ -137,6 +137,7 @@
             this.ClientSize = new System.Drawing.Size(741, 353);
             this.Controls.Add(this.dgv);
             this.Name = "ImportDetailView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ImportDetailView";
             this.Load += new System.EventHandler(this.ImportDetailView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();

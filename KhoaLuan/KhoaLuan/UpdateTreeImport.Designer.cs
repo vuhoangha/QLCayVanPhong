@@ -232,6 +232,7 @@
             this.Controls.Add(this.label9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UpdateTreeImport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập Nhật Nhập Hàng";
             ((System.ComponentModel.ISupportInitialize)(this.nudImportTreeQuantity)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);

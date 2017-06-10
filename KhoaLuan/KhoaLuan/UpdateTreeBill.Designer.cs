@@ -94,9 +94,19 @@
             0,
             0,
             0});
+            this.nudBillTreeQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudBillTreeQuantity.Name = "nudBillTreeQuantity";
             this.nudBillTreeQuantity.Size = new System.Drawing.Size(167, 20);
             this.nudBillTreeQuantity.TabIndex = 23;
+            this.nudBillTreeQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudBillTreeQuantity.ValueChanged += new System.EventHandler(this.nudBillTreeQuantity_ValueChanged);
             // 
             // label6
@@ -183,6 +193,7 @@
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UpdateTreeBill";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateTreeBill";
             ((System.ComponentModel.ISupportInitialize)(this.nudBillTreeQuantity)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);

@@ -297,6 +297,7 @@
             this.Controls.Add(this.dgvAddImport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddImport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập Hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddImport)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
