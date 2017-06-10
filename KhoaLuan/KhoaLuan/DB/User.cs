@@ -27,6 +27,7 @@ namespace KhoaLuan.DB
         public string IDNumber { get; set; }
         public string BirthDay { get; set; }
         public string Address { get; set; }
+        public Nullable<int> Status { get; set; }
     
         public virtual ICollection<Bill> Bills { get; set; }
         public virtual ICollection<Import> Imports { get; set; }

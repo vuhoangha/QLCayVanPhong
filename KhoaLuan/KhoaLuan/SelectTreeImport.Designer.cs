@@ -198,7 +198,8 @@
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.dgv);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SelectTreeImport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn cây";

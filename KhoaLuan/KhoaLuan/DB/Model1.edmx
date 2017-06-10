@@ -33,14 +33,7 @@
           </Key>
           <Property Name="CatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="CusId" />
-          </Key>
-          <Property Name="CusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CusName" Type="nvarchar" MaxLength="100" />
-          <Property Name="IDNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="Status" Type="int" />
         </EntityType>
         <EntityType Name="Import">
           <Key>
@@ -71,6 +64,7 @@
           <Property Name="Address" Type="nvarchar" MaxLength="150" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -93,6 +87,7 @@
           <Property Name="Quantity" Type="int" />
           <Property Name="Description" Type="ntext" />
           <Property Name="Image" Type="ntext" />
+          <Property Name="Status" Type="int" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -105,6 +100,7 @@
           <Property Name="IDNumber" Type="nvarchar" MaxLength="30" />
           <Property Name="BirthDay" Type="nvarchar" MaxLength="10" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
         </EntityType>
         <Association Name="FK_Bill_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1">
@@ -222,7 +218,6 @@
           <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BillDetail" EntityType="Self.BillDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Import" EntityType="Self.Import" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImportDetail" EntityType="Self.ImportDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
@@ -299,15 +294,8 @@
           </Key>
           <Property Name="CatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CatName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="Trees" Relationship="Self.FK_Tree_Category" FromRole="Category" ToRole="Tree" />
-        </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="CusId" />
-          </Key>
-          <Property Name="CusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CusName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="IDNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Import">
           <Key>
@@ -343,6 +331,7 @@
           <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="Imports" Relationship="Self.FK_Import_Provider" FromRole="Provider" ToRole="Import" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -366,6 +355,7 @@
           <Property Name="Quantity" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="BillDetails" Relationship="Self.FK_BillDetail_Tree" FromRole="Tree" ToRole="BillDetail" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Tree_Category" FromRole="Tree" ToRole="Category" />
           <NavigationProperty Name="ImportDetails" Relationship="Self.FK_ImportDetail_Tree" FromRole="Tree" ToRole="ImportDetail" />
@@ -381,6 +371,7 @@
           <Property Name="IDNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="BirthDay" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="Bills" Relationship="Self.FK_Bill_User" FromRole="User" ToRole="Bill" />
           <NavigationProperty Name="Imports" Relationship="Self.FK_Import_User" FromRole="User" ToRole="Import" />
         </EntityType>
@@ -500,7 +491,6 @@
           <EntitySet Name="Bills" EntityType="Self.Bill" />
           <EntitySet Name="BillDetails" EntityType="Self.BillDetail" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Imports" EntityType="Self.Import" />
           <EntitySet Name="ImportDetails" EntityType="Self.ImportDetail" />
           <EntitySet Name="Providers" EntityType="Self.Provider" />
@@ -574,15 +564,7 @@
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="CatId" ColumnName="CatId" />
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="DbManager.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="CusId" ColumnName="CusId" />
-                <ScalarProperty Name="CusName" ColumnName="CusName" />
-                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -615,6 +597,7 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -639,6 +622,7 @@
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -652,6 +636,7 @@
                 <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
                 <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

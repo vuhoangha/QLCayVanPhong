@@ -121,6 +121,11 @@
             this.nudImportTreeQuantity.Name = "nudImportTreeQuantity";
             this.nudImportTreeQuantity.Size = new System.Drawing.Size(167, 20);
             this.nudImportTreeQuantity.TabIndex = 26;
+            this.nudImportTreeQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudImportTreeQuantity.ValueChanged += new System.EventHandler(this.nudImportTreeQuantity_ValueChanged);
             // 
             // label2
@@ -230,7 +235,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label9);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "UpdateTreeImport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập Nhật Nhập Hàng";

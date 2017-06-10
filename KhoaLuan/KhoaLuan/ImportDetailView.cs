@@ -27,7 +27,7 @@ namespace KhoaLuan
 
             List<ImportDetail> listBillDetail = DbManager.getImportDetailByBillId(IMPORT_ID);
 
-            Dictionary<int, Tree> DicTree = DbManager.GetDicTree();
+            Dictionary<int, Tree> DicTree = DbManager.GetDicTreeAll();
 
             dgv.DataSource = null;
             dgv.Rows.Clear();

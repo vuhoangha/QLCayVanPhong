@@ -143,6 +143,38 @@ namespace KhoaLuan
                     return;
                 }
 
+                #region Validate
+
+                if (lbProviderName.Text == null || lbProviderName.Text.ToString() == "")
+                {
+                    MessageBox.Show("Vui lòng chọn nhà cung cấp", "Thêm hóa đơn nhập",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (dgvAddImport.RowCount <= 1)
+                {
+                    MessageBox.Show("Bạn vui lòng nhập cây cần thêm vào hóa đơn", "Thêm hóa đơn nhập",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                foreach (DataGridViewRow row in dgvAddImport.Rows)
+                {
+                    if (row.Index >= 0 && row.Index < dgvAddImport.RowCount - 1)
+                    {
+                        if (Int32.Parse(row.Cells[2].Value.ToString()) <= 0
+                            || Int32.Parse(row.Cells[3].Value.ToString()) <= 0)
+                        {
+                            MessageBox.Show("Bạn vui lòng nhập số lượng cây và giá tiền của cây", "Thêm hóa đơn nhập",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+
+                #endregion
+
                 #region Create Import
 
                 //  create new bill

@@ -191,10 +191,11 @@
             this.Controls.Add(this.lbBillTreeId);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "UpdateTreeBill";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UpdateTreeBill";
+            this.Text = "Tạo hóa đơn thanh toán - Cập nhật thông tin cây";
             ((System.ComponentModel.ISupportInitialize)(this.nudBillTreeQuantity)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

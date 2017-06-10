@@ -28,19 +28,19 @@ namespace KhoaLuan.DB
 
         public static List<Tree> GetAllTree()
         {
-            return dbManager.Trees.ToList();
+            return dbManager.Trees.Where(p => p.Status == 1).ToList();
         }
 
         public static Tree GetTreeById(int treeId)
         {
-            return dbManager.Trees.Where(p => p.TreeId == treeId).FirstOrDefault();
+            return dbManager.Trees.Where(p => p.TreeId == treeId && p.Status == 1).FirstOrDefault();
         }
 
         public static Tree GetTreeByName(string treeName)
         {
             try
             {
-                return dbManager.Trees.FirstOrDefault(p => p.TreeName == treeName);
+                return dbManager.Trees.FirstOrDefault(p => p.TreeName == treeName && p.Status == 1);
             }
             catch (Exception)
             {
@@ -53,7 +53,7 @@ namespace KhoaLuan.DB
         {
             try
             {
-                return dbManager.Trees.FirstOrDefault(p => p.TreeName == treeName && p.TreeId != id);
+                return dbManager.Trees.FirstOrDefault(p => p.TreeName == treeName && p.TreeId != id && p.Status == 1);
             }
             catch (Exception)
             {
@@ -66,7 +66,7 @@ namespace KhoaLuan.DB
         {
             try
             {
-                return dbManager.Trees.Where(p => p.TreeName.Contains(treeName)).ToList();
+                return dbManager.Trees.Where(p => p.TreeName.Contains(treeName) && p.Status == 1).ToList();
             }
             catch (Exception)
             {
@@ -79,6 +79,7 @@ namespace KhoaLuan.DB
         {
             try
             {
+                tree.Status = 1;
                 dbManager.Trees.Add(tree);
                 dbManager.SaveChanges();
                 return true;
@@ -91,6 +92,11 @@ namespace KhoaLuan.DB
         }
 
         public static Dictionary<int, Tree> GetDicTree()
+        {
+            return dbManager.Trees.Where(p => p.Status == 1).ToDictionary(x => x.TreeId, x => x);
+        }
+
+        public static Dictionary<int, Tree> GetDicTreeAll()
         {
             return dbManager.Trees.ToDictionary(x => x.TreeId, x => x);
         }
@@ -141,7 +147,7 @@ namespace KhoaLuan.DB
                 Tree delTree = dbManager.Trees.FirstOrDefault(p => p.TreeId == treeId);
                 if (delTree != null)
                 {
-                    dbManager.Trees.Remove(delTree);
+                    delTree.Status = 0;
                     dbManager.SaveChanges();
                     return true;
                 }
@@ -160,28 +166,29 @@ namespace KhoaLuan.DB
 
         public static Dictionary<int, Category> GetDicCategory()
         {
-            return dbManager.Categories.ToDictionary(x => x.CatId, x => x);
+            return dbManager.Categories.Where(p => p.Status == 1).ToDictionary(x => x.CatId, x => x);
         }
 
         public static List<Category> GetListCategory()
         {
-            return dbManager.Categories.ToList();
+            return dbManager.Categories.Where(p => p.Status == 1).ToList();
         }
 
         public static Category GetCategoryByName(string catName)
         {
-            return dbManager.Categories.FirstOrDefault(p => p.CatName == catName);
+            return dbManager.Categories.FirstOrDefault(p => p.CatName == catName && p.Status == 1);
         }
 
         public static Category GetCategoryById(int catId)
         {
-            return dbManager.Categories.FirstOrDefault(p => p.CatId == catId);
+            return dbManager.Categories.FirstOrDefault(p => p.CatId == catId && p.Status == 1);
         }
 
         public static bool addCat(Category cat)
         {
             try
             {
+                cat.Status = 1;
                 dbManager.Categories.Add(cat);
                 dbManager.SaveChanges();
                 return true;
@@ -216,7 +223,7 @@ namespace KhoaLuan.DB
                 Category delCat = dbManager.Categories.FirstOrDefault(p => p.CatId == catId);
                 if (delCat != null)
                 {
-                    dbManager.Categories.Remove(delCat);
+                    delCat.Status = 0;
                     dbManager.SaveChanges();
                     return true;
                 }
@@ -233,7 +240,7 @@ namespace KhoaLuan.DB
         {
             try
             {
-                return dbManager.Trees.Where(p => p.CatId == catId).ToList().Count;
+                return dbManager.Trees.Where(p => p.CatId == catId && p.Status == 1).ToList().Count;
             }
             catch (Exception)
             {
@@ -246,7 +253,7 @@ namespace KhoaLuan.DB
         {
             try
             {
-                return dbManager.Categories.Where(p => p.CatName.Contains(catName)).ToList();
+                return dbManager.Categories.Where(p => p.CatName.Contains(catName) && p.Status == 1).ToList();
             }
             catch (Exception)
             {
@@ -259,7 +266,7 @@ namespace KhoaLuan.DB
         {
             try
             {
-                return dbManager.Categories.FirstOrDefault(p => p.CatName == catName && p.CatId != id);
+                return dbManager.Categories.FirstOrDefault(p => p.CatName == catName && p.CatId != id && p.Status == 1);
             }
             catch (Exception)
             {
@@ -347,23 +354,24 @@ namespace KhoaLuan.DB
 
         public static List<Provider> GetListProvider()
         {
-            return dbManager.Providers.ToList();
+            return dbManager.Providers.Where(p => p.Status == 1).ToList();
         }
 
         public static List<Provider> GetListProviderByContainName(string name)
         {
-            return dbManager.Providers.Where(p => p.ProviderName.Contains(name)).ToList();
+            return dbManager.Providers.Where(p => p.ProviderName.Contains(name) && p.Status == 1).ToList();
         }
 
         public static Provider GetProviderByName(string name)
         {
-            return dbManager.Providers.FirstOrDefault(p => p.ProviderName == name);
+            return dbManager.Providers.FirstOrDefault(p => p.ProviderName == name && p.Status==1);
         }
 
         public static bool addProvider(Provider pro)
         {
             try
             {
+                pro.Status = 1;
                 dbManager.Providers.Add(pro);
                 dbManager.SaveChanges();
                 return true;
@@ -377,14 +385,14 @@ namespace KhoaLuan.DB
 
         public static Provider GetProviderById(int proId)
         {
-            return dbManager.Providers.FirstOrDefault(p => p.ProviderId == proId);
+            return dbManager.Providers.FirstOrDefault(p => p.ProviderId == proId && p.Status == 1);
         }
 
         public static Provider GetProByNameNotId(int id, string proName)
         {
             try
             {
-                return dbManager.Providers.FirstOrDefault(p => p.ProviderName == proName && p.ProviderId != id);
+                return dbManager.Providers.FirstOrDefault(p => p.ProviderName == proName && p.ProviderId != id && p.Status == 1);
             }
             catch (Exception)
             {
@@ -419,7 +427,7 @@ namespace KhoaLuan.DB
                 Provider delPro = dbManager.Providers.FirstOrDefault(p => p.ProviderId == proId);
                 if (delPro != null)
                 {
-                    dbManager.Providers.Remove(delPro);
+                    delPro.Status = 0;
                     dbManager.SaveChanges();
                     return true;
                 }

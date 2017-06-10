@@ -21,6 +21,7 @@ namespace KhoaLuan.DB
     
         public int CatId { get; set; }
         public string CatName { get; set; }
+        public Nullable<int> Status { get; set; }
     
         public virtual ICollection<Tree> Trees { get; set; }
     }

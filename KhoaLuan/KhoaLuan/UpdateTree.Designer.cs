@@ -204,9 +204,11 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "UpdateTree";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UpdateTree";
+            this.Text = "Cập nhật cây";
             ((System.ComponentModel.ISupportInitialize)(this.nudTreeQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

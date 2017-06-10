@@ -133,7 +133,8 @@
             this.ClientSize = new System.Drawing.Size(480, 318);
             this.Controls.Add(this.btnSelected);
             this.Controls.Add(this.dgv);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SelectedProvider";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn nhà cung cấp";

@@ -66,9 +66,9 @@
             this.label2.ForeColor = System.Drawing.Color.DimGray;
             this.label2.Location = new System.Drawing.Point(48, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.Size = new System.Drawing.Size(88, 17);
             this.label2.TabIndex = 40;
-            this.label2.Text = "Tên loại cây";
+            this.label2.Text = "Tên nhóm cây";
             // 
             // UpdateCategory
             // 
@@ -78,9 +78,11 @@
             this.Controls.Add(this.btnImportAddTree);
             this.Controls.Add(this.txtTypeName);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "UpdateCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UpdateCategory";
+            this.Text = "Cập nhật nhóm cây";
             this.ResumeLayout(false);
             this.PerformLayout();
 

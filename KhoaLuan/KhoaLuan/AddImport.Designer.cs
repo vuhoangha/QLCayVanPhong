@@ -295,7 +295,8 @@
             this.Controls.Add(this.btnAddBillExport);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dgvAddImport);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AddImport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập Hàng";

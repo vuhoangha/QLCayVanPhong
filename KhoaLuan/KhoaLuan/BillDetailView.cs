@@ -32,7 +32,7 @@ namespace KhoaLuan
 
             List<BillDetail> listBillDetail = DbManager.getBillDetailByBillId(BILL_ID);
 
-            Dictionary<int, Tree> DicTree = DbManager.GetDicTree();
+            Dictionary<int, Tree> DicTree = DbManager.GetDicTreeAll();
 
             dgv.DataSource = null;
             dgv.Rows.Clear();

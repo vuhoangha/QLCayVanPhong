@@ -95,10 +95,13 @@
     <Compile Include="DB\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Customer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="DB\DbManager.cs" />
+    <Compile Include="AddTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTree.Designer.cs">
+      <DependentUpon>AddTree.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB\Import.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -131,12 +134,6 @@
     </Compile>
     <Compile Include="DB\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AddTree.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddTree.Designer.cs">
-      <DependentUpon>AddTree.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

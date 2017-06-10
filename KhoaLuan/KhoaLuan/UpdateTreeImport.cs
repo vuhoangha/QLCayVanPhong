@@ -48,6 +48,12 @@ namespace KhoaLuan
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            if (Int32.Parse(txtCost.Text) <= 0)
+            {
+                MessageBox.Show("Giá của cây phải lớn hơn 0", "Chỉnh sửa thông tin cây nhập vào",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             callbackUpdate((int)nudImportTreeQuantity.Value, Int32.Parse(txtCost.Text));
             this.Close();
         }

@@ -57,11 +57,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnTreeDelete = new System.Windows.Forms.Button();
             this.dgvTree = new System.Windows.Forms.DataGridView();
-            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTreeUpdate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -69,9 +64,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.txtTypeSearch = new System.Windows.Forms.TextBox();
             this.dgvType = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -117,6 +109,14 @@
             this.txtImportSearch = new System.Windows.Forms.TextBox();
             this.dtpImport = new System.Windows.Forms.DateTimePicker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcMain.SuspendLayout();
             this.tpTree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTree)).BeginInit();
@@ -272,40 +272,6 @@
             this.dgvTree.TabIndex = 1;
             this.dgvTree.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTree_CellClick);
             // 
-            // dtcId
-            // 
-            this.dtcId.HeaderText = "Mã cây";
-            this.dtcId.Name = "dtcId";
-            this.dtcId.ReadOnly = true;
-            // 
-            // dtcTreeName
-            // 
-            this.dtcTreeName.HeaderText = "Tên cây";
-            this.dtcTreeName.Name = "dtcTreeName";
-            this.dtcTreeName.ReadOnly = true;
-            this.dtcTreeName.Width = 200;
-            // 
-            // dtcTreeType
-            // 
-            this.dtcTreeType.HeaderText = "Loại cây";
-            this.dtcTreeType.Name = "dtcTreeType";
-            this.dtcTreeType.ReadOnly = true;
-            this.dtcTreeType.Width = 150;
-            // 
-            // dtcTreeCost
-            // 
-            this.dtcTreeCost.HeaderText = "Giá tiền";
-            this.dtcTreeCost.Name = "dtcTreeCost";
-            this.dtcTreeCost.ReadOnly = true;
-            this.dtcTreeCost.Width = 110;
-            // 
-            // dtcQuantity
-            // 
-            this.dtcQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dtcQuantity.HeaderText = "Số lượng";
-            this.dtcQuantity.Name = "dtcQuantity";
-            this.dtcQuantity.ReadOnly = true;
-            // 
             // btnTreeUpdate
             // 
             this.btnTreeUpdate.BackColor = System.Drawing.Color.Transparent;
@@ -354,7 +320,7 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(1153, 540);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Loại cây";
+            this.tabPage2.Text = "Nhóm cây";
             // 
             // label7
             // 
@@ -447,26 +413,6 @@
             this.dgvType.Size = new System.Drawing.Size(1153, 481);
             this.dgvType.TabIndex = 4;
             this.dgvType.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvType_CellClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mã loại cây";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tên loại cây";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 200;
-            // 
-            // Quantity
-            // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Quantity.HeaderText = "Số cây";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
             // 
             // button3
             // 
@@ -1096,6 +1042,60 @@
             this.dtpImport.TabIndex = 5;
             this.dtpImport.ValueChanged += new System.EventHandler(this.dtpImport_ValueChanged);
             // 
+            // dtcId
+            // 
+            this.dtcId.HeaderText = "Mã cây";
+            this.dtcId.Name = "dtcId";
+            this.dtcId.ReadOnly = true;
+            // 
+            // dtcTreeName
+            // 
+            this.dtcTreeName.HeaderText = "Tên cây";
+            this.dtcTreeName.Name = "dtcTreeName";
+            this.dtcTreeName.ReadOnly = true;
+            this.dtcTreeName.Width = 200;
+            // 
+            // dtcTreeType
+            // 
+            this.dtcTreeType.HeaderText = "Nhóm cây";
+            this.dtcTreeType.Name = "dtcTreeType";
+            this.dtcTreeType.ReadOnly = true;
+            this.dtcTreeType.Width = 150;
+            // 
+            // dtcTreeCost
+            // 
+            this.dtcTreeCost.HeaderText = "Giá tiền";
+            this.dtcTreeCost.Name = "dtcTreeCost";
+            this.dtcTreeCost.ReadOnly = true;
+            this.dtcTreeCost.Width = 110;
+            // 
+            // dtcQuantity
+            // 
+            this.dtcQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dtcQuantity.HeaderText = "Số lượng";
+            this.dtcQuantity.Name = "dtcQuantity";
+            this.dtcQuantity.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã nhóm cây";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên nhóm cây";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.HeaderText = "Số cây";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1104,6 +1104,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1161, 578);
             this.Controls.Add(this.tbcMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý";
@@ -1172,20 +1174,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Button btnBillDetail;
         private System.Windows.Forms.Button btnImportDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcQuantity;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
@@ -1196,6 +1190,14 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTreeCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
 
     }
 }

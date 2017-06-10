@@ -163,6 +163,13 @@ namespace KhoaLuan
                 return;
             }
 
+            if (TREE_SELECTED == null)
+            {
+                MessageBox.Show("Bạn vui lòng chọn cây khách hàng muốn mua.", "Chọn cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int quantity = Int32.Parse(nudSelectTreeQuantity.Value.ToString());
             if (quantity <= 0)
             {
