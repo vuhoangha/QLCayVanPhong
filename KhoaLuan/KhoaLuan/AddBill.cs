@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Data;
 using System.Reflection;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
@@ -175,146 +174,6 @@ namespace KhoaLuan
             calculateTotalCost();
         }
 
-        private void createBillPdf(Bill currBill)
-        {
-
-            #region Bill_Id
-
-            DataGridViewRow billId = new DataGridViewRow();
-            billId.CreateCells(dgvPdf);  // this line was missing
-            billId.Cells[0].Value = ConvertToUnsign3("Mã hóa đơn");
-            billId.Cells[1].Value = currBill.BillId;
-            billId.Cells[2].Value = " ";
-            billId.Cells[3].Value = " ";
-            dgvPdf.Rows.Add(billId);
-
-            #endregion
-
-            #region time
-
-            DataGridViewRow timeBill = new DataGridViewRow();
-            timeBill.CreateCells(dgvPdf);  // this line was missing
-            timeBill.Cells[0].Value = ConvertToUnsign3("Thời gian");
-            timeBill.Cells[1].Value = currBill.TimeChanged;
-            timeBill.Cells[2].Value = " ";
-            timeBill.Cells[3].Value = " ";
-            dgvPdf.Rows.Add(timeBill);
-
-            #endregion
-
-            #region Customer_Name
-
-            DataGridViewRow cusName = new DataGridViewRow();
-            cusName.CreateCells(dgvPdf);  // this line was missing
-            cusName.Cells[0].Value = ConvertToUnsign3("Tên khách hàng");
-            cusName.Cells[1].Value = ConvertToUnsign3(txtCustomerName.Text);
-            cusName.Cells[2].Value = " ";
-            cusName.Cells[3].Value = " ";
-            dgvPdf.Rows.Add(cusName);
-
-            #endregion
-
-            #region Customer_ID
-
-            DataGridViewRow cusId = new DataGridViewRow();
-            cusId.CreateCells(dgvPdf);  // this line was missing
-            cusId.Cells[0].Value = "CMT";
-            cusId.Cells[1].Value = ConvertToUnsign3(txtCustomerId.Text);
-            cusId.Cells[2].Value = " ";
-            cusId.Cells[3].Value = " ";
-            dgvPdf.Rows.Add(cusId);
-
-            #endregion
-
-            #region Customer_Address
-
-            DataGridViewRow cusAdd = new DataGridViewRow();
-            cusAdd.CreateCells(dgvPdf);  // this line was missing
-            cusAdd.Cells[0].Value = ConvertToUnsign3("Địa chỉ");
-            cusAdd.Cells[1].Value = ConvertToUnsign3(txtAddress.Text);
-            cusAdd.Cells[2].Value = " ";
-            cusAdd.Cells[3].Value = " ";
-            dgvPdf.Rows.Add(cusAdd);
-
-            #endregion
-
-            #region Fake
-
-            DataGridViewRow fake = new DataGridViewRow();
-            fake.CreateCells(dgvPdf);
-            fake.Cells[0].Value = " ";
-            fake.Cells[1].Value = " ";
-            fake.Cells[2].Value = " ";
-            fake.Cells[3].Value = " ";
-            dgvPdf.Rows.Add(fake);
-
-            #endregion
-
-            #region Add Header
-
-            DataGridViewRow header = new DataGridViewRow();
-            header.CreateCells(dgvPdf);  // this line was missing
-            header.Cells[0].Value = ConvertToUnsign3("Mã cây");
-            header.Cells[1].Value = ConvertToUnsign3("Tên cây");
-            header.Cells[2].Value = ConvertToUnsign3("Số lượng");
-            header.Cells[3].Value = ConvertToUnsign3("Thành tiền");
-            dgvPdf.Rows.Add(header);
-
-            #endregion
-
-            #region addDetail
-
-            foreach (DataGridViewRow row in dgvAddBill.Rows)
-            {
-                if (row.Index >= 0 && row.Index < dgvAddBill.RowCount - 1)
-                {
-                    DataGridViewRow detailRow = new DataGridViewRow();
-                    detailRow.CreateCells(dgvPdf);  // this line was missing
-                    detailRow.Cells[0].Value = ConvertToUnsign3(row.Cells[0].Value.ToString());
-                    detailRow.Cells[1].Value = ConvertToUnsign3(row.Cells[1].Value.ToString());
-                    detailRow.Cells[2].Value = ConvertToUnsign3(row.Cells[2].Value.ToString());
-                    detailRow.Cells[3].Value = ConvertToUnsign3(row.Cells[3].Value.ToString());
-                    dgvPdf.Rows.Add(detailRow);
-                }
-            }
-
-            #endregion
-
-            #region Fake1
-
-            DataGridViewRow fake1 = new DataGridViewRow();
-            fake1.CreateCells(dgvPdf);
-            fake1.Cells[0].Value = " ";
-            fake1.Cells[1].Value = " ";
-            fake1.Cells[2].Value = " ";
-            fake1.Cells[3].Value = " ";
-            dgvPdf.Rows.Add(fake1);
-
-            DataGridViewRow fake2 = new DataGridViewRow();
-            fake2.CreateCells(dgvPdf);
-            fake2.Cells[0].Value = " ";
-            fake2.Cells[1].Value = " ";
-            fake2.Cells[2].Value = " ";
-            fake2.Cells[3].Value = " ";
-            dgvPdf.Rows.Add(fake2);
-
-            #endregion
-
-            #region TotalCost
-
-            DataGridViewRow totalCost = new DataGridViewRow();
-            totalCost.CreateCells(dgvPdf);  // this line was missing
-            totalCost.Cells[0].Value = " ";
-            totalCost.Cells[1].Value = " ";
-            totalCost.Cells[2].Value = ConvertToUnsign3("Tổng số tiền");
-            totalCost.Cells[3].Value = lbAddBillToTalBill.Text;
-            dgvPdf.Rows.Add(totalCost);
-
-            #endregion
-
-            dgvPdf.Refresh();
-        }
-
         private void btnAddBillExport_Click(object sender, EventArgs e)
         {
             try
@@ -356,11 +215,8 @@ namespace KhoaLuan
                     }
                 }
 
-                //  creat pdf
-                createBillPdf(newBill);
-
                 //  export pdf
-                exportPdf();
+                exportPdf(newBill);
 
                 //  save to db
                 DbManager.addListBillDetail(listBillDetail);
@@ -385,36 +241,253 @@ namespace KhoaLuan
                         .Replace('\u0111', 'd').Replace('\u0110', 'D');
         }
 
-        private void exportPdf()
+        private void exportPdf(Bill newBill)
         {
             //Creating iTextSharp Table from the DataTable data
-            PdfPTable pdfTable = new PdfPTable(dgvPdf.ColumnCount);
-            pdfTable.DefaultCell.Padding = 5;
-            pdfTable.WidthPercentage = 50;
+            PdfPTable pdfTable = new PdfPTable(5);
+            pdfTable.DefaultCell.Padding = 4;
+            pdfTable.WidthPercentage = 100;
             pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
             pdfTable.DefaultCell.BorderWidth = 0;
             BaseFont bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
-            iTextSharp.text.Font times = new iTextSharp.text.Font(bfTimes, 6, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK);
+            iTextSharp.text.Font times = new iTextSharp.text.Font(bfTimes, 9, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK);
 
-            //Adding Header row
-            foreach (DataGridViewColumn column in dgvPdf.Columns)
+            ////Adding Header row
+            //foreach (DataGridViewColumn column in dgvAddBill.Columns)
+            //{
+            //    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, times));
+            //    cell.BackgroundColor = new BaseColor(240, 240, 240);
+            //    pdfTable.AddCell(cell);
+            //}
+
+            #region Header
+
+            iTextSharp.text.Font timesHeader = new iTextSharp.text.Font(bfTimes, 14, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLACK);
+            PdfPCell cellHeader = new PdfPCell(new Phrase("GREEN", timesHeader));
+            cellHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+            cellHeader.Colspan = 5;
+            cellHeader.BorderWidth = 0;
+            pdfTable.AddCell(cellHeader);
+
+            #endregion
+
+            #region Row Empty 1
+
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+
+            #endregion
+
+            #region Thong tin khach hang
+
+            #region Ma Hoa Don
+
+            PdfPCell cellBillTitle = new PdfPCell(new Phrase("Ma Hoa Don", times));
+            cellBillTitle.Colspan = 2;
+            cellBillTitle.BorderWidth = 0;
+            pdfTable.AddCell(cellBillTitle);
+
+            PdfPCell cellBill = new PdfPCell(new Phrase(ConvertToUnsign3(newBill.BillId.ToString()), times));
+            cellBill.Colspan = 3;
+            cellBill.BorderWidth = 0;
+            pdfTable.AddCell(cellBill);
+
+            #endregion
+
+            #region Thoi gian
+
+            PdfPCell cellTimeTitle = new PdfPCell(new Phrase("Thoi Gian", times));
+            cellTimeTitle.Colspan = 2;
+            cellTimeTitle.BorderWidth = 0;
+            pdfTable.AddCell(cellTimeTitle);
+
+            PdfPCell cellTime = new PdfPCell(new Phrase(ConvertToUnsign3(newBill.TimeChanged.ToString()), times));
+            cellTime.Colspan = 3;
+            cellTime.BorderWidth = 0;
+            pdfTable.AddCell(cellTime);
+
+            #endregion
+
+            #region Ten khach hang
+
+            PdfPCell cellCustomNameTitle = new PdfPCell(new Phrase("Ten Khach Hang", times));
+            cellCustomNameTitle.Colspan = 2;
+            cellCustomNameTitle.BorderWidth = 0;
+            pdfTable.AddCell(cellCustomNameTitle);
+
+            PdfPCell cellCustomName = new PdfPCell(new Phrase(ConvertToUnsign3(txtCustomerName.Text), times));
+            cellCustomName.Colspan = 3;
+            cellCustomName.BorderWidth = 0;
+            pdfTable.AddCell(cellCustomName);
+
+            #endregion
+
+            #region CMT
+
+            PdfPCell cellCustomAddressId = new PdfPCell(new Phrase("Chung Minh Thu", times));
+            cellCustomAddressId.Colspan = 2;
+            cellCustomAddressId.BorderWidth = 0;
+            pdfTable.AddCell(cellCustomAddressId);
+
+            PdfPCell cellCustomId = new PdfPCell(new Phrase(ConvertToUnsign3(txtCustomerId.Text), times));
+            cellCustomId.Colspan = 3;
+            cellCustomId.BorderWidth = 0;
+            pdfTable.AddCell(cellCustomId);
+
+            #endregion
+
+            #region Dia chi
+
+            PdfPCell cellCustomAddressTitle = new PdfPCell(new Phrase("Dia chi", times));
+            cellCustomAddressTitle.Colspan = 2;
+            cellCustomAddressTitle.BorderWidth = 0;
+            pdfTable.AddCell(cellCustomAddressTitle);
+
+            PdfPCell cellCustomAddress = new PdfPCell(new Phrase(ConvertToUnsign3(txtAddress.Text), times));
+            cellCustomAddress.Colspan = 3;
+            cellCustomAddress.BorderWidth = 0;
+            pdfTable.AddCell(cellCustomAddress);
+
+            #endregion
+
+            #endregion
+
+            #region Row Empty 2
+
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+
+            #endregion
+
+            #region Phieu tinh tien
+
+            iTextSharp.text.Font timesPhieuTinhtien = new iTextSharp.text.Font(bfTimes, 10, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLACK);
+            PdfPCell cellPtt = new PdfPCell(new Phrase("PHIEU TINH TIEN", timesPhieuTinhtien));
+            cellPtt.HorizontalAlignment = Element.ALIGN_CENTER;
+            cellPtt.BorderWidth = 0;
+            cellPtt.Colspan = 5;
+            pdfTable.AddCell(cellPtt);
+
+            #endregion
+
+            #region Row Empty
+
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+
+            #endregion
+
+            #region HEADER DETAIL
+
+            #region ID
+
+            PdfPCell cellHeader1 = new PdfPCell(new Phrase("Ma Cay", times));
+            cellHeader1.BorderWidth = 0;
+            pdfTable.AddCell(cellHeader1);
+
+            #endregion
+
+            #region Name
+
+            PdfPCell cellHeader2 = new PdfPCell(new Phrase("Ten Cay", times));
+            cellHeader2.BorderWidth = 0;
+            cellHeader2.Colspan = 2;
+            pdfTable.AddCell(cellHeader2);
+
+            #endregion
+
+            #region Quantity
+
+            PdfPCell cellHeader3 = new PdfPCell(new Phrase("So Luong", times));
+            cellHeader3.BorderWidth = 0;
+            pdfTable.AddCell(cellHeader3);
+
+            #endregion
+
+            #region Total Cost
+
+            PdfPCell cellHeader4 = new PdfPCell(new Phrase("Thanh tien", times));
+            cellHeader4.BorderWidth = 0;
+            pdfTable.AddCell(cellHeader4);
+
+            #endregion
+
+            #endregion
+
+            #region Database
+
+            foreach (DataGridViewRow row in dgvAddBill.Rows)
             {
-                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, times));
-                cell.BackgroundColor = new BaseColor(240, 240, 240);
-                pdfTable.AddCell(cell);
+                if (row.Cells[0].Value == null) continue;
+
+                #region ID
+
+                PdfPCell cell1 = new PdfPCell(new Phrase(ConvertToUnsign3(row.Cells[0].Value.ToString()), times));
+                cell1.BorderWidth = 0;
+                pdfTable.AddCell(cell1);
+
+                #endregion
+
+                #region Name
+
+                PdfPCell cell2 = new PdfPCell(new Phrase(ConvertToUnsign3(row.Cells[1].Value.ToString()), times));
+                cell2.BorderWidth = 0;
+                cell2.Colspan = 2;
+                pdfTable.AddCell(cell2);
+
+                #endregion
+
+                #region Quantity
+
+                PdfPCell cell3 = new PdfPCell(new Phrase(ConvertToUnsign3(row.Cells[2].Value.ToString()), times));
+                cell3.BorderWidth = 0;
+                pdfTable.AddCell(cell3);
+
+                #endregion
+
+                #region Total Cost
+
+                PdfPCell cell4 = new PdfPCell(new Phrase(ConvertToUnsign3(row.Cells[3].Value.ToString()), times));
+                cell4.BorderWidth = 0;
+                pdfTable.AddCell(cell4);
+
+                #endregion
             }
 
-            //Adding DataRow
-            foreach (DataGridViewRow row in dgvPdf.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (cell.Value == null) continue;
-                    pdfTable.AddCell(cell.Value.ToString());
-                }
-            }
+            #endregion
 
-            //Exporting to PDF
+            #region Row Empty
+
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+            pdfTable.AddCell(" ");
+
+            #endregion
+
+            #region Thanh tien
+
+            iTextSharp.text.Font timesTotalCost = new iTextSharp.text.Font(bfTimes, 12, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLACK);
+            PdfPCell cellTotalCost = new PdfPCell(new Phrase("TONG CONG   " + lbAddBillToTalBill.Text.ToString() + " VND", timesTotalCost));
+            cellTotalCost.BorderWidth = 0;
+            cellTotalCost.Colspan = 5;
+            cellTotalCost.HorizontalAlignment = Element.ALIGN_RIGHT;
+            pdfTable.AddCell(cellTotalCost);
+
+            #endregion
+
+            #region Exporting to PDF
+
             string folderPath = "C:\\Users\\vuhoa\\Desktop\\SQL\\";
             if (!Directory.Exists(folderPath))
             {
@@ -422,13 +495,15 @@ namespace KhoaLuan
             }
             using (FileStream stream = new FileStream(folderPath + "DataGridViewExport.pdf", FileMode.Create))
             {
-                Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
+                Document pdfDoc = new Document(PageSize.A6, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
                 pdfDoc.Add(pdfTable);
                 pdfDoc.Close();
                 stream.Close();
             }
+
+            #endregion
         }
 
         private void btnBillUpdateTree_Click(object sender, EventArgs e)
