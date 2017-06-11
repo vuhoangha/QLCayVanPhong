@@ -25,8 +25,8 @@ namespace KhoaLuan.DB
         public Nullable<int> ProviderId { get; set; }
         public Nullable<int> UserId { get; set; }
     
+        public virtual Account Account { get; set; }
         public virtual Provider Provider { get; set; }
-        public virtual User User { get; set; }
         public virtual ICollection<ImportDetail> ImportDetails { get; set; }
     }
 }

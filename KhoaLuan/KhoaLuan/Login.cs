@@ -15,7 +15,7 @@ namespace KhoaLuan
     {
 
         Func<bool> LoginCabk = null;
-        public static User USER_LOGIN;
+        public static Account USER_LOGIN;
 
         public Login(Func<bool> _loginCabk)
         {
@@ -25,7 +25,7 @@ namespace KhoaLuan
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User user = DbManager.Login(txtUserName.Text, txtPassword.Text);
+            Account user = DbManager.Login(txtUserName.Text, txtPassword.Text);
             if (user == null)
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu sai", "Đăng Nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dd3ac924ee7b455392732b763ec226bd" Name="Diagram1">
+      <Diagram DiagramId="a5b979bb4e0443b0934a762842d0c75d" Name="Diagram1">
+        <EntityTypeShape EntityType="DbManager.Account" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DbManager.Bill" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DbManager.BillDetail" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbManager.Category" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="DbManager.Import" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DbManager.ImportDetail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbManager.Provider" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbManager.Provider" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DbManager.sysdiagram" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="DbManager.Tree" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbManager.User" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
         <AssociationConnector Association="DbManager.FK_Bill_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DbManager.FK_Import_User" ManuallyRouted="false" />
         <AssociationConnector Association="DbManager.FK_BillDetail_Bill" ManuallyRouted="false" />
         <AssociationConnector Association="DbManager.FK_BillDetail_Tree" ManuallyRouted="false" />
         <AssociationConnector Association="DbManager.FK_Tree_Category" ManuallyRouted="false" />
         <AssociationConnector Association="DbManager.FK_Import_Provider" ManuallyRouted="false" />
-        <AssociationConnector Association="DbManager.FK_Import_User" ManuallyRouted="false" />
         <AssociationConnector Association="DbManager.FK_ImportDetail_Import" ManuallyRouted="false" />
         <AssociationConnector Association="DbManager.FK_ImportDetail_Tree" ManuallyRouted="false" />
       </Diagram>

@@ -27,7 +27,7 @@ namespace KhoaLuan.DB
         public string CustomerName { get; set; }
         public string CustomerAddress { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual Account Account { get; set; }
         public virtual ICollection<BillDetail> BillDetails { get; set; }
     }
 }

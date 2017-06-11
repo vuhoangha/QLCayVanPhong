@@ -21,6 +21,7 @@ namespace KhoaLuan
         private int? ID_PROVIDER_SELECTED;
         private int? BILL_ID_SELECTED;
         private int? IMPORT_ID_SELECTED;
+        private int? USER_ID_SELECTED;
 
         public Form1()
         {
@@ -94,6 +95,11 @@ namespace KhoaLuan
             {
                 dtpImport.Value = DateTime.Now;
                 loadGridViewImport();
+            }
+            else if (tabControl.SelectedIndex == 5)
+            {
+                txtUserSearch.Text = "";
+                loadGridUser();
             }
         }
 
@@ -271,7 +277,7 @@ namespace KhoaLuan
                 newRow.Cells[0].Value = bill.BillId;
                 newRow.Cells[1].Value = bill.TimeChanged;
                 newRow.Cells[2].Value = bill.TotalCost;
-                User currUser = DbManager.getUserByUserId((int)bill.UserId);
+                Account currUser = DbManager.getUserByUserId((int)bill.UserId);
                 if (currUser != null)
                 {
                     newRow.Cells[3].Value = currUser.FullName;
@@ -303,6 +309,62 @@ namespace KhoaLuan
             }
         }
 
+        private void loadGridUser()
+        {
+            txtUserSearch.Text = "";
+
+            #region set dgv cat
+
+            List<Account> listUser = DbManager.GetAllUser(Login.USER_LOGIN.UserName);
+
+            dgvUser.DataSource = null;
+            dgvUser.Rows.Clear();
+
+            for (int i = 0; i < listUser.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvUser);  // this line was missing
+                var user = listUser[i];
+
+                newRow.Cells[0].Value = user.UserId;
+                newRow.Cells[1].Value = user.UserName;
+                newRow.Cells[2].Value = user.FullName;
+                newRow.Cells[3].Value = user.BirthDay.ToString();
+
+                dgvUser.Rows.Add(newRow);
+            }
+
+            refreshDgvUser();
+
+            #endregion
+
+            #region Role
+
+            if (Login.USER_LOGIN.UserName != "admin")
+            {
+                btnUserAdd.Enabled = false;
+                btnUserDelete.Enabled = false;
+                txtUserSearch.Enabled = false;
+            }
+
+            #endregion
+        }
+
+        private void refreshDgvUser()
+        {
+            dgvUser.Refresh();
+            if (dgvUser.RowCount >= 2)
+            {
+                dgvUser.Rows[0].Selected = true;
+                DataGridViewRow row = dgvUser.Rows[0];
+                USER_ID_SELECTED = (int)row.Cells[0].Value;
+            }
+            else
+            {
+                USER_ID_SELECTED = null;
+            }
+        }
+
         private void loadGridViewImport()
         {
             txtImportSearch.Text = "";
@@ -328,7 +390,7 @@ namespace KhoaLuan
                     newRow.Cells[2].Value = currPro.ProviderName;
                 }
                 newRow.Cells[3].Value = bill.TotalCost;
-                User currUser = DbManager.getUserByUserId((int)bill.UserId);
+                Account currUser = DbManager.getUserByUserId((int)bill.UserId);
                 if (currUser != null)
                 {
                     newRow.Cells[4].Value = currUser.FullName;
@@ -546,7 +608,7 @@ namespace KhoaLuan
                 newRow.Cells[0].Value = bill.BillId;
                 newRow.Cells[1].Value = bill.TimeChanged;
                 newRow.Cells[2].Value = bill.TotalCost;
-                User currUser = DbManager.getUserByUserId((int)bill.UserId);
+                Account currUser = DbManager.getUserByUserId((int)bill.UserId);
                 if (currUser != null)
                 {
                     newRow.Cells[3].Value = currUser.FullName;
@@ -674,7 +736,7 @@ namespace KhoaLuan
                     newRow.Cells[2].Value = currPro.ProviderName;
                 }
                 newRow.Cells[3].Value = bill.TotalCost;
-                User currUser = DbManager.getUserByUserId((int)bill.UserId);
+                Account currUser = DbManager.getUserByUserId((int)bill.UserId);
                 if (currUser != null)
                 {
                     newRow.Cells[4].Value = currUser.FullName;
@@ -821,6 +883,93 @@ namespace KhoaLuan
             Provider update = DbManager.GetProviderById((int)ID_PROVIDER_SELECTED);
             UpdateProvider newForm = new UpdateProvider(update);
             newForm.Show();
+        }
+
+        private void btnUserRefresh_Click(object sender, EventArgs e)
+        {
+            loadGridUser();
+        }
+
+        private void btnUserAdd_Click(object sender, EventArgs e)
+        {
+            addUser newForm = new addUser();
+            newForm.Show();
+        }
+
+        private void btnUserUpdate_Click(object sender, EventArgs e)
+        {
+            Account updateUser = DbManager.getUserByUserId((int)USER_ID_SELECTED);
+            updateUser newForm = new updateUser(updateUser);
+            newForm.Show();
+        }
+
+        private void btnUserDelete_Click(object sender, EventArgs e)
+        {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn xóa người dùng?", "Xóa người dùng", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
+            bool isDel = DbManager.deleteUser((int)USER_ID_SELECTED);
+            if (!isDel)
+            {
+                MessageBox.Show("Xóa người dùng không thành công", "Xóa người dùng",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show("Thành công", "Xóa người dùng");
+            return;
+        }
+
+        private void txtUserSearch_TextChanged(object sender, EventArgs e)
+        {
+            #region set dgv
+
+            List<Account> listUser = DbManager.GetUserByContentString(txtUserSearch.Text.ToUpper());
+
+            dgvUser.DataSource = null;
+            dgvUser.Rows.Clear();
+
+            for (int i = 0; i < listUser.Count; i++)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(dgvUser);
+                var user = listUser[i];
+
+                newRow.Cells[0].Value = user.UserId;
+                newRow.Cells[1].Value = user.UserName;
+                newRow.Cells[2].Value = user.FullName;
+                newRow.Cells[3].Value = user.BirthDay.ToString();
+
+                dgvUser.Rows.Add(newRow);
+            }
+
+            refreshDgvUser();
+
+            #endregion
+        }
+
+        private void dgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridView dgv = sender as DataGridView;
+                if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex > dgv.RowCount - 2)
+                {
+                    USER_ID_SELECTED = null;
+                    return;
+                }
+
+                DataGridViewRow row = dgv.Rows[e.RowIndex];
+                USER_ID_SELECTED = (int)row.Cells[0].Value;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
     }

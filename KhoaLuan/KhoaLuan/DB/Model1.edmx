@@ -5,6 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DbManager.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IDNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="BirthDay" Type="nvarchar" MaxLength="10" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
         <EntityType Name="Bill">
           <Key>
             <PropertyRef Name="BillId" />
@@ -89,26 +102,13 @@
           <Property Name="Image" Type="ntext" />
           <Property Name="Status" Type="int" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="PassWord" Type="nvarchar" MaxLength="50" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
-          <Property Name="IDNumber" Type="nvarchar" MaxLength="30" />
-          <Property Name="BirthDay" Type="nvarchar" MaxLength="10" />
-          <Property Name="Address" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="int" />
-        </EntityType>
         <Association Name="FK_Bill_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
+            <Principal Role="Account">
               <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Bill">
@@ -159,12 +159,12 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Import_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Import" Type="Self.Import" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
+            <Principal Role="Account">
               <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Import">
@@ -215,6 +215,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DbManagerStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BillDetail" EntityType="Self.BillDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
@@ -223,9 +224,8 @@
           <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tree" EntityType="Self.Tree" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Bill_User" Association="Self.FK_Bill_User">
-            <End Role="User" EntitySet="User" />
+            <End Role="Account" EntitySet="Account" />
             <End Role="Bill" EntitySet="Bill" />
           </AssociationSet>
           <AssociationSet Name="FK_BillDetail_Bill" Association="Self.FK_BillDetail_Bill">
@@ -241,7 +241,7 @@
             <End Role="Import" EntitySet="Import" />
           </AssociationSet>
           <AssociationSet Name="FK_Import_User" Association="Self.FK_Import_User">
-            <End Role="User" EntitySet="User" />
+            <End Role="Account" EntitySet="Account" />
             <End Role="Import" EntitySet="Import" />
           </AssociationSet>
           <AssociationSet Name="FK_ImportDetail_Import" Association="Self.FK_ImportDetail_Import">
@@ -262,6 +262,21 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbManager" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IDNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDay" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK_Bill_User" FromRole="Account" ToRole="Bill" />
+          <NavigationProperty Name="Imports" Relationship="Self.FK_Import_User" FromRole="Account" ToRole="Import" />
+        </EntityType>
         <EntityType Name="Bill">
           <Key>
             <PropertyRef Name="BillId" />
@@ -273,7 +288,7 @@
           <Property Name="CustomerId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CustomerAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Bill_User" FromRole="Bill" ToRole="User" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Bill_User" FromRole="Bill" ToRole="Account" />
           <NavigationProperty Name="BillDetails" Relationship="Self.FK_BillDetail_Bill" FromRole="Bill" ToRole="BillDetail" />
         </EntityType>
         <EntityType Name="BillDetail">
@@ -306,8 +321,8 @@
           <Property Name="TotalCost" Type="Int32" />
           <Property Name="ProviderId" Type="Int32" />
           <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Import_User" FromRole="Import" ToRole="Account" />
           <NavigationProperty Name="Provider" Relationship="Self.FK_Import_Provider" FromRole="Import" ToRole="Provider" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Import_User" FromRole="Import" ToRole="User" />
           <NavigationProperty Name="ImportDetails" Relationship="Self.FK_ImportDetail_Import" FromRole="Import" ToRole="ImportDetail" />
         </EntityType>
         <EntityType Name="ImportDetail">
@@ -360,31 +375,30 @@
           <NavigationProperty Name="Category" Relationship="Self.FK_Tree_Category" FromRole="Tree" ToRole="Category" />
           <NavigationProperty Name="ImportDetails" Relationship="Self.FK_ImportDetail_Tree" FromRole="Tree" ToRole="ImportDetail" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="IDNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="BirthDay" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Int32" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK_Bill_User" FromRole="User" ToRole="Bill" />
-          <NavigationProperty Name="Imports" Relationship="Self.FK_Import_User" FromRole="User" ToRole="Import" />
-        </EntityType>
         <Association Name="FK_Bill_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
+            <Principal Role="Account">
               <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Bill">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Import_User">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Import" Type="Self.Import" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Import">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -445,20 +459,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Import_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Import" Type="Self.Import" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Import">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ImportDetail_Import">
           <End Role="Import" Type="Self.Import" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -488,6 +488,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Bills" EntityType="Self.Bill" />
           <EntitySet Name="BillDetails" EntityType="Self.BillDetail" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
@@ -496,10 +497,13 @@
           <EntitySet Name="Providers" EntityType="Self.Provider" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Trees" EntityType="Self.Tree" />
-          <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_Bill_User" Association="Self.FK_Bill_User">
-            <End Role="User" EntitySet="Users" />
+            <End Role="Account" EntitySet="Accounts" />
             <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Import_User" Association="Self.FK_Import_User">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Import" EntitySet="Imports" />
           </AssociationSet>
           <AssociationSet Name="FK_BillDetail_Bill" Association="Self.FK_BillDetail_Bill">
             <End Role="Bill" EntitySet="Bills" />
@@ -517,10 +521,6 @@
             <End Role="Provider" EntitySet="Providers" />
             <End Role="Import" EntitySet="Imports" />
           </AssociationSet>
-          <AssociationSet Name="FK_Import_User" Association="Self.FK_Import_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Import" EntitySet="Imports" />
-          </AssociationSet>
           <AssociationSet Name="FK_ImportDetail_Import" Association="Self.FK_ImportDetail_Import">
             <End Role="Import" EntitySet="Imports" />
             <End Role="ImportDetail" EntitySet="ImportDetails" />
@@ -536,6 +536,20 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DbManagerStoreContainer" CdmEntityContainer="DbEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="DbManager.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Bills">
             <EntityTypeMapping TypeName="DbManager.Bill">
               <MappingFragment StoreEntitySet="Bill">
@@ -622,20 +636,6 @@
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="DbManager.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
-                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>

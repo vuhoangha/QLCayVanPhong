@@ -12,9 +12,9 @@ namespace KhoaLuan.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Account
     {
-        public User()
+        public Account()
         {
             this.Bills = new HashSet<Bill>();
             this.Imports = new HashSet<Import>();

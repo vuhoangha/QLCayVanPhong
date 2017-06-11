@@ -12,14 +12,14 @@ namespace KhoaLuan.DB
 
         #region Login
 
-        public static User Login(string userName, string passWord)
+        public static Account Login(string userName, string passWord)
         {
-            return dbManager.Users.FirstOrDefault(p => p.UserName == userName && p.PassWord == passWord);
+            return dbManager.Accounts.FirstOrDefault(p => p.UserName == userName && p.PassWord == passWord && p.Status == 1);
         }
 
-        public static User getUserByUserId(int userId)
+        public static Account getUserByUserId(int userId)
         {
-            return dbManager.Users.FirstOrDefault(p => p.UserId == userId);
+            return dbManager.Accounts.FirstOrDefault(p => p.UserId == userId);
         }
 
         #endregion
@@ -364,7 +364,7 @@ namespace KhoaLuan.DB
 
         public static Provider GetProviderByName(string name)
         {
-            return dbManager.Providers.FirstOrDefault(p => p.ProviderName == name && p.Status==1);
+            return dbManager.Providers.FirstOrDefault(p => p.ProviderName == name && p.Status == 1);
         }
 
         public static bool addProvider(Provider pro)
@@ -509,6 +509,114 @@ namespace KhoaLuan.DB
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Account
+
+        public static List<Account> GetAllUser(string userName)
+        {
+            if (userName == "admin")
+            {
+                return dbManager.Accounts.Where(p=>p.Status == 1).ToList();
+            }
+            return dbManager.Accounts.Where(p => p.UserName == userName && p.Status == 1).ToList();
+        }
+
+        public static Account GetUserById(int userId)
+        {
+            return dbManager.Accounts.FirstOrDefault(p => p.UserId == userId && p.Status == 1);
+        }
+
+        public static bool addUser(Account user)
+        {
+            try
+            {
+                #region Check validate
+
+                Account valid = dbManager.Accounts.Where(p => p.UserName == user.UserName).FirstOrDefault();
+                if (valid != null)
+                {
+                    return false;
+                }
+
+                #endregion
+                user.Status = 1;
+                dbManager.Accounts.Add(user);
+                dbManager.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public static bool updateUser(Account user)
+        {
+            try
+            {
+
+                #region Validate
+
+                Account valid = dbManager.Accounts.FirstOrDefault(p => p.UserName == user.UserName && p.UserId != user.UserId);
+                if (valid != null)
+                {
+                    return false;
+                }
+
+                #endregion
+
+                Account updateUser = dbManager.Accounts.FirstOrDefault(p => p.UserId == user.UserId);
+                updateUser.PassWord = user.PassWord;
+                updateUser.FullName = user.FullName;
+                updateUser.IDNumber = user.IDNumber;
+                updateUser.BirthDay = user.BirthDay;
+                updateUser.Address = user.Address;
+
+                dbManager.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public static bool deleteUser(int userId)
+        {
+            try
+            {
+                Account delUser = dbManager.Accounts.FirstOrDefault(p => p.UserId == userId);
+                if (delUser != null)
+                {
+                    delUser.Status = 0;
+                    dbManager.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public static List<Account> GetUserByContentString(string search)
+        {
+            try
+            {
+                return dbManager.Accounts.Where(p => p.UserName.Contains(search) && p.Status == 1).ToList();
+            }
+            catch (Exception)
+            {
+                return null;
                 throw;
             }
         }

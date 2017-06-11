@@ -50,6 +50,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tpTree = new System.Windows.Forms.TabPage();
             this.txtTreeSearch = new System.Windows.Forms.TextBox();
@@ -57,6 +61,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnTreeDelete = new System.Windows.Forms.Button();
             this.dgvTree = new System.Windows.Forms.DataGridView();
+            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTreeUpdate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -64,6 +73,9 @@
             this.button6 = new System.Windows.Forms.Button();
             this.txtTypeSearch = new System.Windows.Forms.TextBox();
             this.dgvType = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -108,15 +120,19 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.txtImportSearch = new System.Windows.Forms.TextBox();
             this.dtpImport = new System.Windows.Forms.DateTimePicker();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.txtUserSearch = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnUserRefresh = new System.Windows.Forms.Button();
+            this.btnUserDelete = new System.Windows.Forms.Button();
+            this.btnUserUpdate = new System.Windows.Forms.Button();
+            this.btnUserAdd = new System.Windows.Forms.Button();
+            this.dgvUser = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTreeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcMain.SuspendLayout();
             this.tpTree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTree)).BeginInit();
@@ -128,6 +144,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvider)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcMain
@@ -137,6 +155,7 @@
             this.tbcMain.Controls.Add(this.tabPage1);
             this.tbcMain.Controls.Add(this.tabPage3);
             this.tbcMain.Controls.Add(this.tabPage4);
+            this.tbcMain.Controls.Add(this.tabPage5);
             this.tbcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcMain.ItemSize = new System.Drawing.Size(72, 30);
             this.tbcMain.Location = new System.Drawing.Point(0, 0);
@@ -271,6 +290,40 @@
             this.dgvTree.Size = new System.Drawing.Size(1153, 481);
             this.dgvTree.TabIndex = 1;
             this.dgvTree.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTree_CellClick);
+            // 
+            // dtcId
+            // 
+            this.dtcId.HeaderText = "Mã cây";
+            this.dtcId.Name = "dtcId";
+            this.dtcId.ReadOnly = true;
+            // 
+            // dtcTreeName
+            // 
+            this.dtcTreeName.HeaderText = "Tên cây";
+            this.dtcTreeName.Name = "dtcTreeName";
+            this.dtcTreeName.ReadOnly = true;
+            this.dtcTreeName.Width = 200;
+            // 
+            // dtcTreeType
+            // 
+            this.dtcTreeType.HeaderText = "Nhóm cây";
+            this.dtcTreeType.Name = "dtcTreeType";
+            this.dtcTreeType.ReadOnly = true;
+            this.dtcTreeType.Width = 150;
+            // 
+            // dtcTreeCost
+            // 
+            this.dtcTreeCost.HeaderText = "Giá tiền";
+            this.dtcTreeCost.Name = "dtcTreeCost";
+            this.dtcTreeCost.ReadOnly = true;
+            this.dtcTreeCost.Width = 110;
+            // 
+            // dtcQuantity
+            // 
+            this.dtcQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dtcQuantity.HeaderText = "Số lượng";
+            this.dtcQuantity.Name = "dtcQuantity";
+            this.dtcQuantity.ReadOnly = true;
             // 
             // btnTreeUpdate
             // 
@@ -413,6 +466,26 @@
             this.dgvType.Size = new System.Drawing.Size(1153, 481);
             this.dgvType.TabIndex = 4;
             this.dgvType.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvType_CellClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã nhóm cây";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên nhóm cây";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.HeaderText = "Số cây";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             // 
             // button3
             // 
@@ -1042,59 +1115,190 @@
             this.dtpImport.TabIndex = 5;
             this.dtpImport.ValueChanged += new System.EventHandler(this.dtpImport_ValueChanged);
             // 
-            // dtcId
+            // tabPage5
             // 
-            this.dtcId.HeaderText = "Mã cây";
-            this.dtcId.Name = "dtcId";
-            this.dtcId.ReadOnly = true;
+            this.tabPage5.Controls.Add(this.txtUserSearch);
+            this.tabPage5.Controls.Add(this.label2);
+            this.tabPage5.Controls.Add(this.btnUserRefresh);
+            this.tabPage5.Controls.Add(this.btnUserDelete);
+            this.tabPage5.Controls.Add(this.btnUserUpdate);
+            this.tabPage5.Controls.Add(this.btnUserAdd);
+            this.tabPage5.Controls.Add(this.dgvUser);
+            this.tabPage5.Location = new System.Drawing.Point(4, 34);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1153, 540);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Người dùng";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // dtcTreeName
+            // txtUserSearch
             // 
-            this.dtcTreeName.HeaderText = "Tên cây";
-            this.dtcTreeName.Name = "dtcTreeName";
-            this.dtcTreeName.ReadOnly = true;
-            this.dtcTreeName.Width = 200;
+            this.txtUserSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUserSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserSearch.Location = new System.Drawing.Point(715, 18);
+            this.txtUserSearch.Name = "txtUserSearch";
+            this.txtUserSearch.Size = new System.Drawing.Size(223, 24);
+            this.txtUserSearch.TabIndex = 9;
+            this.txtUserSearch.TextChanged += new System.EventHandler(this.txtUserSearch_TextChanged);
             // 
-            // dtcTreeType
+            // label2
             // 
-            this.dtcTreeType.HeaderText = "Nhóm cây";
-            this.dtcTreeType.Name = "dtcTreeType";
-            this.dtcTreeType.ReadOnly = true;
-            this.dtcTreeType.Width = 150;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(644, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Tìm kiếm";
             // 
-            // dtcTreeCost
+            // btnUserRefresh
             // 
-            this.dtcTreeCost.HeaderText = "Giá tiền";
-            this.dtcTreeCost.Name = "dtcTreeCost";
-            this.dtcTreeCost.ReadOnly = true;
-            this.dtcTreeCost.Width = 110;
+            this.btnUserRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btnUserRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserRefresh.FlatAppearance.BorderSize = 0;
+            this.btnUserRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUserRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnUserRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnUserRefresh.Image")));
+            this.btnUserRefresh.Location = new System.Drawing.Point(1103, 12);
+            this.btnUserRefresh.Name = "btnUserRefresh";
+            this.btnUserRefresh.Size = new System.Drawing.Size(35, 35);
+            this.btnUserRefresh.TabIndex = 7;
+            this.btnUserRefresh.UseVisualStyleBackColor = false;
+            this.btnUserRefresh.Click += new System.EventHandler(this.btnUserRefresh_Click);
             // 
-            // dtcQuantity
+            // btnUserDelete
             // 
-            this.dtcQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dtcQuantity.HeaderText = "Số lượng";
-            this.dtcQuantity.Name = "dtcQuantity";
-            this.dtcQuantity.ReadOnly = true;
+            this.btnUserDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnUserDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserDelete.FlatAppearance.BorderSize = 0;
+            this.btnUserDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUserDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnUserDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnUserDelete.Image")));
+            this.btnUserDelete.Location = new System.Drawing.Point(1054, 12);
+            this.btnUserDelete.Name = "btnUserDelete";
+            this.btnUserDelete.Size = new System.Drawing.Size(35, 35);
+            this.btnUserDelete.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btnUserDelete, "Xóa");
+            this.btnUserDelete.UseVisualStyleBackColor = false;
+            this.btnUserDelete.Click += new System.EventHandler(this.btnUserDelete_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // btnUserUpdate
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mã nhóm cây";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.btnUserUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUserUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUserUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUserUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnUserUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUserUpdate.Image")));
+            this.btnUserUpdate.Location = new System.Drawing.Point(1005, 12);
+            this.btnUserUpdate.Name = "btnUserUpdate";
+            this.btnUserUpdate.Size = new System.Drawing.Size(35, 35);
+            this.btnUserUpdate.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnUserUpdate, "Lưu");
+            this.btnUserUpdate.UseVisualStyleBackColor = false;
+            this.btnUserUpdate.Click += new System.EventHandler(this.btnUserUpdate_Click);
             // 
-            // dataGridViewTextBoxColumn2
+            // btnUserAdd
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tên nhóm cây";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 200;
+            this.btnUserAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnUserAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserAdd.FlatAppearance.BorderSize = 0;
+            this.btnUserAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUserAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnUserAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnUserAdd.Image")));
+            this.btnUserAdd.Location = new System.Drawing.Point(956, 12);
+            this.btnUserAdd.Name = "btnUserAdd";
+            this.btnUserAdd.Size = new System.Drawing.Size(35, 35);
+            this.btnUserAdd.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.btnUserAdd, "Thêm mới");
+            this.btnUserAdd.UseVisualStyleBackColor = false;
+            this.btnUserAdd.Click += new System.EventHandler(this.btnUserAdd_Click);
             // 
-            // Quantity
+            // dgvUser
             // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Quantity.HeaderText = "Số cây";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
+            this.dgvUser.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgvUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn18});
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUser.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dgvUser.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.dgvUser.Location = new System.Drawing.Point(0, 59);
+            this.dgvUser.MultiSelect = false;
+            this.dgvUser.Name = "dgvUser";
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvUser.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            this.dgvUser.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgvUser.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvUser.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.dgvUser.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUser.Size = new System.Drawing.Size(1153, 481);
+            this.dgvUser.TabIndex = 2;
+            this.dgvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellClick);
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "Mã người dùng";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "Tên đăng nhập";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Tên người dùng";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn18.HeaderText = "Ngày sinh";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // Form1
             // 
@@ -1125,6 +1329,9 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1198,6 +1405,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TextBox txtUserSearch;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnUserRefresh;
+        private System.Windows.Forms.Button btnUserDelete;
+        private System.Windows.Forms.Button btnUserUpdate;
+        private System.Windows.Forms.Button btnUserAdd;
+        private System.Windows.Forms.DataGridView dgvUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
 
     }
 }

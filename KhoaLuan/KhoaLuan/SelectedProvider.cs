@@ -44,6 +44,12 @@ namespace KhoaLuan
 
             dgv.Refresh();
 
+            if (dgv.RowCount > 1)
+            {
+                DataGridViewRow row = dgv.Rows[0];
+                PROVIDER_SELECTED = DbManager.GetProviderById((int)row.Cells[0].Value);
+            }
+
             #endregion
         }
 
