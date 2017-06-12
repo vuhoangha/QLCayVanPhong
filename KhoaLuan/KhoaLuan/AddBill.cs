@@ -96,7 +96,7 @@ namespace KhoaLuan
                             else
                             {
                                 row.Cells[2].Value = totalTreeBuy;
-                                row.Cells[3].Value = totalTreeBuy * currTree.Cost;
+                                row.Cells[3].Value = DbManager.convertToMoney((totalTreeBuy * currTree.Cost).ToString());
                                 addTree.Close();
                             }
                             calculateTotalCost();
@@ -117,7 +117,7 @@ namespace KhoaLuan
                 newRow.Cells[0].Value = selected.TreeId;
                 newRow.Cells[1].Value = selected.TreeName;
                 newRow.Cells[2].Value = count;
-                newRow.Cells[3].Value = selected.Cost * count;
+                newRow.Cells[3].Value = DbManager.convertToMoney((selected.Cost * count).ToString());
                 dgvAddBill.Rows.Add(newRow);
                 refreshDgvAddBill();
 
@@ -155,10 +155,10 @@ namespace KhoaLuan
             {
                 if (row.Index >= 0 && row.Index < dgvAddBill.RowCount - 1)
                 {
-                    totalCost += Int32.Parse(row.Cells[3].Value.ToString());
+                    totalCost += DbManager.convertMoneyToInt(row.Cells[3].Value.ToString());
                 }
             }
-            lbAddBillToTalBill.Text = totalCost.ToString();
+            lbAddBillToTalBill.Text = DbManager.convertToMoney(totalCost.ToString());
         }
 
         private void btnBillDel_Click(object sender, EventArgs e)
@@ -210,7 +210,7 @@ namespace KhoaLuan
                 //  create new bill
                 Bill newBill = new Bill();
                 newBill.TimeChanged = DateTime.Now;
-                newBill.TotalCost = Int32.Parse(lbAddBillToTalBill.Text);
+                newBill.TotalCost = DbManager.convertMoneyToInt(lbAddBillToTalBill.Text);
                 newBill.UserId = Login.USER_LOGIN.UserId;
                 newBill.CustomerId = txtCustomerId.Text;
                 newBill.CustomerName = txtCustomerName.Text;
@@ -479,7 +479,7 @@ namespace KhoaLuan
 
                 #region Total Cost
 
-                PdfPCell cell4 = new PdfPCell(new Phrase(ConvertToUnsign3(row.Cells[3].Value.ToString()), times));
+                PdfPCell cell4 = new PdfPCell(new Phrase(ConvertToUnsign3(DbManager.convertMoneyToInt(row.Cells[3].Value.ToString()).ToString()), times));
                 cell4.BorderWidth = 0;
                 pdfTable.AddCell(cell4);
 

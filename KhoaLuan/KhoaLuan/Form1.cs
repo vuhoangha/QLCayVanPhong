@@ -125,7 +125,7 @@ namespace KhoaLuan
                 newRow.Cells[0].Value = tree.TreeId;
                 newRow.Cells[1].Value = tree.TreeName;
                 newRow.Cells[2].Value = DicCategory[(int)tree.CatId].CatName;
-                newRow.Cells[3].Value = tree.Cost;
+                newRow.Cells[3].Value = DbManager.convertToMoney(tree.Cost.ToString());
                 newRow.Cells[4].Value = tree.Quantity;
                 dgvTree.Rows.Add(newRow);
             }
@@ -247,7 +247,7 @@ namespace KhoaLuan
                 newRow.Cells[0].Value = tree.TreeId;
                 newRow.Cells[1].Value = tree.TreeName;
                 newRow.Cells[2].Value = DicCategory[(int)tree.CatId].CatName;
-                newRow.Cells[3].Value = tree.Cost;
+                newRow.Cells[3].Value = DbManager.convertToMoney(tree.Cost.ToString());
                 newRow.Cells[4].Value = tree.Quantity;
                 dgvTree.Rows.Add(newRow);
             }
@@ -276,7 +276,7 @@ namespace KhoaLuan
 
                 newRow.Cells[0].Value = bill.BillId;
                 newRow.Cells[1].Value = bill.TimeChanged;
-                newRow.Cells[2].Value = bill.TotalCost;
+                newRow.Cells[2].Value = DbManager.convertToMoney(bill.TotalCost.ToString());
                 Account currUser = DbManager.getUserByUserId((int)bill.UserId);
                 if (currUser != null)
                 {
@@ -607,7 +607,7 @@ namespace KhoaLuan
 
                 newRow.Cells[0].Value = bill.BillId;
                 newRow.Cells[1].Value = bill.TimeChanged;
-                newRow.Cells[2].Value = bill.TotalCost;
+                newRow.Cells[2].Value = DbManager.convertToMoney(bill.TotalCost.ToString());
                 Account currUser = DbManager.getUserByUserId((int)bill.UserId);
                 if (currUser != null)
                 {

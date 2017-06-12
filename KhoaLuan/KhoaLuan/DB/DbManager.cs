@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace KhoaLuan.DB
@@ -521,7 +522,7 @@ namespace KhoaLuan.DB
         {
             if (userName == "admin")
             {
-                return dbManager.Accounts.Where(p=>p.Status == 1).ToList();
+                return dbManager.Accounts.Where(p => p.Status == 1).ToList();
             }
             return dbManager.Accounts.Where(p => p.UserName == userName && p.Status == 1).ToList();
         }
@@ -619,6 +620,21 @@ namespace KhoaLuan.DB
                 return null;
                 throw;
             }
+        }
+
+        #endregion
+
+        #region General
+
+        public static string convertToMoney(string money)
+        {
+            return String.Format("{0:#,#.}", Int32.Parse(money));
+        }
+
+        public static int convertMoneyToInt(string money)
+        {
+            var replaced = Regex.Replace(money, @"[,\.]", "");
+            return Int32.Parse(replaced);
         }
 
         #endregion
