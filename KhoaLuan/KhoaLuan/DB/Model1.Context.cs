@@ -32,7 +32,6 @@ namespace KhoaLuan.DB
         public virtual DbSet<Import> Imports { get; set; }
         public virtual DbSet<ImportDetail> ImportDetails { get; set; }
         public virtual DbSet<Provider> Providers { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tree> Trees { get; set; }
     }
 }

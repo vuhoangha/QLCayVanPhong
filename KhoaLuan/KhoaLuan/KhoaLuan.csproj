@@ -135,9 +135,6 @@
     <Compile Include="DB\Provider.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="DB\Tree.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
