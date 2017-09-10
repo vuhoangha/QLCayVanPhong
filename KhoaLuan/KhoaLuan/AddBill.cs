@@ -51,7 +51,7 @@ namespace KhoaLuan
         {
             Tree currTree = DbManager.GetTreeById((int)ID_TREE_SELECTED);
             ROW_SELECTED.Cells[2].Value = count;
-            ROW_SELECTED.Cells[3].Value = (count * currTree.Cost).ToString();
+            ROW_SELECTED.Cells[3].Value = DbManager.convertToMoney((count * currTree.Cost).ToString());
             refreshDgvAddBill();
             calculateTotalCost();
             return true;

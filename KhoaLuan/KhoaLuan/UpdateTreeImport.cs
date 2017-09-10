@@ -37,13 +37,13 @@ namespace KhoaLuan
         private void nudImportTreeQuantity_ValueChanged(object sender, EventArgs e)
         {
             if (txtCost.Text == "" || txtCost.Text == null) return;
-            lbTotalCost.Text = (nudImportTreeQuantity.Value * Int32.Parse(txtCost.Text)).ToString();
+            lbTotalCost.Text = DbManager.convertToMoney((nudImportTreeQuantity.Value * Int32.Parse(txtCost.Text)).ToString());
         }
 
         private void txtCost_TextChanged(object sender, EventArgs e)
         {
             if (txtCost.Text == "" || txtCost.Text == null) return;
-            lbTotalCost.Text = (nudImportTreeQuantity.Value * Int32.Parse(txtCost.Text)).ToString();
+            lbTotalCost.Text = DbManager.convertToMoney((nudImportTreeQuantity.Value * Int32.Parse(txtCost.Text)).ToString());
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

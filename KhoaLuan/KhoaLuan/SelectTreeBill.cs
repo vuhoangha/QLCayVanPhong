@@ -47,7 +47,7 @@ namespace KhoaLuan
                 newRow.Cells[0].Value = tree.TreeId;
                 newRow.Cells[1].Value = tree.TreeName;
                 newRow.Cells[2].Value = DicCategory[(int)tree.CatId].CatName;
-                newRow.Cells[3].Value = tree.Cost;
+                newRow.Cells[3].Value = DbManager.convertToMoney(tree.Cost.ToString());
                 newRow.Cells[4].Value = tree.Quantity;
                 dgvSelectTree.Rows.Add(newRow);
             }
@@ -77,7 +77,7 @@ namespace KhoaLuan
                 //  ma cay
                 lbSelectTreeId.Text = currTree.TreeId.ToString();
                 //  thanh tien
-                lbSelectTreeTotalCost.Text = currTree.Cost.ToString();
+                lbSelectTreeTotalCost.Text = DbManager.convertToMoney(currTree.Cost.ToString());
             }
             else
             {
@@ -103,7 +103,7 @@ namespace KhoaLuan
                 newRow.Cells[0].Value = tree.TreeId;
                 newRow.Cells[1].Value = tree.TreeName;
                 newRow.Cells[2].Value = DicCategory[(int)tree.CatId].CatName;
-                newRow.Cells[3].Value = tree.Cost;
+                newRow.Cells[3].Value = DbManager.convertToMoney(tree.Cost.ToString());
                 newRow.Cells[4].Value = tree.Quantity;
                 dgvSelectTree.Rows.Add(newRow);
             }
@@ -140,7 +140,7 @@ namespace KhoaLuan
                 //  ma cay
                 lbSelectTreeId.Text = currTree.TreeId.ToString();
                 //  thanh tien
-                lbSelectTreeTotalCost.Text = currTree.Cost.ToString();
+                lbSelectTreeTotalCost.Text = DbManager.convertToMoney(currTree.Cost.ToString());
             }
             catch (Exception)
             {
@@ -152,7 +152,7 @@ namespace KhoaLuan
         private void nudSelectTreeQuantity_ValueChanged(object sender, EventArgs e)
         {
             //  thanh tien
-            lbSelectTreeTotalCost.Text = (TREE_SELECTED.Cost * nudSelectTreeQuantity.Value).ToString();
+            lbSelectTreeTotalCost.Text = DbManager.convertToMoney((TREE_SELECTED.Cost * nudSelectTreeQuantity.Value).ToString());
         }
 
         private void btnBillAdd_Click(object sender, EventArgs e)

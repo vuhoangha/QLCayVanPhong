@@ -39,9 +39,9 @@ namespace KhoaLuan
                 var billDetail = listBillDetail[i];
                 newRow.Cells[0].Value = billDetail.TreeId;
                 newRow.Cells[1].Value = DicTree[(int)billDetail.TreeId].TreeName;
-                newRow.Cells[2].Value = billDetail.Cost;
+                newRow.Cells[2].Value = DbManager.convertToMoney(billDetail.Cost.ToString());
                 newRow.Cells[3].Value = billDetail.Quantity;
-                newRow.Cells[4].Value = billDetail.Cost * billDetail.Quantity;
+                newRow.Cells[4].Value = DbManager.convertToMoney((billDetail.Cost * billDetail.Quantity).ToString());
                 dgv.Rows.Add(newRow);
             }
 

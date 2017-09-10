@@ -31,7 +31,7 @@ namespace KhoaLuan
             lbBillTreeName.Text = updateTree.TreeName;
             nudBillTreeQuantity.Value = quantity;
             nudBillTreeQuantity.Maximum = (decimal)updateTree.Quantity;
-            lbBillTotalCostTree.Text = (updateTree.Cost * quantity).ToString();
+            lbBillTotalCostTree.Text = DbManager.convertToMoney((updateTree.Cost * quantity).ToString());
         }
 
         private void btnBillUpdate_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace KhoaLuan
 
         private void nudBillTreeQuantity_ValueChanged(object sender, EventArgs e)
         {
-            lbBillTotalCostTree.Text = (UPDATE_TREE.Cost * nudBillTreeQuantity.Value).ToString();
+            lbBillTotalCostTree.Text = DbManager.convertToMoney((UPDATE_TREE.Cost * nudBillTreeQuantity.Value).ToString());
         }
     }
 }

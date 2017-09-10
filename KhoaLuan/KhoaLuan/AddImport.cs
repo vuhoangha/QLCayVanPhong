@@ -114,10 +114,10 @@ namespace KhoaLuan
             {
                 if (row.Index >= 0 && row.Index < dgvAddImport.RowCount - 1)
                 {
-                    totalCost += Int32.Parse(row.Cells[4].Value.ToString());
+                    totalCost += DbManager.convertMoneyToInt(row.Cells[4].Value.ToString());
                 }
             }
-            lbAddImportToTalBill.Text = totalCost.ToString();
+            lbAddImportToTalBill.Text = DbManager.convertToMoney(totalCost.ToString());
         }
 
         private void btnBillDel_Click(object sender, EventArgs e)
@@ -164,7 +164,7 @@ namespace KhoaLuan
                     if (row.Index >= 0 && row.Index < dgvAddImport.RowCount - 1)
                     {
                         if (Int32.Parse(row.Cells[2].Value.ToString()) <= 0
-                            || Int32.Parse(row.Cells[3].Value.ToString()) <= 0)
+                            || DbManager.convertMoneyToInt(row.Cells[3].Value.ToString()) <= 0)
                         {
                             MessageBox.Show("Bạn vui lòng nhập số lượng cây và giá tiền của cây", "Thêm hóa đơn nhập",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -180,7 +180,7 @@ namespace KhoaLuan
                 //  create new bill
                 Import newImport = new Import();
                 newImport.TimeChanged = DateTime.Now;
-                newImport.TotalCost = Int32.Parse(lbAddImportToTalBill.Text);
+                newImport.TotalCost = DbManager.convertMoneyToInt(lbAddImportToTalBill.Text);
                 newImport.UserId = Login.USER_LOGIN.UserId;
                 newImport.ProviderId = PROVIDER_SELECTED.ProviderId;
 
@@ -203,7 +203,7 @@ namespace KhoaLuan
                         Tree currTree = DbManager.GetTreeById(Int32.Parse(row.Cells[0].Value.ToString()));
                         billDetail.TreeId = currTree.TreeId;
                         billDetail.Quantity = Int32.Parse(row.Cells[2].Value.ToString());
-                        billDetail.Cost = Int32.Parse(row.Cells[3].Value.ToString());
+                        billDetail.Cost = DbManager.convertMoneyToInt(row.Cells[3].Value.ToString());
 
                         //  add bill detail to list
                         listImportDetail.Add(billDetail);
@@ -221,8 +221,11 @@ namespace KhoaLuan
 
                 //  update quantity tree
                 DbManager.updateListTree(listTree);
-
+               
                 this.Close();
+
+                MessageBox.Show("Tạo hóa đơn thành công");
+                return;
             }
             catch (Exception)
             {
@@ -235,8 +238,8 @@ namespace KhoaLuan
         {
             Tree currTree = DbManager.GetTreeById((int)ID_TREE_SELECTED);
             ROW_SELECTED.Cells[2].Value = quantity;
-            ROW_SELECTED.Cells[3].Value = cost;
-            ROW_SELECTED.Cells[4].Value = (quantity * cost).ToString();
+            ROW_SELECTED.Cells[3].Value = DbManager.convertToMoney(cost.ToString());
+            ROW_SELECTED.Cells[4].Value = DbManager.convertToMoney((quantity * cost).ToString());
             refreshDgvImport();
             calculateTotalCost();
             return true;
@@ -255,7 +258,7 @@ namespace KhoaLuan
             Tree currTree = DbManager.GetTreeById((int)ID_TREE_SELECTED);
 
             int quantity = Int32.Parse(ROW_SELECTED.Cells[2].Value.ToString());
-            int cost = Int32.Parse(ROW_SELECTED.Cells[3].Value.ToString());
+            int cost = DbManager.convertMoneyToInt(ROW_SELECTED.Cells[3].Value.ToString());
 
             UpdateTreeImport newFrom = new UpdateTreeImport(currTree, quantity, cost, updateTreeCallBack);
             newFrom.Show();

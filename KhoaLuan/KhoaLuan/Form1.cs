@@ -389,7 +389,7 @@ namespace KhoaLuan
                 {
                     newRow.Cells[2].Value = currPro.ProviderName;
                 }
-                newRow.Cells[3].Value = bill.TotalCost;
+                newRow.Cells[3].Value = DbManager.convertToMoney(bill.TotalCost.ToString());
                 Account currUser = DbManager.getUserByUserId((int)bill.UserId);
                 if (currUser != null)
                 {
