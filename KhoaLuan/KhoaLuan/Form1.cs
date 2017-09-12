@@ -56,11 +56,19 @@ namespace KhoaLuan
 
             //    }
             //}
-
         }
 
         public bool callBackMain()
         {
+            if (Login.USER_LOGIN.UserName != "admin")
+            {
+                tbcMain.TabPages.RemoveAt(0);
+                tbcMain.TabPages.RemoveAt(0);
+                tbcMain.TabPages.RemoveAt(1);
+                tbcMain.TabPages.RemoveAt(1);
+                tbcMain.TabPages.RemoveAt(1);
+            }
+
             tbcMain.Visible = true;
 
             #region init

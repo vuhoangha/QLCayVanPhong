@@ -511,12 +511,12 @@ namespace KhoaLuan
 
             #region Exporting to PDF
 
-            string folderPath = "C:\\Users\\vuhoa\\Desktop\\SQL\\";
+            string folderPath = "C:\\Users\\vuhoa\\Desktop\\HoaDon\\";
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
-            using (FileStream stream = new FileStream(folderPath + "DataGridViewExport.pdf", FileMode.Create))
+            using (FileStream stream = new FileStream(folderPath + "hoadon_" + newBill.BillId + ".pdf", FileMode.Create))
             {
                 Document pdfDoc = new Document(PageSize.A6, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);

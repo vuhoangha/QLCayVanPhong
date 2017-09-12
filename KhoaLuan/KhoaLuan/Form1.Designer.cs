@@ -1312,7 +1312,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lý";
+            this.Text = "Phần mềm quản lý shop cây GREEN";
             this.tbcMain.ResumeLayout(false);
             this.tpTree.ResumeLayout(false);
             this.tpTree.PerformLayout();
