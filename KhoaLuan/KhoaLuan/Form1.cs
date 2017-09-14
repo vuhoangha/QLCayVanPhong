@@ -980,5 +980,10 @@ namespace KhoaLuan
             }
         }
 
+        private void tbcMain_SelectedIndexChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+
+        }
+
     }
 }
