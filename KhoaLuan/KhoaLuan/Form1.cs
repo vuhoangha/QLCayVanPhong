@@ -70,6 +70,7 @@ namespace KhoaLuan
             }
 
             tbcMain.Visible = true;
+            tbcMain.TabIndex = 0;
 
             #region init
             loadGridViewTree();
@@ -982,7 +983,35 @@ namespace KhoaLuan
 
         private void tbcMain_SelectedIndexChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
-
+            DevExpress.XtraTab.XtraTabControl tabControl = sender as DevExpress.XtraTab.XtraTabControl;
+            if (tabControl.SelectedTabPageIndex == 0)
+            {
+                loadGridViewTree();
+            }
+            else if (tabControl.SelectedTabPageIndex == 1)
+            {
+                loadGridViewCategory();
+            }
+            else if (tabControl.SelectedTabPageIndex == 2)
+            {
+                dtpBill.Value = DateTime.Now;
+                loadGridViewBill();
+            }
+            else if (tabControl.SelectedTabPageIndex == 3)
+            {
+                loadGridViewProvider();
+                txtProviderSearch.Text = "";
+            }
+            else if (tabControl.SelectedTabPageIndex == 4)
+            {
+                dtpImport.Value = DateTime.Now;
+                loadGridViewImport();
+            }
+            else if (tabControl.SelectedTabPageIndex == 5)
+            {
+                txtUserSearch.Text = "";
+                loadGridUser();
+            }
         }
 
     }
