@@ -37,25 +37,6 @@ namespace KhoaLuan
             login.Size = new System.Drawing.Size(464, 208);
             login.TabIndex = 0;
             this.Controls.Add(login);
-
-            //using (Image image = Image.FromFile("10-dithering-opt.jpg"))
-            //{
-            //    using (MemoryStream m = new MemoryStream())
-            //    {
-            //        image.Save(m, image.RawFormat);
-            //        byte[] imageBytes = m.ToArray();
-
-            //        // Convert byte[] to Base64 String
-            //        string base64String = Convert.ToBase64String(imageBytes);
-
-            //        var b = Convert.FromBase64String(base64String);
-            //        using (var mem = new MemoryStream(b))
-            //        {
-            //            pictureBox1.Image = Image.FromStream(mem);
-            //        }
-
-            //    }
-            //}
         }
 
         public bool callBackMain()
@@ -70,46 +51,13 @@ namespace KhoaLuan
             }
 
             tbcMain.Visible = true;
-            tbcMain.TabIndex = 0;
+            tbcMain.SelectedTabPageIndex = 0;
 
             #region init
             loadGridViewTree();
             #endregion
 
             return true;
-        }
-
-        private void tbcMain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            TabControl tabControl = sender as TabControl;
-            if (tabControl.SelectedIndex == 0)
-            {
-                loadGridViewTree();
-            }
-            else if (tabControl.SelectedIndex == 1)
-            {
-                loadGridViewCategory();
-            }
-            else if (tabControl.SelectedIndex == 2)
-            {
-                dtpBill.Value = DateTime.Now;
-                loadGridViewBill();
-            }
-            else if (tabControl.SelectedIndex == 3)
-            {
-                loadGridViewProvider();
-                txtProviderSearch.Text = "";
-            }
-            else if (tabControl.SelectedIndex == 4)
-            {
-                dtpImport.Value = DateTime.Now;
-                loadGridViewImport();
-            }
-            else if (tabControl.SelectedIndex == 5)
-            {
-                txtUserSearch.Text = "";
-                loadGridUser();
-            }
         }
 
         #region TREE
