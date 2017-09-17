@@ -58,6 +58,20 @@ namespace KhoaLuan
                 return;
             }
 
+            //  check txt tree cost
+            if (!txtTreeCost.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Cập nhật cây không thành công, giá cây phải là số nguyên.", "Cập nhật cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (Int32.Parse(txtTreeCost.Text) <= 0)
+            {
+                MessageBox.Show("Cập nhật cây không thành công, giá cây phải lớn hơn 0.", "Cập nhật cây",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             //  check id is valid ?
             Tree treeById = DbManager.GetTreeById(TREE_SELECTED.TreeId);
             if (treeById == null)

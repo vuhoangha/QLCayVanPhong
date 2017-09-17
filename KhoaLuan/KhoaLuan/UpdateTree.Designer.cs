@@ -157,7 +157,7 @@
             // 
             this.nudTreeQuantity.Location = new System.Drawing.Point(92, 195);
             this.nudTreeQuantity.Maximum = new decimal(new int[] {
-            1000,
+            1000000,
             0,
             0,
             0});
