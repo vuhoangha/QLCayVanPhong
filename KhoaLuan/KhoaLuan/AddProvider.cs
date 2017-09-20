@@ -23,7 +23,10 @@ namespace KhoaLuan
             try
             {
                 //  check validate
-                if (txtProviderName.Text == string.Empty)
+                if (txtProviderName.Text == string.Empty
+                    || txtProviderAddress.Text == string.Empty
+                    || txtProviderEmail.Text == string.Empty
+                    || txtProviderPhone.Text == string.Empty)
                 {
                     MessageBox.Show("Thêm nhà cung cấp không thành công, bạn vui lòng nhập đủ thông tin.", "Thêm nhà cung cấp",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -12,21 +12,18 @@ namespace KhoaLuan.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Bill
+    public partial class Customer
     {
-        public Bill()
+        public Customer()
         {
-            this.BillDetails = new HashSet<BillDetail>();
+            this.Bills = new HashSet<Bill>();
         }
     
-        public int BillId { get; set; }
-        public Nullable<System.DateTime> TimeChanged { get; set; }
-        public Nullable<int> TotalCost { get; set; }
-        public Nullable<int> UserId { get; set; }
         public string CustomerId { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerAddress { get; set; }
+        public string CustomerPhone { get; set; }
     
-        public virtual Account Account { get; set; }
-        public virtual Customer Customer { get; set; }
-        public virtual ICollection<BillDetail> BillDetails { get; set; }
+        public virtual ICollection<Bill> Bills { get; set; }
     }
 }

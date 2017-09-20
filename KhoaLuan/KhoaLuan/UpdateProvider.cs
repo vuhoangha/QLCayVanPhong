@@ -30,7 +30,10 @@ namespace KhoaLuan
         private void btnImportAddTree_Click(object sender, EventArgs e)
         {
             //  check validate
-            if (txtProviderName.Text == string.Empty)
+            if (txtProviderName.Text == string.Empty
+                || txtProviderAddress.Text == string.Empty
+                || txtProviderEmail.Text == string.Empty
+                || txtProviderPhone.Text == string.Empty)
             {
                 MessageBox.Show("Cập nhật nhà cung cấp không thành công, bạn vui lòng nhập đủ thông tin.", "Cập nhật nhà cung cấp",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

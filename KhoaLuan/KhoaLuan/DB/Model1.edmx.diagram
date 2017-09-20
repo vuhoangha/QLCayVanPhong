@@ -4,17 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c488a082606b4c13abc3b8400e2bb80b" Name="Diagram1">
+      <Diagram DiagramId="462712b2a4e149118c1fcd9d5861d6e1" Name="Diagram1">
         <EntityTypeShape EntityType="ShopCayCanhModel.Account" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopCayCanhModel.Bill" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopCayCanhModel.Bill" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopCayCanhModel.BillDetail" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopCayCanhModel.Category" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopCayCanhModel.Customer" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopCayCanhModel.Import" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopCayCanhModel.ImportDetail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopCayCanhModel.Provider" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopCayCanhModel.sysdiagram" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopCayCanhModel.Tree" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
         <AssociationConnector Association="ShopCayCanhModel.FK_Bill_User" ManuallyRouted="false" />
         <AssociationConnector Association="ShopCayCanhModel.FK_Import_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopCayCanhModel.FK_Bill_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="ShopCayCanhModel.FK_BillDetail_Bill" ManuallyRouted="false" />
         <AssociationConnector Association="ShopCayCanhModel.FK_BillDetail_Tree" ManuallyRouted="false" />
         <AssociationConnector Association="ShopCayCanhModel.FK_Tree_Category" ManuallyRouted="false" />

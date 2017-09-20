@@ -205,6 +205,15 @@ namespace KhoaLuan
                     return;
                 }
 
+                //  check customer exist in system
+                if (DbManager.getCustomerByID(txtCustomerId.Text) == null)
+                {
+                    MessageBox.Show("Khách hàng này không tồn tại trong hệ thống, vui lòng nhập thông tin khách hàng và đồng bộ", "Thêm hóa đơn",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
                 #endregion
 
                 //  create new bill
@@ -213,8 +222,6 @@ namespace KhoaLuan
                 newBill.TotalCost = DbManager.convertMoneyToInt(lbAddBillToTalBill.Text);
                 newBill.UserId = Login.USER_LOGIN.UserId;
                 newBill.CustomerId = txtCustomerId.Text;
-                newBill.CustomerName = txtCustomerName.Text;
-                newBill.CustomerAddress = txtAddress.Text;
 
                 //  add to db
                 newBill = DbManager.addBill(newBill);
@@ -545,6 +552,70 @@ namespace KhoaLuan
 
             UpdateTreeBill newFrom = new UpdateTreeBill(currTree, quantity, updateTreeCallBack);
             newFrom.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            #region validate
+
+            if (txtCustomerId.Text == null
+               || txtCustomerId.Text.ToString() == "")
+            {
+                MessageBox.Show("Vui lòng nhập số CMT của khách hàng", "Đồng bộ khách hàng",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            #endregion
+
+            bool hasCustomer = true;
+            Customer customer = DbManager.getCustomerByID(txtCustomerId.Text);
+            if (customer == null)
+            {
+                if (txtCustomerName.Text.ToString() == ""
+                    || txtCustomerName.Text == null)
+                {
+                    MessageBox.Show("Khách hàng không tồn tại trong hệ thống", "Đồng bộ khách hàng",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                customer = new Customer();
+                hasCustomer = false;
+            }
+
+            if (txtCustomerId.Text.ToString() != "")
+            {
+                customer.CustomerId = txtCustomerId.Text;
+            }
+
+            if (txtCustomerName.Text.ToString() != "")
+            {
+                customer.CustomerName = txtCustomerName.Text;
+            }
+
+            if (txtAddress.Text.ToString() != "")
+            {
+                customer.CustomerAddress = txtAddress.Text;
+            }
+
+            if (txtPhone.Text.ToString() != "")
+            {
+                customer.CustomerPhone = txtPhone.Text;
+            }
+
+            if (DbManager.synchronizeCustomer(customer, hasCustomer))
+            {
+                MessageBox.Show("Đồng bộ khách hàng thành công");
+            }
+            else
+            {
+                MessageBox.Show("Đồng bộ khách hàng không thành công");
+            }
+
+            txtCustomerId.Text = customer.CustomerId;
+            txtCustomerName.Text = customer.CustomerName;
+            txtAddress.Text = customer.CustomerAddress;
+            txtPhone.Text = customer.CustomerPhone;
         }
 
     }

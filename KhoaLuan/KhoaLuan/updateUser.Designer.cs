@@ -221,7 +221,7 @@
             this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.label2);
             this.Name = "updateUser";
-            this.Text = "updateUser";
+            this.Text = "Cập nhật người dùng";
             this.ResumeLayout(false);
             this.PerformLayout();
 

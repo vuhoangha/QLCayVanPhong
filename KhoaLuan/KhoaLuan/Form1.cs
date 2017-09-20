@@ -48,15 +48,24 @@ namespace KhoaLuan
                 tbcMain.TabPages.RemoveAt(1);
                 tbcMain.TabPages.RemoveAt(1);
                 tbcMain.TabPages.RemoveAt(1);
+
+                #region init
+
+                loadGridViewBill();
+
+                #endregion
+            }
+            else
+            {
+                #region init
+
+                loadGridViewTree();
+
+                #endregion
             }
 
             tbcMain.Visible = true;
             tbcMain.SelectedTabPageIndex = 0;
-
-            #region init
-            loadGridViewTree();
-            #endregion
-
             return true;
         }
 
@@ -239,9 +248,11 @@ namespace KhoaLuan
                 {
                     newRow.Cells[3].Value = currUser.FullName;
                 }
-                newRow.Cells[4].Value = bill.CustomerName;
-                newRow.Cells[5].Value = bill.CustomerId;
-                newRow.Cells[6].Value = bill.CustomerAddress;
+
+                Customer customer = DbManager.getCustomerByID(bill.CustomerId);
+                newRow.Cells[4].Value = customer.CustomerName;
+                newRow.Cells[5].Value = customer.CustomerId;
+                newRow.Cells[6].Value = customer.CustomerPhone;
 
                 dgvBill.Rows.Add(newRow);
             }
@@ -570,9 +581,11 @@ namespace KhoaLuan
                 {
                     newRow.Cells[3].Value = currUser.FullName;
                 }
-                newRow.Cells[4].Value = bill.CustomerName;
-                newRow.Cells[5].Value = bill.CustomerId;
-                newRow.Cells[6].Value = bill.CustomerAddress;
+
+                Customer customer = DbManager.getCustomerByID(bill.CustomerId);
+                newRow.Cells[4].Value = customer.CustomerName;
+                newRow.Cells[5].Value = customer.CustomerId;
+                newRow.Cells[6].Value = customer.CustomerPhone;
 
                 dgvBill.Rows.Add(newRow);
             }

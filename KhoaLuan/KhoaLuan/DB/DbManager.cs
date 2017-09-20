@@ -9,7 +9,7 @@ namespace KhoaLuan.DB
 {
     public class DbManager
     {
-        public static DbEntities dbManager = new DbEntities();
+        public static DBEntities dbManager = new DBEntities();
 
         #region Login
 
@@ -306,7 +306,7 @@ namespace KhoaLuan.DB
             return dbManager.Bills.Where(x => ((DateTime)x.TimeChanged).Year == dateValue.Year
                 && ((DateTime)x.TimeChanged).Month == dateValue.Month
                 && ((DateTime)x.TimeChanged).Day == dateValue.Day
-                && (x.BillId.ToString().Contains(query) || x.CustomerName.Contains(query))).ToList();
+                && (x.BillId.ToString().Contains(query))).ToList();
         }
 
         #endregion
@@ -639,5 +639,40 @@ namespace KhoaLuan.DB
 
         #endregion
 
+        #region Customer
+
+        public static Customer getCustomerByID(string customerId)
+        {
+            return dbManager.Customers.Where(p => p.CustomerId == customerId).FirstOrDefault();
+        }
+
+        public static bool synchronizeCustomer(Customer customer, bool isUpdate)
+        {
+            try
+            {
+                if (isUpdate)
+                {
+                    Customer oldCustomer = dbManager.Customers.Where(p => p.CustomerId == customer.CustomerId).FirstOrDefault();
+                    oldCustomer.CustomerName = customer.CustomerName;
+                    oldCustomer.CustomerAddress = customer.CustomerAddress;
+                    oldCustomer.CustomerPhone = customer.CustomerPhone;
+                    dbManager.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    dbManager.Customers.Add(customer);
+                    dbManager.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        #endregion
     }
 }
