@@ -556,6 +556,12 @@ namespace KhoaLuan
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn đồng bộ khách hàng?", "Đồng bộ khách hàng", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
             #region validate
 
             if (txtCustomerId.Text == null
