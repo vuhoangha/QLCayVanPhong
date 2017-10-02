@@ -1,2 +1,5 @@
 ﻿- Tìm kiếm trong hóa đơn xuất hàng và nhập hang
 - Tooltip của các button
+- Xoa database change status
+- Xoa truong images trong tree
+- Thêm thông tin cho nhân viên
