@@ -3,3 +3,4 @@
 - Xoa database change status
 - Xoa truong images trong tree
 - Thêm thông tin cho nhân viên
+- Sửa tên người dùng và nhân viên
