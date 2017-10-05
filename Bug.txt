@@ -4,3 +4,5 @@
 - Xoa truong images trong tree
 - Thêm thông tin cho nhân viên
 - Sửa tên người dùng và nhân viên
+- Thêm nút thoát chương trình
+- Xuất file hóa đơn ra thư mục khác
