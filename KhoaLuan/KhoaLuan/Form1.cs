@@ -562,7 +562,7 @@ namespace KhoaLuan
         {
             #region set dgv cat
 
-            List<Bill> listBill = DbManager.getListBillByDateAndSearch(dtpBill.Value, txtBillSearch.Text);
+            List<Bill> listBill = DbManager.getListBillByDateAndSearch(txtBillSearch.Text);
 
             dgvBill.DataSource = null;
             dgvBill.Rows.Clear();
@@ -687,7 +687,7 @@ namespace KhoaLuan
         {
             #region set dgv cat
 
-            List<Import> listImport = DbManager.getListImportByDateAndSearch(dtpImport.Value, txtImportSearch.Text);
+            List<Import> listImport = DbManager.getListImportByDateAndSearch(txtImportSearch.Text);
 
             dgvImport.DataSource = null;
             dgvImport.Rows.Clear();

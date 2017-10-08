@@ -75,6 +75,7 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(35, 35);
             this.btnRefresh.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btnRefresh, "Làm mới");
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 

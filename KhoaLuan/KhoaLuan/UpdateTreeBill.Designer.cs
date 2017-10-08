@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateTreeBill));
             this.lbBillTreeName = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnBillUpdate = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudBillTreeQuantity)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -165,6 +167,7 @@
             this.btnBillUpdate.Name = "btnBillUpdate";
             this.btnBillUpdate.Size = new System.Drawing.Size(35, 35);
             this.btnBillUpdate.TabIndex = 28;
+            this.toolTip1.SetToolTip(this.btnBillUpdate, "Cập nhật");
             this.btnBillUpdate.UseVisualStyleBackColor = false;
             this.btnBillUpdate.Click += new System.EventHandler(this.btnBillUpdate_Click);
             // 
@@ -217,5 +220,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBillUpdate;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

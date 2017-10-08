@@ -518,7 +518,7 @@ namespace KhoaLuan
 
             #region Exporting to PDF
 
-            string folderPath = "C:\\Users\\vuhoa\\Desktop\\HoaDon\\";
+            string folderPath = Directory.GetCurrentDirectory() + "\\HoaDon\\";
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);

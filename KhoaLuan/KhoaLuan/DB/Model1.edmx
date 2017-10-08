@@ -106,7 +106,6 @@
           <Property Name="Cost" Type="int" />
           <Property Name="Quantity" Type="int" />
           <Property Name="Description" Type="ntext" />
-          <Property Name="Image" Type="ntext" />
           <Property Name="Status" Type="int" />
         </EntityType>
         <Association Name="FK_Bill_Customer">
@@ -402,7 +401,6 @@
           <Property Name="Cost" Type="Int32" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="BillDetails" Relationship="Self.FK_BillDetail_Tree" FromRole="Tree" ToRole="BillDetail" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Tree_Category" FromRole="Tree" ToRole="Category" />
@@ -693,7 +691,6 @@
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>

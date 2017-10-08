@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddImport));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,6 +51,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddImport)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +69,7 @@
             this.btnImportAddTree.Name = "btnImportAddTree";
             this.btnImportAddTree.Size = new System.Drawing.Size(35, 35);
             this.btnImportAddTree.TabIndex = 35;
+            this.toolTip1.SetToolTip(this.btnImportAddTree, "Thêm mới");
             this.btnImportAddTree.UseVisualStyleBackColor = false;
             this.btnImportAddTree.Click += new System.EventHandler(this.btnImportAddTree_Click);
             // 
@@ -127,6 +130,7 @@
             this.btnBillDel.Name = "btnBillDel";
             this.btnBillDel.Size = new System.Drawing.Size(35, 35);
             this.btnBillDel.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnBillDel, "Xóa");
             this.btnBillDel.UseVisualStyleBackColor = false;
             this.btnBillDel.Click += new System.EventHandler(this.btnBillDel_Click);
             // 
@@ -252,6 +256,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(35, 35);
             this.btnSearch.TabIndex = 35;
+            this.toolTip1.SetToolTip(this.btnSearch, "Tìm kiếm");
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -268,6 +273,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 35);
             this.button1.TabIndex = 37;
+            this.toolTip1.SetToolTip(this.button1, "Cập nhật");
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -327,5 +333,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

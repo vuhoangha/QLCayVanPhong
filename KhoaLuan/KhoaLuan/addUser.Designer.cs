@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addUser));
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -44,6 +45,7 @@
             this.txtCMT = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.dtpBirth = new System.Windows.Forms.DateTimePicker();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnAdd
@@ -59,6 +61,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(35, 35);
             this.btnAdd.TabIndex = 46;
+            this.toolTip1.SetToolTip(this.btnAdd, "Thêm");
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -245,5 +248,6 @@
         private System.Windows.Forms.TextBox txtCMT;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.DateTimePicker dtpBirth;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

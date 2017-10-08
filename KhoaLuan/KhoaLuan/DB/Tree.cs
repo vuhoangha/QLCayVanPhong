@@ -26,7 +26,6 @@ namespace KhoaLuan.DB
         public Nullable<int> Cost { get; set; }
         public Nullable<int> Quantity { get; set; }
         public string Description { get; set; }
-        public string Image { get; set; }
         public Nullable<int> Status { get; set; }
     
         public virtual ICollection<BillDetail> BillDetails { get; set; }

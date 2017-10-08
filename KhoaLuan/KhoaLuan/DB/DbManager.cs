@@ -301,12 +301,9 @@ namespace KhoaLuan.DB
                 && ((DateTime)x.TimeChanged).Day == dateValue.Day).ToList();
         }
 
-        public static List<Bill> getListBillByDateAndSearch(DateTime dateValue, string query)
+        public static List<Bill> getListBillByDateAndSearch(string query)
         {
-            return dbManager.Bills.Where(x => ((DateTime)x.TimeChanged).Year == dateValue.Year
-                && ((DateTime)x.TimeChanged).Month == dateValue.Month
-                && ((DateTime)x.TimeChanged).Day == dateValue.Day
-                && (x.BillId.ToString().Contains(query))).ToList();
+            return dbManager.Bills.Where(x => (x.BillId.ToString().Contains(query))).ToList();
         }
 
         #endregion
@@ -466,12 +463,9 @@ namespace KhoaLuan.DB
                 && ((DateTime)x.TimeChanged).Day == dateValue.Day).ToList();
         }
 
-        public static List<Import> getListImportByDateAndSearch(DateTime dateValue, string query)
+        public static List<Import> getListImportByDateAndSearch(string query)
         {
-            return dbManager.Imports.Where(x => ((DateTime)x.TimeChanged).Year == dateValue.Year
-                && ((DateTime)x.TimeChanged).Month == dateValue.Month
-                && ((DateTime)x.TimeChanged).Day == dateValue.Day
-                && (x.ImportId.ToString().Contains(query))).ToList();
+            return dbManager.Imports.Where(x => x.ImportId.ToString().Contains(query)).ToList();
         }
 
         #endregion

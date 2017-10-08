@@ -1,8 +1,12 @@
-﻿- Tìm kiếm trong hóa đơn xuất hàng và nhập hang
+﻿
+
+- Tìm kiếm trong hóa đơn xuất hàng và nhập hang
 - Tooltip của các button
 - Xoa database change status
 - Xoa truong images trong tree
 - Thêm thông tin cho nhân viên
-- Sửa tên người dùng và nhân viên
 - Thêm nút thoát chương trình
 - Xuất file hóa đơn ra thư mục khác
+
+
+- Sửa tên người dùng và nhân viên

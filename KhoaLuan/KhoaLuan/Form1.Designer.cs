@@ -80,9 +80,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnTreeUpdate = new System.Windows.Forms.Button();
             this.btnTreeDelete = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.tbcMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.button3 = new System.Windows.Forms.Button();
             this.txtTypeSearch = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvType = new System.Windows.Forms.DataGridView();
@@ -90,7 +92,6 @@
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpTree = new DevExpress.XtraTab.XtraTabPage();
-            this.button2 = new System.Windows.Forms.Button();
             this.txtTreeSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvTree = new System.Windows.Forms.DataGridView();
@@ -100,11 +101,17 @@
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.button11 = new System.Windows.Forms.Button();
             this.dtpBill = new System.Windows.Forms.DateTimePicker();
             this.txtBillSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvBill = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.dgvProvider = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,13 +133,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtImportSearch = new System.Windows.Forms.TextBox();
             this.tabPage5 = new DevExpress.XtraTab.XtraTabPage();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbcMain)).BeginInit();
             this.tbcMain.SuspendLayout();
@@ -182,6 +182,7 @@
             this.btnUserRefresh.Name = "btnUserRefresh";
             this.btnUserRefresh.Size = new System.Drawing.Size(35, 35);
             this.btnUserRefresh.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btnUserRefresh, "Làm mới");
             this.btnUserRefresh.UseVisualStyleBackColor = false;
             this.btnUserRefresh.Click += new System.EventHandler(this.btnUserRefresh_Click);
             // 
@@ -399,7 +400,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(35, 35);
             this.button9.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.button9, "Lưu");
+            this.toolTip1.SetToolTip(this.button9, "Cập nhật");
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -484,7 +485,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(35, 35);
             this.button5.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.button5, "Lưu");
+            this.toolTip1.SetToolTip(this.button5, "Cập nhật");
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -535,7 +536,7 @@
             this.btnTreeUpdate.Name = "btnTreeUpdate";
             this.btnTreeUpdate.Size = new System.Drawing.Size(35, 35);
             this.btnTreeUpdate.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.btnTreeUpdate, "Lưu");
+            this.toolTip1.SetToolTip(this.btnTreeUpdate, "Cập nhật");
             this.btnTreeUpdate.UseVisualStyleBackColor = false;
             this.btnTreeUpdate.Click += new System.EventHandler(this.btnTreeUpdate_Click);
             // 
@@ -555,6 +556,58 @@
             this.toolTip1.SetToolTip(this.btnTreeDelete, "Xóa");
             this.btnTreeDelete.UseVisualStyleBackColor = false;
             this.btnTreeDelete.Click += new System.EventHandler(this.btnTreeDelete_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(1106, 19);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 35);
+            this.button3.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.button3, "Làm mới");
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.btnTypeRefresh_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(1109, 20);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 35);
+            this.button2.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.button2, "Làm mới");
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.Transparent;
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.ForeColor = System.Drawing.Color.Honeydew;
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.Location = new System.Drawing.Point(1115, 11);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(35, 35);
+            this.button11.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button11, "Làm mới");
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.btnBillRefresh_Click);
             // 
             // tbcMain
             // 
@@ -589,22 +642,6 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(1157, 554);
             this.tabPage2.Text = "Nhóm cây";
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(1106, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 13;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.btnTypeRefresh_Click);
             // 
             // txtTypeSearch
             // 
@@ -713,22 +750,6 @@
             this.tpTree.Name = "tpTree";
             this.tpTree.Size = new System.Drawing.Size(1157, 554);
             this.tpTree.Text = "Cây";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(1109, 20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 35);
-            this.button2.TabIndex = 10;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button3_Click);
             // 
             // txtTreeSearch
             // 
@@ -852,23 +873,6 @@
             this.tabPage1.Size = new System.Drawing.Size(1157, 554);
             this.tabPage1.Text = "Hóa đơn";
             // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.Transparent;
-            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.Color.Honeydew;
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(1115, 11);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(35, 35);
-            this.button11.TabIndex = 1;
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.btnBillRefresh_Click);
-            // 
             // dtpBill
             // 
             this.dtpBill.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -955,6 +959,53 @@
             this.dgvBill.Size = new System.Drawing.Size(1153, 487);
             this.dgvBill.TabIndex = 6;
             this.dgvBill.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBill_CellClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã hóa đơn";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Ngày lập";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.HeaderText = "Tổng số tiền";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            this.dataGridViewTextBoxColumn26.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.HeaderText = "Tên NV";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            this.dataGridViewTextBoxColumn27.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.HeaderText = "Tên KH";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.HeaderText = "Số CMT KH";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn30.HeaderText = "Số điện thoại";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
             // 
             // tabPage3
             // 
@@ -1089,6 +1140,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(35, 35);
             this.button7.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.button7, "Làm mới");
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.loadGridViewProvider);
             // 
@@ -1236,53 +1288,6 @@
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(1157, 554);
             this.tabPage5.Text = "Người dùng";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mã hóa đơn";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Ngày lập";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.HeaderText = "Tổng số tiền";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.ReadOnly = true;
-            this.dataGridViewTextBoxColumn26.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.HeaderText = "Tên NV";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.ReadOnly = true;
-            this.dataGridViewTextBoxColumn27.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            this.dataGridViewTextBoxColumn28.HeaderText = "Tên KH";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.ReadOnly = true;
-            this.dataGridViewTextBoxColumn28.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn29
-            // 
-            this.dataGridViewTextBoxColumn29.HeaderText = "Số CMT KH";
-            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
-            this.dataGridViewTextBoxColumn29.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn30
-            // 
-            this.dataGridViewTextBoxColumn30.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn30.HeaderText = "Số điện thoại";
-            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
-            this.dataGridViewTextBoxColumn30.ReadOnly = true;
             // 
             // Form1
             // 

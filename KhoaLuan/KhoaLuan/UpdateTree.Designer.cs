@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateTree));
             this.btnImportAddTree = new System.Windows.Forms.Button();
             this.cbTreeType = new System.Windows.Forms.ComboBox();
@@ -42,6 +43,7 @@
             this.nudTreeQuantity = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudTreeQuantity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +60,7 @@
             this.btnImportAddTree.Name = "btnImportAddTree";
             this.btnImportAddTree.Size = new System.Drawing.Size(35, 35);
             this.btnImportAddTree.TabIndex = 46;
+            this.toolTip1.SetToolTip(this.btnImportAddTree, "Cập nhật");
             this.btnImportAddTree.UseVisualStyleBackColor = false;
             this.btnImportAddTree.Click += new System.EventHandler(this.btnImportAddTree_Click);
             // 
@@ -230,5 +233,6 @@
         private System.Windows.Forms.NumericUpDown nudTreeQuantity;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

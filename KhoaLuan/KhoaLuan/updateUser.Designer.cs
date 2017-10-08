@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(updateUser));
             this.dtpBirth = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbUserName = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // dtpBirth
@@ -67,6 +69,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(35, 35);
             this.btnAdd.TabIndex = 61;
+            this.toolTip1.SetToolTip(this.btnAdd, "Cập nhật");
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -244,5 +247,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbUserName;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

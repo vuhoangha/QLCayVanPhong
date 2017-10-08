@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProvider));
             this.txtProviderEmail = new System.Windows.Forms.TextBox();
             this.txtProviderPhone = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnImportAddTree = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // txtProviderEmail
@@ -129,6 +131,7 @@
             this.btnImportAddTree.Name = "btnImportAddTree";
             this.btnImportAddTree.Size = new System.Drawing.Size(35, 35);
             this.btnImportAddTree.TabIndex = 40;
+            this.toolTip1.SetToolTip(this.btnImportAddTree, "Thêm");
             this.btnImportAddTree.UseVisualStyleBackColor = false;
             this.btnImportAddTree.Click += new System.EventHandler(this.btnImportAddTree_Click);
             // 
@@ -167,5 +170,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnImportAddTree;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -35,6 +36,17 @@ namespace KhoaLuan
                 USER_LOGIN = user;
                 LoginCabk();
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            //  question yes no
+            if (MessageBox.Show("Bạn có muốn thoát chương trình?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
+            Application.Exit();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateTreeImport));
             this.txtCost = new System.Windows.Forms.TextBox();
             this.lbImportTreeName = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnSelect = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudImportTreeQuantity)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -205,6 +207,7 @@
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(35, 35);
             this.btnSelect.TabIndex = 33;
+            this.toolTip1.SetToolTip(this.btnSelect, "Cập nhật");
             this.btnSelect.UseVisualStyleBackColor = false;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
@@ -265,5 +268,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

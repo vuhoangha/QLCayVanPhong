@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateProvider));
             this.btnImportAddTree = new System.Windows.Forms.Button();
             this.txtProviderEmail = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnImportAddTree
@@ -53,6 +55,7 @@
             this.btnImportAddTree.Name = "btnImportAddTree";
             this.btnImportAddTree.Size = new System.Drawing.Size(35, 35);
             this.btnImportAddTree.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.btnImportAddTree, "Cập nhật");
             this.btnImportAddTree.UseVisualStyleBackColor = false;
             this.btnImportAddTree.Click += new System.EventHandler(this.btnImportAddTree_Click);
             // 
@@ -167,5 +170,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
