@@ -83,6 +83,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.tbcMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.txtTypeSearch = new System.Windows.Forms.TextBox();
@@ -121,7 +122,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.txtProviderSearch = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
             this.tabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.dgvImport = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -608,6 +608,23 @@
             this.toolTip1.SetToolTip(this.button11, "Làm mới");
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.btnBillRefresh_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Transparent;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.Location = new System.Drawing.Point(1110, 14);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(35, 35);
+            this.button7.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.button7, "Làm mới");
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.loadGridViewProvider);
             // 
             // tbcMain
             // 
@@ -1126,23 +1143,6 @@
             this.txtProviderSearch.Size = new System.Drawing.Size(223, 24);
             this.txtProviderSearch.TabIndex = 3;
             this.txtProviderSearch.TextChanged += new System.EventHandler(this.txtProviderSearch_TextChanged);
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.Transparent;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(1110, 14);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(35, 35);
-            this.button7.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.button7, "Làm mới");
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.loadGridViewProvider);
             // 
             // tabPage4
             // 
