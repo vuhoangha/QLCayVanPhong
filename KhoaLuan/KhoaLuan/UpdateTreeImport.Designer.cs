@@ -61,12 +61,12 @@
             // lbImportTreeName
             // 
             this.lbImportTreeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbImportTreeName.ForeColor = System.Drawing.Color.Gray;
+            this.lbImportTreeName.ForeColor = System.Drawing.Color.Black;
             this.lbImportTreeName.Location = new System.Drawing.Point(129, 118);
             this.lbImportTreeName.Name = "lbImportTreeName";
             this.lbImportTreeName.Size = new System.Drawing.Size(225, 29);
             this.lbImportTreeName.TabIndex = 31;
-            this.lbImportTreeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbImportTreeName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -155,12 +155,12 @@
             // lbImportTreeId
             // 
             this.lbImportTreeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbImportTreeId.ForeColor = System.Drawing.Color.Gray;
+            this.lbImportTreeId.ForeColor = System.Drawing.Color.Black;
             this.lbImportTreeId.Location = new System.Drawing.Point(129, 69);
             this.lbImportTreeId.Name = "lbImportTreeId";
             this.lbImportTreeId.Size = new System.Drawing.Size(225, 29);
             this.lbImportTreeId.TabIndex = 22;
-            this.lbImportTreeId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbImportTreeId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 

@@ -70,10 +70,10 @@ namespace KhoaLuan
 
                 //  name
                 lbSelectTreeName.Text = currTree.TreeName;
-                //  so luong
-                nudSelectTreeQuantity.Value = 0;
                 //  max so luong
                 nudSelectTreeQuantity.Maximum = (decimal)currTree.Quantity;
+                //  so luong
+                nudSelectTreeQuantity.Value = 0;
                 //  ma cay
                 lbSelectTreeId.Text = currTree.TreeId.ToString();
                 //  thanh tien
@@ -133,10 +133,10 @@ namespace KhoaLuan
                 TREE_SELECTED = currTree;
                 //  name
                 lbSelectTreeName.Text = currTree.TreeName;
-                //  so luong
-                nudSelectTreeQuantity.Value = 0;
                 //  max so luong
                 nudSelectTreeQuantity.Maximum = (decimal)currTree.Quantity;
+                //  so luong
+                nudSelectTreeQuantity.Value = 0;
                 //  ma cay
                 lbSelectTreeId.Text = currTree.TreeId.ToString();
                 //  thanh tien
